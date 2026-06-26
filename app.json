@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "DeutschCoach AI",
+    "slug": "deutschcoach-ai",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "deutschcoachai",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.deutschcoach.ai"
+    },
+    "android": {
+      "package": "com.deutschcoach.ai",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F9FC"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
+
