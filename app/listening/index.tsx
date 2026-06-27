@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { SkillPracticeScreen } from "../../src/features/practice/SkillPracticeScreen";
 
 export default function ListeningRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="DTZ"
-      title="Hören"
-      description="Noch keine Inhalte"
-    />
-  );
+  return <SkillPracticeScreen skill="listening" />;
 }

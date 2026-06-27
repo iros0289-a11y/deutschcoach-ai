@@ -3,13 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { appConfig } from "../../core/config/appConfig";
 import { colors, spacing, typography } from "../../core/theme";
+import { useAppState } from "../app-state/AppStateProvider";
 import { FeatureTile } from "../../ui/components/FeatureTile";
 import type { FeatureTileData } from "../../ui/components/FeatureTile";
 import { PrimaryButton } from "../../ui/components/PrimaryButton";
 import { ProgressBar } from "../../ui/components/ProgressBar";
 import { Screen } from "../../ui/components/Screen";
-
-const progress = 0.18;
 
 const learningTiles: FeatureTileData[] = [
   {
@@ -57,6 +56,8 @@ const learningTiles: FeatureTileData[] = [
 ];
 
 export function HomeScreen() {
+  const { progress } = useAppState();
+
   return (
     <Screen>
       <View style={styles.hero}>
@@ -70,9 +71,12 @@ export function HomeScreen() {
         <View style={styles.progressCard}>
           <View style={styles.progressHeader}>
             <Text style={styles.progressLabel}>Fortschritt</Text>
-            <Text style={styles.progressValue}>{Math.round(progress * 100)}%</Text>
+            <Text style={styles.progressValue}>{Math.round(progress.overallCompletion * 100)}%</Text>
           </View>
-          <ProgressBar value={progress} />
+          <ProgressBar value={progress.overallCompletion} />
+          <Text style={styles.helperText}>
+            {progress.dueErrorItems} Aufgabe(n) warten im Fehlertrainer
+          </Text>
         </View>
 
         <PrimaryButton href="/learn" icon="play-circle-outline" label="Weiterlernen" />
@@ -137,6 +141,10 @@ const styles = StyleSheet.create({
   progressValue: {
     ...typography.bodyStrong,
     color: colors.primary
+  },
+  helperText: {
+    ...typography.caption,
+    color: colors.textSecondary
   },
   sectionHeader: {
     marginTop: spacing.xl

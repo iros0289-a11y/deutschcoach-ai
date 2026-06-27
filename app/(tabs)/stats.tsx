@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { StatsScreen } from "../../src/features/stats/StatsScreen";
 
 export default function StatsRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="Statistik"
-      title="Fortschritt"
-      description="Noch keine Daten"
-    />
-  );
+  return <StatsScreen />;
 }

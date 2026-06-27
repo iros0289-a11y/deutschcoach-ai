@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { ExamsScreen } from "../../src/features/exams/ExamsScreen";
 
 export default function ExamsRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="Prüfungen"
-      title="Modellprüfungen"
-      description="Noch keine Prüfungen"
-    />
-  );
+  return <ExamsScreen />;
 }

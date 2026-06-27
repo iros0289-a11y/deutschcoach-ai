@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { SettingsScreen } from "../../src/features/settings/SettingsScreen";
 
 export default function SettingsRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="Einstellungen"
-      title="App-Einstellungen"
-      description="Noch keine Optionen"
-    />
-  );
+  return <SettingsScreen />;
 }

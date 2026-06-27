@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { SkillPracticeScreen } from "../../src/features/practice/SkillPracticeScreen";
 
 export default function SpeakingRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="DTZ"
-      title="Sprechen"
-      description="Noch keine Inhalte"
-    />
-  );
+  return <SkillPracticeScreen skill="speaking" />;
 }

@@ -5,4 +5,3 @@ export const appConfig = {
   targetLevel: "B1",
   localFirst: true
 } as const;
-

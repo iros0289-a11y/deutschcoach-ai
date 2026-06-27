@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { LearnScreen } from "../../src/features/learn/LearnScreen";
 
 export default function LearnRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="Lernen"
-      title="Lernmodus"
-      description="Noch keine Aufgaben"
-    />
-  );
+  return <LearnScreen />;
 }

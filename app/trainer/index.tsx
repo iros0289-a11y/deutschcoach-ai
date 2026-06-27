@@ -1,11 +1,5 @@
-import { PlaceholderScreen } from "../../src/features/placeholder/PlaceholderScreen";
+import { TrainerScreen } from "../../src/features/trainer/TrainerScreen";
 
 export default function TrainerRoute() {
-  return (
-    <PlaceholderScreen
-      eyebrow="Training"
-      title="Fehlertrainer"
-      description="Noch keine Fehler"
-    />
-  );
+  return <TrainerScreen />;
 }
