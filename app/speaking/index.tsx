@@ -1,5 +1,5 @@
-import { SkillPracticeScreen } from "../../src/features/practice/SkillPracticeScreen";
+import { SpeakingScreen } from "../../src/features/speaking/SpeakingScreen";
 
 export default function SpeakingRoute() {
-  return <SkillPracticeScreen skill="speaking" />;
+  return <SpeakingScreen />;
 }

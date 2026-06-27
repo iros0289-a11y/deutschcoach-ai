@@ -1,5 +1,5 @@
-import { SkillPracticeScreen } from "../../src/features/practice/SkillPracticeScreen";
+import { ReadingScreen } from "../../src/features/reading/ReadingScreen";
 
 export default function ReadingRoute() {
-  return <SkillPracticeScreen skill="reading" />;
+  return <ReadingScreen />;
 }

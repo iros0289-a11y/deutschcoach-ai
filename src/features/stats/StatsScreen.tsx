@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
 import { colors, spacing, typography } from "../../core/theme";
-import { skillSummaries } from "../../data/mock/dtzMockData";
+import { phaseOneSkillSummaries } from "../../data/content/phaseOneExamContent";
 import { InfoCard } from "../../ui/components/InfoCard";
 import { ProgressBar } from "../../ui/components/ProgressBar";
 import { Screen } from "../../ui/components/Screen";
@@ -28,7 +28,7 @@ export function StatsScreen() {
         return (
           <InfoCard key={skill}>
             <View style={styles.row}>
-              <Text style={styles.cardTitle}>{skillSummaries[skill].title}</Text>
+              <Text style={styles.cardTitle}>{phaseOneSkillSummaries[skill].title}</Text>
               <Text style={styles.accuracy}>{Math.round(item.accuracy * 100)}%</Text>
             </View>
             <ProgressBar value={item.accuracy} />

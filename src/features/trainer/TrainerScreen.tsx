@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 
 import { colors, spacing, typography } from "../../core/theme";
-import { getTaskById, skillSummaries } from "../../data/mock/dtzMockData";
+import { getPhaseOneTaskSummary, phaseOneSkillSummaries } from "../../data/content/phaseOneExamContent";
 import { InfoCard } from "../../ui/components/InfoCard";
 import { PrimaryButton } from "../../ui/components/PrimaryButton";
 import { Screen } from "../../ui/components/Screen";
@@ -28,7 +28,7 @@ export function TrainerScreen() {
         </InfoCard>
       ) : (
         errorItems.map((item) => {
-          const task = getTaskById(item.taskId);
+          const task = getPhaseOneTaskSummary(item.taskId);
           if (!task) {
             return null;
           }
@@ -38,7 +38,7 @@ export function TrainerScreen() {
               <Text style={styles.cardTitle}>{task.title}</Text>
               <Text style={styles.body}>{task.prompt}</Text>
               <Text style={styles.meta}>
-                Bereich: {skillSummaries[item.skill].title} • Fehler: {item.incorrectCount}
+                Bereich: {phaseOneSkillSummaries[item.skill].title} • Fehler: {item.incorrectCount}
               </Text>
               <PrimaryButton href={`/${item.skill}`} label="Jetzt wiederholen" />
             </InfoCard>

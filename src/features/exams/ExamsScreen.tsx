@@ -1,10 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 
 import { colors, spacing, typography } from "../../core/theme";
-import { mockExamSets } from "../../data/mock/dtzMockData";
+import { phaseOneExamMeta } from "../../data/content/phaseOneExamContent";
 import { InfoCard } from "../../ui/components/InfoCard";
 import { PrimaryButton } from "../../ui/components/PrimaryButton";
 import { Screen } from "../../ui/components/Screen";
+
+const sectionTimes: Record<string, string> = {
+  listening: "20 Min",
+  reading: "25 Min",
+  writing: "30 Min",
+  speaking: "16 Min"
+};
 
 export function ExamsScreen() {
   return (
@@ -13,30 +20,44 @@ export function ExamsScreen() {
         <Text style={styles.eyebrow}>Prüfungen</Text>
         <Text style={styles.title}>Modellprüfungen</Text>
         <Text style={styles.body}>
-          Diese Web-Version zeigt Beispielprüfungen mit realistischer DTZ-Struktur. Du kannst damit sofort testen und trainieren.
+          Phase 1 enthält eine vollständige, realitätsnahe Modellprüfung. Nach Ihrer Freigabe kann daraus die Serie mit 20 unterschiedlichen Prüfungen entstehen.
         </Text>
+        <PrimaryButton href="/exam/model-1" icon="clipboard-check-outline" label="Modellprüfung 1 öffnen" />
       </InfoCard>
 
-      {mockExamSets.map((exam) => (
-        <InfoCard key={exam.id}>
-          <Text style={styles.examTitle}>{exam.title}</Text>
-          <Text style={styles.examMeta}>Version {exam.version}</Text>
-          <View style={styles.sectionList}>
-            {exam.sections.map((section) => (
-              <View key={section.id} style={styles.sectionRow}>
-                <View style={styles.sectionText}>
-                  <Text style={styles.sectionName}>{section.title}</Text>
-                  <Text style={styles.sectionMeta}>
-                    {section.parts.reduce((sum, part) => sum + part.taskIds.length, 0)} Aufgabe(n)
-                  </Text>
-                </View>
-                <Text style={styles.sectionTime}>{section.durationMinutes ?? 0} Min</Text>
+      <InfoCard>
+        <Text style={styles.examTitle}>{phaseOneExamMeta.title}</Text>
+        <Text style={styles.examMeta}>Status: vollständig für Phase 1</Text>
+        <View style={styles.sectionList}>
+          {phaseOneExamMeta.sections.map((section) => (
+            <View key={section.id} style={styles.sectionRow}>
+              <View style={styles.sectionText}>
+                <Text style={styles.sectionName}>{section.title}</Text>
+                <Text style={styles.sectionMeta}>
+                  {section.parts.join(", ")} • {section.taskCount} Aufgaben
+                </Text>
               </View>
-            ))}
+              <Text style={styles.sectionTime}>{sectionTimes[section.id]}</Text>
+            </View>
+          ))}
+        </View>
+        <PrimaryButton href="/exam/model-1" icon="arrow-right" label="Zur Prüfungsübersicht" />
+      </InfoCard>
+
+      <InfoCard>
+        <Text style={styles.examTitle}>Nächster Ausbau</Text>
+        <Text style={styles.body}>
+          Nach Ihrer Freigabe werden 19 weitere Modellprüfungen mit gleicher Struktur, aber neuen Themen, Dialogen, Texten und Bildern ergänzt.
+        </Text>
+        <View style={styles.sectionList}>
+          <View style={styles.sectionRow}>
+            <View style={styles.sectionText}>
+              <Text style={styles.sectionName}>Geplanter Umfang</Text>
+              <Text style={styles.sectionMeta}>20 vollständige Prüfungen ohne Wiederholungen</Text>
+            </View>
           </View>
-          <PrimaryButton href="/learn" icon="timer-outline" label="Im Lernmodus vorbereiten" />
-        </InfoCard>
-      ))}
+        </View>
+      </InfoCard>
     </Screen>
   );
 }
@@ -78,6 +99,7 @@ const styles = StyleSheet.create({
     padding: spacing.md
   },
   sectionText: {
+    flex: 1,
     gap: spacing.xs
   },
   sectionName: {

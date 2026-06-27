@@ -1,5 +1,5 @@
-import { SkillPracticeScreen } from "../../src/features/practice/SkillPracticeScreen";
+import { WritingScreen } from "../../src/features/writing/WritingScreen";
 
 export default function WritingRoute() {
-  return <SkillPracticeScreen skill="writing" />;
+  return <WritingScreen />;
 }

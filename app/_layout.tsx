@@ -26,6 +26,7 @@ export default function RootLayout() {
           }}
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="exam/model-1" options={{ title: "Modellprüfung 1" }} />
           <Stack.Screen name="listening/index" options={{ title: "Hören" }} />
           <Stack.Screen name="reading/index" options={{ title: "Lesen" }} />
           <Stack.Screen name="writing/index" options={{ title: "Schreiben" }} />
