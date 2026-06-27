@@ -1,22 +1,315 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { colors, radius, spacing, typography } from "../../core/theme";
 import {
-  listeningChoiceTasks,
-  listeningTrueFalseTasks
-} from "../../data/content/phaseOneExamContent";
+  listeningPartOneTasks,
+  listeningPartThreeTasks,
+  listeningPartTwoSet,
+  type ChoiceOption,
+  type ListeningFeedback,
+  type ListeningPartOneTask,
+  type ListeningPartThreeTask,
+  type ListeningPartTwoTask
+} from "../../data/content/listeningContent";
 import { InfoCard } from "../../ui/components/InfoCard";
 import { Screen } from "../../ui/components/Screen";
 import { SimpleAudioPlayer } from "../../ui/components/SimpleAudioPlayer";
 import { useAppState } from "../app-state/AppStateProvider";
 
+type BinaryAnswer = "richtig" | "falsch";
+
+function getResultFromScore(score: number, maxScore: number) {
+  if (score === maxScore) {
+    return "correct" as const;
+  }
+
+  if (score > 0) {
+    return "partial" as const;
+  }
+
+  return "incorrect" as const;
+}
+
+function FeedbackPanel({
+  heading,
+  accentColor = colors.secondary,
+  lines
+}: {
+  heading: string;
+  accentColor?: string;
+  lines: string[];
+}) {
+  return (
+    <View style={styles.feedbackCard}>
+      <Text style={[styles.feedbackTitle, { color: accentColor }]}>{heading}</Text>
+      {lines.map((line) => (
+        <Text key={line} style={styles.feedbackBody}>
+          {line}
+        </Text>
+      ))}
+    </View>
+  );
+}
+
+function ChoiceChips({
+  options,
+  selectedOptionId,
+  onSelect
+}: {
+  options: ChoiceOption[];
+  selectedOptionId: string | undefined;
+  onSelect: (optionId: string) => void;
+}) {
+  return (
+    <View style={styles.optionGroup}>
+      {options.map((option) => {
+        const active = selectedOptionId === option.id;
+        return (
+          <Pressable
+            key={option.id}
+            onPress={() => onSelect(option.id)}
+            style={({ pressed }) => [
+              styles.optionButton,
+              active && styles.optionButtonSelected,
+              pressed && styles.optionButtonPressed
+            ]}
+          >
+            <Text style={[styles.optionLabel, active && styles.optionLabelSelected]}>{option.label}</Text>
+            <Text style={[styles.optionText, active && styles.optionTextSelected]}>{option.text}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
+function ListeningChoiceFeedback({
+  selectedOptionId,
+  correctOptionId,
+  feedback
+}: {
+  selectedOptionId: string | undefined;
+  correctOptionId: string;
+  feedback: ListeningFeedback;
+}) {
+  const isCorrect = selectedOptionId === correctOptionId;
+
+  if (isCorrect) {
+    return (
+      <FeedbackPanel
+        heading={feedback.correctTitle}
+        accentColor={colors.success}
+        lines={[feedback.correctReason, `Lerntipp: ${feedback.learningTip}`, feedback.examFocus]}
+      />
+    );
+  }
+
+  const chosenReason = selectedOptionId
+    ? feedback.incorrectReasonByOption[selectedOptionId] ?? "Diese Antwort passt nicht genau zur Aussage im Hörtext."
+    : "Sie haben noch keine Antwort ausgewählt. In der Prüfung lohnt es sich, trotzdem die Schlüsselinformationen zu markieren."
+
+  return (
+    <FeedbackPanel
+      heading={`Richtige Lösung: ${correctOptionId.toUpperCase()}`}
+      accentColor={colors.danger}
+      lines={[feedback.correctReason, `Warum Ihre Wahl nicht passt: ${chosenReason}`, feedback.examFocus, `Lerntipp: ${feedback.learningTip}`]}
+    />
+  );
+}
+
+function PartOneTaskCard({
+  task,
+  selectedChoice,
+  selectedBinary,
+  revealed,
+  onSelectChoice,
+  onSelectBinary,
+  onSubmit
+}: {
+  task: ListeningPartOneTask;
+  selectedChoice: string | undefined;
+  selectedBinary: BinaryAnswer | undefined;
+  revealed: boolean;
+  onSelectChoice: (optionId: string) => void;
+  onSelectBinary: (value: BinaryAnswer) => void;
+  onSubmit: () => void;
+}) {
+  const statementCorrect =
+    (task.statement.correctAnswer && selectedBinary === "richtig") ||
+    (!task.statement.correctAnswer && selectedBinary === "falsch");
+
+  return (
+    <InfoCard>
+      <Text style={styles.partLabel}>
+        {task.part} • {task.topic}
+      </Text>
+      <Text style={styles.cardTitle}>{task.title}</Text>
+      <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Hörtext abspielen" />
+
+      <Text style={styles.subtaskTitle}>1. Frage beantworten</Text>
+      <Text style={styles.question}>{task.question}</Text>
+      <ChoiceChips options={task.options} selectedOptionId={selectedChoice} onSelect={onSelectChoice} />
+
+      <Text style={styles.subtaskTitle}>2. Aussage bewerten</Text>
+      <Text style={styles.question}>{task.statement.text}</Text>
+      <View style={styles.binaryRow}>
+        {[
+          { label: "Richtig", value: "richtig" as const },
+          { label: "Falsch", value: "falsch" as const }
+        ].map((item) => {
+          const active = selectedBinary === item.value;
+          return (
+            <Pressable
+              key={item.value}
+              onPress={() => onSelectBinary(item.value)}
+              style={({ pressed }) => [
+                styles.binaryButton,
+                active && styles.binaryButtonSelected,
+                pressed && styles.optionButtonPressed
+              ]}
+            >
+              <Text style={[styles.binaryText, active && styles.optionLabelSelected]}>{item.label}</Text>
+            </Pressable>
+          );
+        })}
+      </View>
+
+      <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}>
+        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+      </Pressable>
+
+      {revealed ? (
+        <View style={styles.feedbackStack}>
+          <ListeningChoiceFeedback selectedOptionId={selectedChoice} correctOptionId={task.correctOptionId} feedback={task.feedback} />
+          {statementCorrect ? (
+            <FeedbackPanel
+              heading="Aussage richtig bewertet"
+              accentColor={colors.success}
+              lines={[
+                task.statement.correctReason,
+                `Lerntipp: ${task.statement.learningTip}`,
+                task.statement.examFocus
+              ]}
+            />
+          ) : (
+            <FeedbackPanel
+              heading={`Aussage: ${task.statement.correctAnswer ? "Richtig" : "Falsch"}`}
+              accentColor={colors.danger}
+              lines={[
+                task.statement.correctReason,
+                `Warum Ihre Wahl nicht passt: ${task.statement.incorrectReason}`,
+                task.statement.examFocus,
+                `Lerntipp: ${task.statement.learningTip}`
+              ]}
+            />
+          )}
+        </View>
+      ) : null}
+    </InfoCard>
+  );
+}
+
+function PartTwoTaskCard({
+  task,
+  selectedOptionId,
+  revealed,
+  onSelect,
+  onSubmit
+}: {
+  task: ListeningPartTwoTask;
+  selectedOptionId: string | undefined;
+  revealed: boolean;
+  onSelect: (optionId: string) => void;
+  onSubmit: () => void;
+}) {
+  const isCorrect = selectedOptionId === task.correctOptionId;
+  const incorrectReason = selectedOptionId
+    ? task.incorrectReasonByOption[selectedOptionId] ?? "Diese Aussage passt inhaltlich nicht genau."
+    : "Sie haben noch nichts ausgewählt. Achten Sie bei solchen Aufgaben zuerst auf Thema, Zielgruppe und Uhrzeit."
+
+  return (
+    <InfoCard>
+      <Text style={styles.partLabel}>
+        {listeningPartTwoSet.part} • {task.personLabel}
+      </Text>
+      <Text style={styles.cardTitle}>{task.prompt}</Text>
+      <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Aussage abspielen" />
+      <ChoiceChips options={listeningPartTwoSet.options} selectedOptionId={selectedOptionId} onSelect={onSelect} />
+      <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}>
+        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+      </Pressable>
+
+      {revealed ? (
+        isCorrect ? (
+          <FeedbackPanel
+            heading="Richtig"
+            accentColor={colors.success}
+            lines={[task.correctReason, `Lerntipp: ${task.learningTip}`, task.examFocus]}
+          />
+        ) : (
+          <FeedbackPanel
+            heading={`Richtige Lösung: ${task.correctOptionId.toUpperCase()}`}
+            accentColor={colors.danger}
+            lines={[task.correctReason, `Warum Ihre Wahl nicht passt: ${incorrectReason}`, task.examFocus, `Lerntipp: ${task.learningTip}`]}
+          />
+        )
+      ) : null}
+    </InfoCard>
+  );
+}
+
+function PartThreeTaskCard({
+  task,
+  selectedOptionId,
+  revealed,
+  onSelect,
+  onSubmit
+}: {
+  task: ListeningPartThreeTask;
+  selectedOptionId: string | undefined;
+  revealed: boolean;
+  onSelect: (optionId: string) => void;
+  onSubmit: () => void;
+}) {
+  return (
+    <InfoCard>
+      <Text style={styles.partLabel}>
+        {task.part} • {task.topic}
+      </Text>
+      <Text style={styles.cardTitle}>{task.title}</Text>
+      <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Ansage abspielen" />
+      <Text style={styles.question}>{task.question}</Text>
+      <ChoiceChips options={task.options} selectedOptionId={selectedOptionId} onSelect={onSelect} />
+      <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}>
+        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+      </Pressable>
+
+      {revealed ? (
+        <ListeningChoiceFeedback selectedOptionId={selectedOptionId} correctOptionId={task.correctOptionId} feedback={task.feedback} />
+      ) : null}
+    </InfoCard>
+  );
+}
+
 export function ListeningScreen() {
   const { submitAnswer } = useAppState();
-  const [selectedChoice, setSelectedChoice] = useState<Record<string, string>>({});
-  const [revealedChoice, setRevealedChoice] = useState<Record<string, boolean>>({});
-  const [selectedStatements, setSelectedStatements] = useState<Record<string, Record<string, boolean>>>({});
-  const [revealedStatements, setRevealedStatements] = useState<Record<string, boolean>>({});
+  const [partOneChoices, setPartOneChoices] = useState<Record<string, string>>({});
+  const [partOneStatements, setPartOneStatements] = useState<Record<string, BinaryAnswer>>({});
+  const [partOneRevealed, setPartOneRevealed] = useState<Record<string, boolean>>({});
+  const [partTwoAnswers, setPartTwoAnswers] = useState<Record<string, string>>({});
+  const [partTwoRevealed, setPartTwoRevealed] = useState<Record<string, boolean>>({});
+  const [partThreeAnswers, setPartThreeAnswers] = useState<Record<string, string>>({});
+  const [partThreeRevealed, setPartThreeRevealed] = useState<Record<string, boolean>>({});
+
+  const totals = useMemo(
+    () => ({
+      partOne: listeningPartOneTasks.length,
+      partTwo: listeningPartTwoSet.tasks.length,
+      partThree: listeningPartThreeTasks.length
+    }),
+    []
+  );
 
   return (
     <Screen contentContainerStyle={styles.container}>
@@ -24,160 +317,144 @@ export function ListeningScreen() {
         <Text style={styles.eyebrow}>DTZ</Text>
         <Text style={styles.title}>Hören</Text>
         <Text style={styles.body}>
-          Hier trainieren Sie beide offiziellen Aufgabentypen: Fragen mit A/B/C und Aussagen mit richtig oder falsch.
+          Sie trainieren jetzt drei realistische DTZ-Hörteile: Dialoge mit zwei Teilaufgaben, Zuordnungen A bis F und kurze Ansagen mit Multiple Choice.
+        </Text>
+        <Text style={styles.summary}>
+          Umfang: {totals.partOne} Aufgaben in Teil 1, {totals.partTwo} Aufgaben in Teil 2, {totals.partThree} Aufgaben in Teil 3.
         </Text>
       </InfoCard>
 
-      {listeningChoiceTasks.map((task) => {
-        const selected = selectedChoice[task.id];
-        const revealed = revealedChoice[task.id];
-        const isCorrect = selected === task.correctOptionId;
+      <InfoCard>
+        <Text style={styles.sectionHeading}>Teil 1</Text>
+        <Text style={styles.body}>
+          Zu jeder Hörprobe beantworten Sie zuerst eine Frage mit A, B oder C. Danach entscheiden Sie bei einer Aussage: richtig oder falsch.
+        </Text>
+      </InfoCard>
 
-        return (
-          <InfoCard key={task.id}>
-            <Text style={styles.partLabel}>
-              {task.part} • {task.topic}
-            </Text>
-            <Text style={styles.cardTitle}>{task.title}</Text>
-            <SimpleAudioPlayer
-              durationLabel={task.durationLabel}
-              text={task.transcript}
-              title="Hörtext abspielen"
-            />
-            <Text style={styles.question}>{task.question}</Text>
-            <View style={styles.optionGroup}>
-              {task.options.map((option) => {
-                const active = selected === option.id;
-                return (
-                  <Pressable
-                    key={option.id}
-                    onPress={() => setSelectedChoice((current) => ({ ...current, [task.id]: option.id }))}
-                    style={({ pressed }) => [
-                      styles.optionButton,
-                      active && styles.optionButtonSelected,
-                      pressed && styles.optionButtonPressed
-                    ]}
-                  >
-                    <Text style={[styles.optionLabel, active && styles.optionLabelSelected]}>
-                      {option.label}
-                    </Text>
-                    <Text style={[styles.optionText, active && styles.optionTextSelected]}>
-                      {option.text}
-                    </Text>
-                  </Pressable>
-                );
-              })}
+      {listeningPartOneTasks.map((task) => (
+        <PartOneTaskCard
+          key={task.id}
+          task={task}
+          selectedChoice={partOneChoices[task.id]}
+          selectedBinary={partOneStatements[task.id]}
+          revealed={Boolean(partOneRevealed[task.id])}
+          onSelectChoice={(optionId) =>
+            setPartOneChoices((current) => ({
+              ...current,
+              [task.id]: optionId
+            }))
+          }
+          onSelectBinary={(value) =>
+            setPartOneStatements((current) => ({
+              ...current,
+              [task.id]: value
+            }))
+          }
+          onSubmit={() => {
+            const choiceCorrect = partOneChoices[task.id] === task.correctOptionId;
+            const statementCorrect =
+              (task.statement.correctAnswer && partOneStatements[task.id] === "richtig") ||
+              (!task.statement.correctAnswer && partOneStatements[task.id] === "falsch");
+            const score = Number(choiceCorrect) + Number(statementCorrect);
+
+            setPartOneRevealed((current) => ({ ...current, [task.id]: true }));
+            submitAnswer({
+              taskId: task.id,
+              skill: "listening",
+              mode: "learning",
+              result: getResultFromScore(score, 2),
+              selectedOptionIds: [partOneChoices[task.id], partOneStatements[task.id]].filter(
+                (value): value is string => Boolean(value)
+              ),
+              score,
+              maxScore: 2,
+              reason: score === 0 ? "missed-detail" : "wrong-option"
+            });
+          }}
+        />
+      ))}
+
+      <InfoCard>
+        <Text style={styles.sectionHeading}>Teil 2</Text>
+        <Text style={styles.body}>{listeningPartTwoSet.instruction}</Text>
+        <View style={styles.optionGroup}>
+          {listeningPartTwoSet.options.map((option) => (
+            <View key={option.id} style={styles.referenceCard}>
+              <Text style={styles.referenceLabel}>{option.label}</Text>
+              <Text style={styles.referenceText}>{option.text}</Text>
             </View>
-            <Pressable
-              onPress={() => {
-                setRevealedChoice((current) => ({ ...current, [task.id]: true }));
-                submitAnswer({
-                  taskId: task.id,
-                  skill: "listening",
-                  mode: "learning",
-                  result: isCorrect ? "correct" : "incorrect",
-                  selectedOptionIds: selected ? [selected] : [],
-                  score: isCorrect ? 1 : 0,
-                  maxScore: 1,
-                  reason: "wrong-option"
-                });
-              }}
-              style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}
-            >
-              <Text style={styles.primaryActionText}>Lösung prüfen</Text>
-            </Pressable>
-            {revealed ? (
-              <View style={styles.feedbackCard}>
-                <Text style={styles.feedbackTitle}>{task.solution}</Text>
-                <Text style={styles.feedbackBody}>{task.explanation}</Text>
-              </View>
-            ) : null}
-          </InfoCard>
-        );
-      })}
+          ))}
+        </View>
+      </InfoCard>
 
-      {listeningTrueFalseTasks.map((task) => {
-        const selection = selectedStatements[task.id] ?? {};
-        const revealed = revealedStatements[task.id];
+      {listeningPartTwoSet.tasks.map((task) => (
+        <PartTwoTaskCard
+          key={task.id}
+          task={task}
+          selectedOptionId={partTwoAnswers[task.id]}
+          revealed={Boolean(partTwoRevealed[task.id])}
+          onSelect={(optionId) =>
+            setPartTwoAnswers((current) => ({
+              ...current,
+              [task.id]: optionId
+            }))
+          }
+          onSubmit={() => {
+            const score = partTwoAnswers[task.id] === task.correctOptionId ? 1 : 0;
+            setPartTwoRevealed((current) => ({ ...current, [task.id]: true }));
+            submitAnswer({
+              taskId: task.id,
+              skill: "listening",
+              mode: "learning",
+              result: score === 1 ? "correct" : "incorrect",
+              selectedOptionIds: partTwoAnswers[task.id]
+                ? [partTwoAnswers[task.id] as string]
+                : [],
+              score,
+              maxScore: 1,
+              reason: "wrong-option"
+            });
+          }}
+        />
+      ))}
 
-        return (
-          <InfoCard key={task.id}>
-            <Text style={styles.partLabel}>
-              {task.part} • {task.topic}
-            </Text>
-            <Text style={styles.cardTitle}>{task.title}</Text>
-            <SimpleAudioPlayer
-              durationLabel={task.durationLabel}
-              text={task.transcript}
-              title="Hörtext abspielen"
-            />
-            <Text style={styles.question}>{task.instruction}</Text>
-            <View style={styles.statementList}>
-              {task.statements.map((statement) => {
-                const selectedValue = selection[statement.id];
-                return (
-                  <View key={statement.id} style={styles.statementCard}>
-                    <Text style={styles.statementText}>{statement.text}</Text>
-                    <View style={styles.binaryRow}>
-                      {[
-                        { label: "Richtig", value: true },
-                        { label: "Falsch", value: false }
-                      ].map((item) => {
-                        const active = selectedValue === item.value;
-                        return (
-                          <Pressable
-                            key={item.label}
-                            onPress={() =>
-                              setSelectedStatements((current) => ({
-                                ...current,
-                                [task.id]: { ...current[task.id], [statement.id]: item.value }
-                              }))
-                            }
-                            style={({ pressed }) => [
-                              styles.binaryButton,
-                              active && styles.binaryButtonSelected,
-                              pressed && styles.optionButtonPressed
-                            ]}
-                          >
-                            <Text style={[styles.binaryText, active && styles.optionLabelSelected]}>
-                              {item.label}
-                            </Text>
-                          </Pressable>
-                        );
-                      })}
-                    </View>
-                    {revealed ? (
-                      <Text style={styles.statementExplanation}>
-                        {statement.isTrue ? "Richtig" : "Falsch"}: {statement.explanation}
-                      </Text>
-                    ) : null}
-                  </View>
-                );
-              })}
-            </View>
-            <Pressable
-              onPress={() => {
-                const allCorrect = task.statements.every(
-                  (statement) => selection[statement.id] === statement.isTrue
-                );
-                setRevealedStatements((current) => ({ ...current, [task.id]: true }));
-                submitAnswer({
-                  taskId: task.id,
-                  skill: "listening",
-                  mode: "learning",
-                  result: allCorrect ? "correct" : "incorrect",
-                  score: allCorrect ? task.statements.length : 0,
-                  maxScore: task.statements.length,
-                  reason: "missed-detail"
-                });
-              }}
-              style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}
-            >
-              <Text style={styles.primaryActionText}>Antworten auswerten</Text>
-            </Pressable>
-          </InfoCard>
-        );
-      })}
+      <InfoCard>
+        <Text style={styles.sectionHeading}>Teil 3</Text>
+        <Text style={styles.body}>
+          Sie hören kurze Ansagen aus dem Alltag. Wählen Sie jeweils die passende Antwort A, B oder C.
+        </Text>
+      </InfoCard>
+
+      {listeningPartThreeTasks.map((task) => (
+        <PartThreeTaskCard
+          key={task.id}
+          task={task}
+          selectedOptionId={partThreeAnswers[task.id]}
+          revealed={Boolean(partThreeRevealed[task.id])}
+          onSelect={(optionId) =>
+            setPartThreeAnswers((current) => ({
+              ...current,
+              [task.id]: optionId
+            }))
+          }
+          onSubmit={() => {
+            const score = partThreeAnswers[task.id] === task.correctOptionId ? 1 : 0;
+            setPartThreeRevealed((current) => ({ ...current, [task.id]: true }));
+            submitAnswer({
+              taskId: task.id,
+              skill: "listening",
+              mode: "learning",
+              result: score === 1 ? "correct" : "incorrect",
+              selectedOptionIds: partThreeAnswers[task.id]
+                ? [partThreeAnswers[task.id] as string]
+                : [],
+              score,
+              maxScore: 1,
+              reason: "wrong-option"
+            });
+          }}
+        />
+      ))}
     </Screen>
   );
 }
@@ -187,8 +464,11 @@ const styles = StyleSheet.create({
   eyebrow: { ...typography.caption, color: colors.secondary, textTransform: "uppercase" },
   title: { ...typography.screenTitle, color: colors.textPrimary },
   body: { ...typography.body, color: colors.textSecondary },
-  partLabel: { ...typography.caption, color: colors.primary, textTransform: "uppercase" },
+  summary: { ...typography.bodyStrong, color: colors.primary },
+  sectionHeading: { ...typography.sectionTitle, color: colors.textPrimary },
+  partLabel: { ...typography.caption, color: colors.listening, textTransform: "uppercase" },
   cardTitle: { ...typography.sectionTitle, color: colors.textPrimary },
+  subtaskTitle: { ...typography.bodyStrong, color: colors.textPrimary },
   question: { ...typography.bodyStrong, color: colors.textPrimary },
   optionGroup: { gap: spacing.sm },
   optionButton: {
@@ -199,40 +479,15 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
     padding: spacing.md
   },
-  optionButtonSelected: { backgroundColor: "#DBEAFE", borderColor: colors.primary },
+  optionButtonSelected: {
+    backgroundColor: "#E0F2FE",
+    borderColor: colors.listening
+  },
   optionButtonPressed: { opacity: 0.82 },
   optionLabel: { ...typography.caption, color: colors.textMuted },
-  optionLabelSelected: { color: colors.primary },
+  optionLabelSelected: { color: colors.listening },
   optionText: { ...typography.body, color: colors.textPrimary },
-  optionTextSelected: { color: colors.primary },
-  primaryAction: {
-    alignItems: "center",
-    backgroundColor: colors.primary,
-    borderRadius: radius.md,
-    minHeight: 50,
-    justifyContent: "center",
-    paddingHorizontal: spacing.lg
-  },
-  primaryActionPressed: { backgroundColor: colors.primaryPressed },
-  primaryActionText: { ...typography.bodyStrong, color: colors.surface },
-  feedbackCard: {
-    backgroundColor: colors.surfaceMuted,
-    borderRadius: radius.md,
-    gap: spacing.sm,
-    padding: spacing.md
-  },
-  feedbackTitle: { ...typography.bodyStrong, color: colors.secondary },
-  feedbackBody: { ...typography.body, color: colors.textPrimary },
-  statementList: { gap: spacing.md },
-  statementCard: {
-    backgroundColor: colors.background,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    gap: spacing.sm,
-    padding: spacing.md
-  },
-  statementText: { ...typography.body, color: colors.textPrimary },
+  optionTextSelected: { color: colors.textPrimary },
   binaryRow: { flexDirection: "row", gap: spacing.sm },
   binaryButton: {
     borderColor: colors.border,
@@ -241,7 +496,38 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm
   },
-  binaryButtonSelected: { borderColor: colors.primary, backgroundColor: "#DBEAFE" },
+  binaryButtonSelected: {
+    backgroundColor: "#E0F2FE",
+    borderColor: colors.listening
+  },
   binaryText: { ...typography.caption, color: colors.textPrimary },
-  statementExplanation: { ...typography.caption, color: colors.textSecondary }
+  primaryAction: {
+    alignItems: "center",
+    backgroundColor: colors.listening,
+    borderRadius: radius.md,
+    justifyContent: "center",
+    minHeight: 50,
+    paddingHorizontal: spacing.lg
+  },
+  primaryActionPressed: { opacity: 0.9 },
+  primaryActionText: { ...typography.bodyStrong, color: colors.surface },
+  feedbackStack: { gap: spacing.sm },
+  feedbackCard: {
+    backgroundColor: colors.surfaceMuted,
+    borderRadius: radius.md,
+    gap: spacing.xs,
+    padding: spacing.md
+  },
+  feedbackTitle: { ...typography.bodyStrong },
+  feedbackBody: { ...typography.body, color: colors.textPrimary },
+  referenceCard: {
+    backgroundColor: colors.background,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xs,
+    padding: spacing.md
+  },
+  referenceLabel: { ...typography.caption, color: colors.listening },
+  referenceText: { ...typography.body, color: colors.textPrimary }
 });

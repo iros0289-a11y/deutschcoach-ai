@@ -1,7 +1,11 @@
 import { StyleSheet, Text } from "react-native";
 
 import { colors, spacing, typography } from "../../core/theme";
+import { getListeningTaskSummary } from "../../data/content/listeningContent";
+import { getReadingTaskSummary } from "../../data/content/readingContent";
 import { getPhaseOneTaskSummary, phaseOneSkillSummaries } from "../../data/content/phaseOneExamContent";
+import { getSpeakingTaskSummary } from "../../data/content/speakingContent";
+import { getWritingTaskSummary } from "../../data/content/writingContent";
 import { InfoCard } from "../../ui/components/InfoCard";
 import { PrimaryButton } from "../../ui/components/PrimaryButton";
 import { Screen } from "../../ui/components/Screen";
@@ -28,7 +32,12 @@ export function TrainerScreen() {
         </InfoCard>
       ) : (
         errorItems.map((item) => {
-          const task = getPhaseOneTaskSummary(item.taskId);
+          const task =
+            getListeningTaskSummary(item.taskId) ??
+            getReadingTaskSummary(item.taskId) ??
+            getWritingTaskSummary(item.taskId) ??
+            getSpeakingTaskSummary(item.taskId) ??
+            getPhaseOneTaskSummary(item.taskId);
           if (!task) {
             return null;
           }

@@ -2,7 +2,8 @@ import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 import { colors, radius, spacing, typography } from "../../core/theme";
-import { writingScenarios } from "../../data/content/phaseOneExamContent";
+import { assessWritingDraft, type WritingAssessment } from "../../domain/scoring/writingAssessment";
+import { writingPracticeScenarios } from "../../data/content/writingContent";
 import { InfoCard } from "../../ui/components/InfoCard";
 import { Screen } from "../../ui/components/Screen";
 import { useAppState } from "../app-state/AppStateProvider";
@@ -10,17 +11,21 @@ import { useAppState } from "../app-state/AppStateProvider";
 export function WritingScreen() {
   const { submitAnswer } = useAppState();
   const initialScenario = useMemo(
-    () => writingScenarios.find((scenario) => scenario.isExamTask)?.id ?? writingScenarios[0]?.id,
+    () => writingPracticeScenarios.find((scenario) => scenario.isExamTask)?.id ?? writingPracticeScenarios[0]?.id,
     []
   );
   const [selectedId, setSelectedId] = useState(initialScenario);
   const [drafts, setDrafts] = useState<Record<string, string>>({});
-  const [showSample, setShowSample] = useState<Record<string, boolean>>({});
+  const [assessments, setAssessments] = useState<Record<string, WritingAssessment>>({});
 
-  const scenario = writingScenarios.find((entry) => entry.id === selectedId) ?? writingScenarios[0];
+  const scenario =
+    writingPracticeScenarios.find((entry) => entry.id === selectedId) ?? writingPracticeScenarios[0];
   if (!scenario) {
     return null;
   }
+
+  const currentDraft = drafts[scenario.id] ?? "";
+  const currentAssessment = assessments[scenario.id];
 
   return (
     <Screen contentContainerStyle={styles.container}>
@@ -28,14 +33,14 @@ export function WritingScreen() {
         <Text style={styles.eyebrow}>DTZ</Text>
         <Text style={styles.title}>Schreiben</Text>
         <Text style={styles.body}>
-          Sie finden hier 20 unterschiedliche Schreibsituationen mit vier Inhaltspunkten, Tipps und Musterlösung.
+          Sie trainieren 20 Alltagssituationen mit vier Inhaltspunkten, automatischer Rueckmeldung und ausfuehrlicher Musterloesung auf B1-Niveau.
         </Text>
       </InfoCard>
 
       <InfoCard>
-        <Text style={styles.sectionTitle}>Aufgaben auswählen</Text>
+        <Text style={styles.sectionTitle}>Aufgaben auswaehlen</Text>
         <View style={styles.choiceWrap}>
-          {writingScenarios.map((entry) => {
+          {writingPracticeScenarios.map((entry) => {
             const active = entry.id === scenario.id;
             return (
               <Pressable
@@ -59,55 +64,54 @@ export function WritingScreen() {
       <InfoCard>
         <Text style={styles.partLabel}>{scenario.category}</Text>
         <Text style={styles.sectionTitle}>{scenario.title}</Text>
-        <Text style={styles.body}>Empfänger: {scenario.recipient}</Text>
+        <Text style={styles.body}>Empfaenger: {scenario.recipient}</Text>
         <Text style={styles.longText}>{scenario.situation}</Text>
+
         <View style={styles.pointsCard}>
-          <Text style={styles.referenceTitle}>Diese vier Punkte sollen vorkommen:</Text>
+          <Text style={styles.referenceTitle}>Diese vier Punkte sollen vorkommen</Text>
           {scenario.points.map((point) => (
             <Text key={point} style={styles.referenceText}>
               • {point}
             </Text>
           ))}
         </View>
+
         <TextInput
           multiline
           onChangeText={(value) => setDrafts((current) => ({ ...current, [scenario.id]: value }))}
           placeholder="Schreiben Sie hier Ihre E-Mail oder Ihren Brief."
           style={styles.input}
           textAlignVertical="top"
-          value={drafts[scenario.id] ?? ""}
+          value={currentDraft}
         />
-        <View style={styles.actionRow}>
-          <Pressable
-            onPress={() => {
-              const text = drafts[scenario.id] ?? "";
-              const result = text.trim().length >= 120 ? "correct" : text.trim().length >= 60 ? "partial" : "incorrect";
-              submitAnswer({
-                taskId: scenario.id,
-                skill: "writing",
-                mode: "learning",
-                result,
-                freeText: text,
-                score: result === "correct" ? 3 : result === "partial" ? 2 : 1,
-                maxScore: 3,
-                reason: result === "incorrect" ? "grammar" : "self-assessment"
-              });
-            }}
-            style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}
-          >
-            <Text style={styles.primaryActionText}>Entwurf speichern</Text>
-          </Pressable>
-          <Pressable
-            onPress={() =>
-              setShowSample((current) => ({ ...current, [scenario.id]: !current[scenario.id] }))
-            }
-            style={({ pressed }) => [styles.secondaryAction, pressed && styles.choiceChipPressed]}
-          >
-            <Text style={styles.secondaryActionText}>
-              {showSample[scenario.id] ? "Musterlösung ausblenden" : "Musterlösung zeigen"}
-            </Text>
-          </Pressable>
-        </View>
+
+        <Pressable
+          onPress={() => {
+            const assessment = assessWritingDraft(scenario, currentDraft);
+            setAssessments((current) => ({ ...current, [scenario.id]: assessment }));
+            const result =
+              assessment.estimatedPoints >= 14
+                ? "correct"
+                : assessment.estimatedPoints >= 10
+                  ? "partial"
+                  : "incorrect";
+
+            submitAnswer({
+              taskId: scenario.id,
+              skill: "writing",
+              mode: "learning",
+              result,
+              freeText: currentDraft,
+              score: assessment.estimatedPoints,
+              maxScore: assessment.maxPoints,
+              reason: result === "incorrect" ? "grammar" : "self-assessment"
+            });
+          }}
+          style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}
+        >
+          <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+        </Pressable>
+
         <View style={styles.pointsCard}>
           <Text style={styles.referenceTitle}>Tipps</Text>
           {scenario.tips.map((tip) => (
@@ -116,16 +120,63 @@ export function WritingScreen() {
             </Text>
           ))}
         </View>
-        {showSample[scenario.id] ? (
-          <View style={styles.pointsCard}>
-            <Text style={styles.referenceTitle}>Musterlösung</Text>
+      </InfoCard>
+
+      {currentAssessment ? (
+        <>
+          <InfoCard>
+            <Text style={styles.sectionTitle}>Automatische Bewertung</Text>
+            <Text style={styles.scoreLine}>
+              Geschätzte Punktzahl: {currentAssessment.estimatedPoints} / {currentAssessment.maxPoints}
+            </Text>
+            <Text style={styles.scoreLine}>Geschätztes Niveau: {currentAssessment.estimatedLevel}</Text>
+
+            <View style={styles.criteriaGrid}>
+              {currentAssessment.criteria.map((criterion) => (
+                <View key={criterion.id} style={styles.criteriaCard}>
+                  <Text style={styles.referenceTitle}>{criterion.label}</Text>
+                  <Text style={styles.criteriaScore}>
+                    {criterion.score} / {criterion.maxScore}
+                  </Text>
+                  <Text style={styles.referenceText}>{criterion.comment}</Text>
+                </View>
+              ))}
+            </View>
+          </InfoCard>
+
+          <InfoCard>
+            <Text style={styles.sectionTitle}>Verbesserungsvorschläge</Text>
+            {currentAssessment.strengths.map((item) => (
+              <Text key={item} style={styles.referenceText}>
+                • Stärke: {item}
+              </Text>
+            ))}
+            {currentAssessment.improvements.map((item) => (
+              <Text key={item} style={styles.referenceText}>
+                • Weiter verbessern: {item}
+              </Text>
+            ))}
+            {currentAssessment.coveredPoints.length > 0 ? (
+              <Text style={styles.referenceText}>
+                • Erfuellte Inhaltspunkte: {currentAssessment.coveredPoints.join(", ")}
+              </Text>
+            ) : null}
+            {currentAssessment.missingPoints.length > 0 ? (
+              <Text style={styles.referenceText}>
+                • Noch nicht klar genug: {currentAssessment.missingPoints.join(", ")}
+              </Text>
+            ) : null}
+          </InfoCard>
+
+          <InfoCard>
+            <Text style={styles.sectionTitle}>Musterlösung</Text>
             {scenario.sampleSubject ? (
               <Text style={styles.referenceMeta}>Betreff: {scenario.sampleSubject}</Text>
             ) : null}
-            <Text style={styles.longText}>{scenario.sampleText}</Text>
-          </View>
-        ) : null}
-      </InfoCard>
+            <Text style={styles.longText}>{scenario.expandedSampleText}</Text>
+          </InfoCard>
+        </>
+      ) : null}
     </Screen>
   );
 }
@@ -136,7 +187,7 @@ const styles = StyleSheet.create({
   title: { ...typography.screenTitle, color: colors.textPrimary },
   body: { ...typography.body, color: colors.textSecondary },
   sectionTitle: { ...typography.sectionTitle, color: colors.textPrimary },
-  partLabel: { ...typography.caption, color: colors.primary, textTransform: "uppercase" },
+  partLabel: { ...typography.caption, color: colors.writing, textTransform: "uppercase" },
   choiceWrap: { flexDirection: "row", flexWrap: "wrap", gap: spacing.sm },
   choiceChip: {
     borderColor: colors.border,
@@ -145,10 +196,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm
   },
-  choiceChipSelected: { backgroundColor: "#DBEAFE", borderColor: colors.primary },
+  choiceChipSelected: { backgroundColor: "#FEF3C7", borderColor: colors.writing },
   choiceChipPressed: { opacity: 0.84 },
   choiceChipText: { ...typography.caption, color: colors.textPrimary },
-  choiceChipTextSelected: { color: colors.primary },
+  choiceChipTextSelected: { color: colors.writing },
   longText: {
     ...typography.body,
     backgroundColor: colors.background,
@@ -164,7 +215,7 @@ const styles = StyleSheet.create({
   },
   referenceTitle: { ...typography.bodyStrong, color: colors.textPrimary },
   referenceText: { ...typography.body, color: colors.textSecondary },
-  referenceMeta: { ...typography.caption, color: colors.primary },
+  referenceMeta: { ...typography.caption, color: colors.writing },
   input: {
     ...typography.body,
     backgroundColor: colors.background,
@@ -175,25 +226,23 @@ const styles = StyleSheet.create({
     minHeight: 220,
     padding: spacing.md
   },
-  actionRow: { gap: spacing.sm },
   primaryAction: {
     alignItems: "center",
-    backgroundColor: colors.primary,
+    backgroundColor: colors.writing,
     borderRadius: radius.md,
     justifyContent: "center",
     minHeight: 52,
     paddingHorizontal: spacing.lg
   },
-  primaryActionPressed: { backgroundColor: colors.primaryPressed },
+  primaryActionPressed: { opacity: 0.9 },
   primaryActionText: { ...typography.bodyStrong, color: colors.surface },
-  secondaryAction: {
-    alignItems: "center",
-    borderColor: colors.border,
+  scoreLine: { ...typography.bodyStrong, color: colors.textPrimary },
+  criteriaGrid: { gap: spacing.md },
+  criteriaCard: {
+    backgroundColor: colors.surfaceMuted,
     borderRadius: radius.md,
-    borderWidth: 1,
-    justifyContent: "center",
-    minHeight: 48,
-    paddingHorizontal: spacing.lg
+    gap: spacing.xs,
+    padding: spacing.md
   },
-  secondaryActionText: { ...typography.caption, color: colors.textPrimary }
+  criteriaScore: { ...typography.bodyStrong, color: colors.writing }
 });
