@@ -13,6 +13,13 @@ const sectionTimes: Record<string, string> = {
   speaking: "16 Min"
 };
 
+const sectionMeta: Record<string, string> = {
+  listening: "Teil 1, Teil 2, Teil 3 - Dialoge, Zuordnungen und Kurzansagen",
+  reading: "Anzeigen, Gebaeudeplan, Lesetexte und Lueckentext",
+  writing: "1 Pruefungsaufgabe mit Bewertung und Musterloesung",
+  speaking: "Teil 1, Teil 2, Teil 3 - Vorstellung, Bildbeschreibung, Planung"
+};
+
 export function ExamsScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
@@ -34,7 +41,7 @@ export function ExamsScreen() {
               <View style={styles.sectionText}>
                 <Text style={styles.sectionName}>{section.title}</Text>
                 <Text style={styles.sectionMeta}>
-                  {section.parts.join(", ")} - {section.taskCount} Aufgaben
+                  {sectionMeta[section.id]}
                 </Text>
               </View>
               <Text style={styles.sectionTime}>{sectionTimes[section.id]}</Text>
