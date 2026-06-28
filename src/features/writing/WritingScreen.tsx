@@ -33,7 +33,7 @@ export function WritingScreen() {
         <Text style={styles.eyebrow}>DTZ</Text>
         <Text style={styles.title}>Schreiben</Text>
         <Text style={styles.body}>
-          Sie trainieren 20 Alltagssituationen mit vier Inhaltspunkten, automatischer Rueckmeldung und ausfuehrlicher Musterloesung auf B1-Niveau.
+          Sie trainieren {writingPracticeScenarios.length} Alltagssituationen mit vier Inhaltspunkten, automatischer Rueckmeldung und ausfuehrlicher Musterloesung auf B1-Niveau.
         </Text>
       </InfoCard>
 

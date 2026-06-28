@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+﻿import { useMemo, useRef, useState } from "react";
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 import { colors, radius, spacing, typography } from "../../core/theme";
@@ -574,10 +574,10 @@ export function ModelExamScreen() {
       const ownAnswerLines = task.gaps.map((gap) => {
         const key = `${task.id}:${gap.id}`;
         const selectedOptionId = readingGapAnswers[key];
-        return `${gap.label}: ${formatOption(task.options, selectedOptionId)}`;
+        return `${gap.label}: ${formatOption(gap.options, selectedOptionId)}`;
       });
       const correctAnswerLines = task.gaps.map(
-        (gap) => `${gap.label}: ${formatOption(task.options, gap.correctOptionId)}`
+        (gap) => `${gap.label}: ${formatOption(gap.options, gap.correctOptionId)}`
       );
       const explanationLines = task.gaps.map((gap) => {
         const key = `${task.id}:${gap.id}`;
@@ -838,7 +838,12 @@ export function ModelExamScreen() {
         {listeningPartOneTasks.map((task) => (
           <View key={task.id} style={styles.taskCard}>
             <Text style={styles.cardTitle}>{task.title}</Text>
-            <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Hoertext abspielen" />
+            <SimpleAudioPlayer
+              durationLabel={task.durationLabel}
+              text={task.transcript}
+              title="Hoertext abspielen"
+              playbackMode="dialogue"
+            />
             <Text style={styles.prompt}>{task.question}</Text>
             <ChoiceChips
               options={task.options}
@@ -869,7 +874,12 @@ export function ModelExamScreen() {
         {listeningPartTwoSet.tasks.map((task) => (
           <View key={task.id} style={styles.taskCard}>
             <Text style={styles.cardTitle}>{task.personLabel}</Text>
-            <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Aussage abspielen" />
+            <SimpleAudioPlayer
+              durationLabel={task.durationLabel}
+              text={task.transcript}
+              title="Aussage abspielen"
+              playbackMode="narration"
+            />
             <Text style={styles.prompt}>{task.prompt}</Text>
             <ChoiceChips
               options={listeningPartTwoSet.options}
@@ -885,7 +895,12 @@ export function ModelExamScreen() {
         {listeningPartThreeTasks.map((task) => (
           <View key={task.id} style={styles.taskCard}>
             <Text style={styles.cardTitle}>{task.title}</Text>
-            <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Ansage abspielen" />
+            <SimpleAudioPlayer
+              durationLabel={task.durationLabel}
+              text={task.transcript}
+              title="Ansage abspielen"
+              playbackMode="announcement"
+            />
             <Text style={styles.prompt}>{task.question}</Text>
             <ChoiceChips
               options={task.options}
@@ -986,18 +1001,11 @@ export function ModelExamScreen() {
                 `${segment}${index < task.gaps.length ? `[${task.gaps[index]?.label}]` : ""}`
               ).join("")}
             </Text>
-            <View style={styles.referenceCard}>
-              {task.options.map((option) => (
-                <Text key={option.id} style={styles.referenceText}>
-                  {option.label}: {option.text}
-                </Text>
-              ))}
-            </View>
             {task.gaps.map((gap) => (
               <View key={gap.id} style={styles.gapCard}>
                 <Text style={styles.bodyStrong}>Luecke {gap.label}</Text>
                 <ChoiceChips
-                  options={task.options}
+                  options={gap.options}
                   selectedOptionId={readingGapAnswers[`${task.id}:${gap.id}`]}
                   onSelect={(optionId) =>
                     setReadingGapAnswers((current) => ({
@@ -1059,7 +1067,7 @@ export function ModelExamScreen() {
         />
 
         <Text style={styles.partLabel}>Teil 2 - Bildbeschreibung</Text>
-        <Image source={speakingPhoto.image} resizeMode="contain" style={styles.photoLarge} />
+        <Image source={speakingPhoto.largeImage} resizeMode="contain" style={styles.photoLarge} />
         <View style={styles.referenceCard}>
           {speakingPhoto.responsePrompts.map((prompt) => (
             <Text key={prompt} style={styles.referenceText}>
@@ -1249,6 +1257,7 @@ export function ModelExamScreen() {
                     durationLabel="00:38"
                     text={speakingIntroPractice.expandedSampleAnswer}
                     title="Musterloesung Teil 1 anhoeren"
+                    playbackMode="narration"
                   />
                 </>
               ) : null}
@@ -1262,6 +1271,7 @@ export function ModelExamScreen() {
                     durationLabel="00:34"
                     text={speakingPhoto.expandedSampleAnswer}
                     title="Musterloesung Teil 2 anhoeren"
+                    playbackMode="narration"
                   />
                 </>
               ) : null}
@@ -1275,6 +1285,7 @@ export function ModelExamScreen() {
                     durationLabel="00:42"
                     text={speakingPlan.sampleDialogue}
                     title="Musterdialog Teil 3 anhoeren"
+                    playbackMode="dialogue"
                   />
                 </>
               ) : null}
@@ -1461,9 +1472,11 @@ const styles = StyleSheet.create({
   },
   photoLarge: {
     alignSelf: "center",
+    aspectRatio: 16 / 11,
     backgroundColor: colors.background,
     borderRadius: radius.md,
-    height: 320,
+    maxWidth: 720,
+    minHeight: 240,
     width: "100%"
   },
   roleGrid: {
@@ -1525,3 +1538,4 @@ const styles = StyleSheet.create({
     padding: spacing.md
   }
 });
+

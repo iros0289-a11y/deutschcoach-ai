@@ -1,4 +1,4 @@
-export type ChoiceOption = {
+﻿export type ChoiceOption = {
   id: string;
   label: string;
   text: string;
@@ -75,10 +75,10 @@ export type ReadingGapTextTask = {
   topic: string;
   instruction: string;
   segments: string[];
-  options: ChoiceOption[];
   gaps: Array<{
     id: string;
     label: string;
+    options: ChoiceOption[];
     correctOptionId: string;
     clue: string;
     wrongChoiceGuidance: string;
@@ -287,7 +287,7 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     },
     question: "Was sollen die Mieterinnen und Mieter zusaetzlich beachten?",
     options: [
-      { id: "a", label: "A", text: "Sie sollen den Keller frei zugänglich lassen." },
+      { id: "a", label: "A", text: "Sie sollen den Keller frei zugÃ¤nglich lassen." },
       { id: "b", label: "B", text: "Sie sollen am Mittwoch zu Hause bleiben." },
       { id: "c", label: "C", text: "Sie sollen die Reparatur selbst bezahlen." }
     ],
@@ -361,6 +361,66 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
       learningTip: "Vergleichen Sie bei Fahrplaenen immer Abfahrts- und Ankunftszeit. Nur die Abfahrt reicht nicht.",
       examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Bei Fahrplaenen wird oft nach der fruehesten passenden Ankunft gefragt."
     }
+  },
+  {
+    id: "reading-dual-04",
+    format: "E-Mail",
+    title: "Nachricht aus dem Kindergarten",
+    sourceTitle: "E-Mail der Kita Regenbogen",
+    text:
+      "Liebe Eltern,\n\nam Donnerstag macht unsere Gruppe einen Ausflug in den Stadtpark. Bitte bringen Sie Ihr Kind spaetestens um 8.15 Uhr in die Kita, weil der Bus schon um 8.30 Uhr abfaehrt. Denken Sie auch an wetterfeste Kleidung, eine Trinkflasche und ein kleines Fruehstueck ohne Schokolade. Das Mittagessen bekommen die Kinder wie gewohnt in der Kita, wenn wir gegen 13 Uhr zurueck sind.\n\nFalls Ihr Kind an diesem Tag Medikamente braucht, sprechen Sie bitte spaetestens bis Mittwoch mit uns. Bei starkem Regen faellt der Ausflug nicht aus; wir besuchen dann stattdessen das Kindermuseum.\n\nViele Gruesse\nIhr Kita-Team",
+    statement: {
+      text: "Die Kinder essen mittags im Stadtpark.",
+      correctAnswer: false,
+      correctReason: "Die Aussage ist falsch. Im Text steht, dass das Mittagessen wie gewohnt in der Kita stattfindet, wenn die Gruppe zurueck ist.",
+      incorrectReason: "Wenn Sie falsch gewaehlt haben, haben Sie richtig erkannt, dass nur das Fruehstueck mitgenommen wird."
+    },
+    question: "Was sollen die Eltern zusaetzlich beachten?",
+    options: [
+      { id: "a", label: "A", text: "Sie sollen eine warme Mahlzeit mitgeben." },
+      { id: "b", label: "B", text: "Sie sollen bei Medikamenten vorher mit der Kita sprechen." },
+      { id: "c", label: "C", text: "Sie sollen ihr Kind erst um 8.30 Uhr bringen." }
+    ],
+    correctOptionId: "b",
+    feedback: {
+      correctReason: "Im letzten Absatz steht, dass Eltern bei Medikamenten spaetestens bis Mittwoch mit der Kita sprechen sollen.",
+      incorrectReasonByOption: {
+        a: "Eine warme Mahlzeit ist nicht noetig. Das Mittagessen gibt es spaeter in der Kita.",
+        c: "8.30 Uhr ist zu spaet, weil der Bus dann schon abfaehrt."
+      },
+      learningTip: "Achten Sie bei E-Mails an Eltern auf Uhrzeiten, Mitbringsachen und Sonderhinweise am Ende des Textes.",
+      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Oft steht die eigentliche Zusatzinformation nicht am Anfang, sondern im letzten Absatz."
+    }
+  },
+  {
+    id: "reading-dual-05",
+    format: "Aushang",
+    title: "Information im Fitnessstudio",
+    sourceTitle: "Aushang am Empfang",
+    text:
+      "Wichtige Information fuer alle Mitglieder:\n\nVon Montag, 7. Oktober, bis Freitag, 11. Oktober, wird der grosse Kursraum im ersten Stock renoviert. Deshalb finden alle Gruppenangebote in dieser Woche in anderen Raeumen statt. Yoga am Montag und Mittwoch beginnt wie gewohnt um 18 Uhr, jetzt aber im Bewegungsraum neben dem Empfang. Der Rueckenkurs am Dienstag startet eine halbe Stunde spaeter, also erst um 19.30 Uhr, weil das Trainerteam vorher noch Geraete umstellen muss.\n\nMitglieder, die in dieser Woche nur an Kursen teilnehmen, duerfen kostenlos auch den Saunabereich benutzen. Aktuelle Raumplaene liegen am Empfang aus.",
+    statement: {
+      text: "Der Rueckenkurs beginnt in dieser Woche frueher als sonst.",
+      correctAnswer: false,
+      correctReason: "Die Aussage ist falsch. Im Aushang steht, dass der Rueckenkurs eine halbe Stunde spaeter startet.",
+      incorrectReason: "Wenn Sie falsch gewaehlt haben, haben Sie die Schluesselstelle erst um 19.30 Uhr richtig gelesen."
+    },
+    question: "Warum beginnt der Rueckenkurs spaeter?",
+    options: [
+      { id: "a", label: "A", text: "Weil zuerst ein neuer Raumplan ausliegt." },
+      { id: "b", label: "B", text: "Weil vorher Geraete umgestellt werden." },
+      { id: "c", label: "C", text: "Weil der Trainer krank ist." }
+    ],
+    correctOptionId: "b",
+    feedback: {
+      correctReason: "Der Grund steht direkt im Text: Das Trainerteam muss vorher noch Geraete umstellen.",
+      incorrectReasonByOption: {
+        a: "Der Raumplan liegt nur am Empfang aus, ist aber nicht der Grund fuer die spaetere Uhrzeit.",
+        c: "Von Krankheit steht im Aushang nichts."
+      },
+      learningTip: "Bei Aushaengen helfen Signalwoerter wie deshalb, weil und also besonders schnell zur Loesung.",
+      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Verwechseln Sie eine Organisationsinfo nicht mit dem eigentlichen Grund."
+    }
   }
 ];
 
@@ -369,121 +429,313 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
     id: "reading-gap-01",
     title: "Information vor dem Elternabend",
     topic: "Schule",
-    instruction: "Lesen Sie den Text. Ordnen Sie die Antworten A bis E den Luecken 1 bis 5 zu.",
+    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
     segments: [
-      "Naechste Woche findet an der Grundschule Sonnenblick ein Elternabend fuer die neuen ersten Klassen statt. Die Schulleitung moechte den Familien erklaeren, wie der Schulstart organisiert wird. ",
-      " Dort erhalten die Eltern Informationen ueber Unterrichtszeiten, Materiallisten und die ersten Projekttage. ",
-      " Deshalb bittet die Schule alle Familien, schon einige Minuten frueher zu kommen. ",
-      " Fuer juengere Geschwister gibt es in dieser Zeit eine Spielecke im Nebenraum. ",
-      " Wer eine Uebersetzung in Arabisch oder Tuerkisch benoetigt, kann das bis Dienstag im Sekretariat melden. ",
-      " So kann das Team die passenden Unterlagen vorbereiten."
-    ],
-    options: [
-      { id: "a", label: "A", text: "Der Abend beginnt um 18 Uhr in der Aula." },
-      { id: "b", label: "B", text: "Vor dem offiziellen Beginn muessen sich alle in eine Liste eintragen." },
-      { id: "c", label: "C", text: "Auch Fragen zum Schulweg und zur Mittagsbetreuung werden besprochen." },
-      { id: "d", label: "D", text: "Die Eltern muessen fuer die Kinderbetreuung nichts bezahlen." },
-      { id: "e", label: "E", text: "Die Schule muss wissen, fuer wie viele Familien Sprachhilfe vorbereitet werden soll." }
+      "Naechste Woche findet an der Grundschule Sonnenblick ein Elternabend fuer die neuen ersten Klassen statt. Der Abend beginnt ",
+      " in der Aula. Dort erhalten die Eltern Informationen ueber Unterrichtszeiten, Materiallisten und die ersten Projekttage. ",
+      " werden auch Fragen zum Schulweg und zur Mittagsbetreuung besprochen. Deshalb bittet die Schule alle Familien, schon einige Minuten frueher zu kommen, ",
+      " sie sich vor dem offiziellen Beginn in eine Liste eintragen muessen. Fuer juengere Geschwister gibt es in dieser Zeit eine Spielecke im Nebenraum; die Betreuung ist ",
+      ". Wer eine Uebersetzung in Arabisch oder Tuerkisch benoetigt, kann das bis Dienstag im Sekretariat melden, ",
+      " die Schule die passenden Unterlagen vorbereiten kann."
     ],
     gaps: [
       {
         id: "gap-1",
         label: "1",
+        options: [
+          { id: "a", label: "A", text: "um 18 Uhr" },
+          { id: "b", label: "B", text: "am 18 Uhr" },
+          { id: "c", label: "C", text: "im 18 Uhr" }
+        ],
         correctOptionId: "a",
-        clue: "Nach der Einleitung fehlt eine konkrete Information zu Zeit und Ort.",
-        wrongChoiceGuidance: "Wenn Sie hier etwas zu Betreuung oder Inhalten einsetzen, fehlt der logische Anschluss zur Einladung."
+        clue: "Nach beginnt braucht man eine Zeitangabe mit um. Deshalb ist um 18 Uhr grammatisch und inhaltlich richtig.",
+        wrongChoiceGuidance: "Die anderen Antworten benutzen die falsche Praeposition. Bei Uhrzeiten steht im Deutschen hier um."
       },
       {
         id: "gap-2",
         label: "2",
-        correctOptionId: "c",
-        clue: "Hier passt eine inhaltliche Ergaenzung zu den Themen des Abends.",
-        wrongChoiceGuidance: "Zeit- oder Organisationssaetze passen hier weniger gut, weil schon von Informationen gesprochen wird."
+        options: [
+          { id: "a", label: "A", text: "Ausserdem" },
+          { id: "b", label: "B", text: "Trotzdem" },
+          { id: "c", label: "C", text: "Danach" }
+        ],
+        correctOptionId: "a",
+        clue: "Hier wird ein weiterer Inhalt des Elternabends ergaenzt. Ausserdem passt als verbindendes Signalwort.",
+        wrongChoiceGuidance: "Trotzdem wuerde einen Gegensatz ausdruecken, den es hier nicht gibt. Danach passt nicht, weil keine Reihenfolge beschrieben wird."
       },
       {
         id: "gap-3",
         label: "3",
-        correctOptionId: "b",
-        clue: "Das Wort deshalb signalisiert einen Grund fuer das fruehere Kommen.",
-        wrongChoiceGuidance: "Nur eine Antwort erklaert direkt, warum man frueher da sein soll."
+        options: [
+          { id: "a", label: "A", text: "obwohl" },
+          { id: "b", label: "B", text: "damit" },
+          { id: "c", label: "C", text: "weil" }
+        ],
+        correctOptionId: "c",
+        clue: "Nach deshalb wird der Grund fuer das fruehe Kommen genannt. Mit weil wird dieser Grund korrekt eingeleitet.",
+        wrongChoiceGuidance: "Obwohl drueckt einen Gegensatz aus. Damit beschreibt eher ein Ziel und passt hier nicht direkt zur Begruendung."
       },
       {
         id: "gap-4",
         label: "4",
-        correctOptionId: "d",
-        clue: "Nach der Spielecke passt eine Zusatzinformation zur Betreuung.",
-        wrongChoiceGuidance: "Hier muss der Satz thematisch noch bei den Geschwistern bleiben."
+        options: [
+          { id: "a", label: "A", text: "kostenlos" },
+          { id: "b", label: "B", text: "kostenlose" },
+          { id: "c", label: "C", text: "Kosten" }
+        ],
+        correctOptionId: "a",
+        clue: "Nach ist steht ein Adjektiv als Praedikativ: Die Betreuung ist kostenlos.",
+        wrongChoiceGuidance: "Kostenlose braucht noch ein Nomen. Kosten ist ein Nomen und passt nicht hinter ist."
       },
       {
         id: "gap-5",
         label: "5",
-        correctOptionId: "e",
-        clue: "Nach dem Hinweis auf Uebersetzung passt eine Erklaerung, warum die Rueckmeldung wichtig ist.",
-        wrongChoiceGuidance: "Hier muss ein Satz stehen, der logisch an Sprachhilfe und Vorbereitung anschliesst."
+        options: [
+          { id: "a", label: "A", text: "falls" },
+          { id: "b", label: "B", text: "damit" },
+          { id: "c", label: "C", text: "ob" }
+        ],
+        correctOptionId: "b",
+        clue: "Hier wird das Ziel der Rueckmeldung beschrieben: damit die Schule Unterlagen vorbereiten kann.",
+        wrongChoiceGuidance: "Falls wuerde eine Bedingung ausdruecken. Ob passt nicht, weil hier kein indirekter Fragesatz folgt."
       }
     ],
-    learningTip: "Bei Lueckentexten pruefen Sie immer zuerst, welche Art Satz fehlt: Ort, Grund, Zusatzinformation oder Gegensatz.",
-    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Lesen Sie auch den Satz vor und nach der Luecke. Dort liegt meist der entscheidende Hinweis."
+    learningTip: "Pruefen Sie bei jeder Luecke zuerst die Grammatik: Praeposition, Verbform, Konnektor oder Adjektiv.",
+    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Schauen Sie immer links und rechts von der Luecke. Dort sehen Sie oft, welche Wortart fehlt."
   },
   {
     id: "reading-gap-02",
     title: "Ankommen im neuen Job",
     topic: "Arbeit",
-    instruction: "Lesen Sie den Text. Ordnen Sie die Antworten A bis E den Luecken 1 bis 5 zu.",
+    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
     segments: [
-      "Viele Menschen freuen sich auf ihre erste Arbeitswoche, sind aber gleichzeitig unsicher. Ein guter Start gelingt leichter, wenn man sich frueh informiert und Fragen stellt. ",
-      " So wissen neue Mitarbeitende sofort, wer fuer welche Themen zustaendig ist. ",
-      " Ausserdem ist es sinnvoll, Arbeitszeiten, Pausenregeln und wichtige Telefonnummern gleich am Anfang zu notieren. ",
-      " Wer etwas nicht verstanden hat, sollte lieber noch einmal nachfragen, statt Fehler zu wiederholen. ",
-      " Das zeigt Interesse und hilft, Missverstaendnisse zu vermeiden. ",
-      " Dann fuehlen sich neue Kolleginnen und Kollegen schneller sicherer."
-    ],
-    options: [
-      { id: "a", label: "A", text: "Dazu gehoert zum Beispiel auch ein kurzer Rundgang durch die Abteilung." },
-      { id: "b", label: "B", text: "Viele Betriebe planen deshalb am ersten Tag ein Einfuehrungsgespraech." },
-      { id: "c", label: "C", text: "Manche glauben, dass Fragen ein Zeichen von Schwäche sind." },
-      { id: "d", label: "D", text: "Ebenso wichtig ist ein freundlicher Umgang mit dem Team." },
-      { id: "e", label: "E", text: "Hilfreich ist auch, sich wichtige Arbeitsschritte kurz aufzuschreiben." }
+      "Viele Menschen freuen sich auf ihre erste Arbeitswoche, sind aber gleichzeitig unsicher. Ein guter Start gelingt leichter, wenn man sich frueh informiert und Fragen stellt. Viele Betriebe planen ",
+      " am ersten Tag ein Einfuehrungsgespraech. So wissen neue Mitarbeitende sofort, wer fuer welche Themen zustaendig ist. ",
+      " ist es sinnvoll, Arbeitszeiten, Pausenregeln und wichtige Telefonnummern gleich am Anfang zu notieren, ",
+      " man spaeter alles leichter nachlesen kann. Wer etwas nicht verstanden hat, sollte lieber noch einmal nachfragen, ",
+      " Fehler zu wiederholen. Das zeigt Interesse und hilft, Missverstaendnisse zu vermeiden. Dann fuehlen sich neue Kolleginnen und Kollegen ",
+      " sicherer."
     ],
     gaps: [
       {
         id: "gap-1",
         label: "1",
-        correctOptionId: "b",
-        clue: "Nach der allgemeinen Aussage ueber einen guten Start passt ein typischer erster Schritt im Betrieb.",
-        wrongChoiceGuidance: "Ein Satz ueber die Probezeit oder Schwaeche passt hier noch nicht logisch."
+        options: [
+          { id: "a", label: "A", text: "deshalb" },
+          { id: "b", label: "B", text: "obwohl" },
+          { id: "c", label: "C", text: "trotzdem" }
+        ],
+        correctOptionId: "a",
+        clue: "Der zweite Satz nennt den Grund, daraus folgt deshalb eine passende Konsequenz.",
+        wrongChoiceGuidance: "Obwohl und trotzdem markieren einen Gegensatz. Im Text geht es hier aber um eine logische Folge."
       },
       {
         id: "gap-2",
         label: "2",
-        correctOptionId: "a",
-        clue: "Das Wort so braucht einen Bezug auf etwas Konkretes, das direkt davor genannt wird.",
-        wrongChoiceGuidance: "Hier muss eine Massnahme stehen, durch die man Kolleginnen und Kollegen und Ablaeufe kennenlernt."
+        options: [
+          { id: "a", label: "A", text: "Trotzdem" },
+          { id: "b", label: "B", text: "Ausserdem" },
+          { id: "c", label: "C", text: "Zuerst" }
+        ],
+        correctOptionId: "b",
+        clue: "Nach einem ersten Tipp folgt ein weiterer. Ausserdem verbindet diese beiden Hinweise logisch.",
+        wrongChoiceGuidance: "Trotzdem passt nicht, weil kein Gegensatz vorliegt. Zuerst wuerde eine Reihenfolge anfangen, die der Text hier nicht nutzt."
       },
       {
         id: "gap-3",
         label: "3",
-        correctOptionId: "e",
-        clue: "Nach Arbeitszeiten und Telefonnummern passt ein weiterer praktischer Tipp fuer den Start.",
-        wrongChoiceGuidance: "Hier wird noch kein Kontrast gesucht, sondern eine alltagstaugliche Empfehlung."
+        options: [
+          { id: "a", label: "A", text: "weil" },
+          { id: "b", label: "B", text: "damit" },
+          { id: "c", label: "C", text: "ob" }
+        ],
+        correctOptionId: "b",
+        clue: "Hier wird das Ziel des Notierens genannt. Damit leitet eine Zielangabe korrekt ein.",
+        wrongChoiceGuidance: "Weil erklaert einen Grund, nicht ein Ziel. Ob passt nur zu indirekten Fragen."
       },
       {
         id: "gap-4",
         label: "4",
-        correctOptionId: "c",
-        clue: "Vor dem Rat zum Nachfragen passt ein verbreiteter Irrtum.",
-        wrongChoiceGuidance: "Wenn Sie hier schon die Wirkung des Nachfragens einsetzen, fehlt der gedankliche Kontrast."
+        options: [
+          { id: "a", label: "A", text: "statt" },
+          { id: "b", label: "B", text: "ohne" },
+          { id: "c", label: "C", text: "waehrend" }
+        ],
+        correctOptionId: "a",
+        clue: "Die feste Verbindung lautet: statt Fehler zu wiederholen. Sie beschreibt die bessere Alternative.",
+        wrongChoiceGuidance: "Ohne und waehrend passen semantisch nicht zu der Vergleichaussage im Satz."
       },
       {
         id: "gap-5",
         label: "5",
-        correctOptionId: "d",
-        clue: "Zum Schluss passt eine weitere soziale Empfehlung fuer die Zusammenarbeit im Team.",
-        wrongChoiceGuidance: "Hier rundet ein Satz zum Verhalten im Team den Text logisch ab."
+        options: [
+          { id: "a", label: "A", text: "schnell" },
+          { id: "b", label: "B", text: "schneller" },
+          { id: "c", label: "C", text: "am schnellsten" }
+        ],
+        correctOptionId: "b",
+        clue: "Mit fuehlen sich ... sicherer braucht der Satz den Komparativ schneller.",
+        wrongChoiceGuidance: "Schnell ist kein Vergleich. Am schnellsten wuerde hier grammatisch und inhaltlich zu stark wirken."
       }
     ],
-    learningTip: "Nutzen Sie bei Lueckentexten neben dem Inhalt auch Signalwoerter wie deshalb, ausserdem, ebenso oder so.",
-    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Manche Aufgaben pruefen auch, ob Sie eine unlogische Aussage sicher ausschliessen koennen."
+    learningTip: "Achten Sie bei Lueckentexten auch auf feste Verbindungen wie statt zu, um zu oder damit.",
+    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Oft prueft der Lueckentext nicht nur den Inhalt, sondern auch kleine Grammatiksignale."
+  },
+  {
+    id: "reading-gap-03",
+    title: "Termin in der Arztpraxis",
+    topic: "Arzt",
+    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
+    segments: [
+      "Ich brauchte letzte Woche dringend einen Termin beim Hausarzt, ",
+      " ich seit zwei Tagen starke Rueckenschmerzen hatte. Am Telefon sagte die Sprechstundenhilfe, dass am Mittwoch um 11 Uhr noch ein Termin ",
+      ". Sie bat mich, meine Versicherungskarte mitzubringen und ",
+      " zehn Minuten frueher da zu sein. Im Wartezimmer musste ich zuerst ein kurzes Formular ausfuellen, ",
+      " ich in diesem Quartal noch nicht in der Praxis gewesen war. Nach der Untersuchung bekam ich ein Rezept und den Rat, mich in den naechsten Tagen viel zu ",
+      "."
+    ],
+    gaps: [
+      {
+        id: "gap-1",
+        label: "1",
+        options: [
+          { id: "a", label: "A", text: "weil" },
+          { id: "b", label: "B", text: "obwohl" },
+          { id: "c", label: "C", text: "damit" }
+        ],
+        correctOptionId: "a",
+        clue: "Die Rueckenschmerzen sind der Grund fuer den Termin. Deshalb passt weil.",
+        wrongChoiceGuidance: "Obwohl wuerde einen Gegensatz ausdruecken. Damit beschreibt ein Ziel und passt hier nicht."
+      },
+      {
+        id: "gap-2",
+        label: "2",
+        options: [
+          { id: "a", label: "A", text: "frei war" },
+          { id: "b", label: "B", text: "frei ist" },
+          { id: "c", label: "C", text: "frei gewesen" }
+        ],
+        correctOptionId: "a",
+        clue: "Der Telefonanruf liegt in der Vergangenheit. Darum passt die Vergangenheitsform frei war.",
+        wrongChoiceGuidance: "Frei ist passt zeitlich nicht. Frei gewesen ist hier unvollstaendig und klingt grammatisch falsch."
+      },
+      {
+        id: "gap-3",
+        label: "3",
+        options: [
+          { id: "a", label: "A", text: "am" },
+          { id: "b", label: "B", text: "etwa" },
+          { id: "c", label: "C", text: "seit" }
+        ],
+        correctOptionId: "b",
+        clue: "Die feste Formulierung lautet etwa zehn Minuten frueher.",
+        wrongChoiceGuidance: "Am und seit passen grammatisch nicht vor eine Zeitspanne dieser Art."
+      },
+      {
+        id: "gap-4",
+        label: "4",
+        options: [
+          { id: "a", label: "A", text: "deshalb" },
+          { id: "b", label: "B", text: "weil" },
+          { id: "c", label: "C", text: "wenn" }
+        ],
+        correctOptionId: "b",
+        clue: "Hier wird der Grund fuer das Formular genannt. Diesen Grund leitet weil ein.",
+        wrongChoiceGuidance: "Deshalb braucht einen neuen Hauptsatz. Wenn drueckt eine Bedingung aus und passt nicht."
+      },
+      {
+        id: "gap-5",
+        label: "5",
+        options: [
+          { id: "a", label: "A", text: "ruhen" },
+          { id: "b", label: "B", text: "Ruhe" },
+          { id: "c", label: "C", text: "geruht" }
+        ],
+        correctOptionId: "a",
+        clue: "Nach sich viel zu ... folgt der Infinitiv. Daher ist ruhen richtig.",
+        wrongChoiceGuidance: "Ruhe ist ein Nomen. Geruht ist eine Partizipform und passt hier nicht."
+      }
+    ],
+    learningTip: "Achten Sie auf Zeitformen und feste Wendungen wie etwa zehn Minuten oder sich ausruhen.",
+    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Bei kurzen Woertern entscheidet oft die Grammatik ueber die richtige Antwort."
+  },
+  {
+    id: "reading-gap-04",
+    title: "Meldung an die Hausverwaltung",
+    topic: "Wohnung",
+    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
+    segments: [
+      "Seit dem starken Regen am Wochenende tropft in unserer Wohnung Wasser von der Decke, ",
+      " besonders im Flur und im Schlafzimmer. Ich habe das Problem sofort der Hausverwaltung gemeldet und auch Fotos geschickt, ",
+      " der Schaden gut dokumentiert ist. Die Mitarbeiterin am Telefon sagte, dass ein Handwerker am naechsten Morgen vorbeikommen ",
+      ". Bis dahin sollten wir die betroffenen Moebel von der Wand wegstellen und ",
+      " Teppich im Schlafzimmer hochrollen. Zum Glueck kam der Handwerker puenktlich und konnte das Loch im Dach schnell ",
+      "."
+    ],
+    gaps: [
+      {
+        id: "gap-1",
+        label: "1",
+        options: [
+          { id: "a", label: "A", text: "und" },
+          { id: "b", label: "B", text: "oder" },
+          { id: "c", label: "C", text: "denn" }
+        ],
+        correctOptionId: "a",
+        clue: "Hier werden zwei betroffene Orte einfach verbunden. Das leistet und.",
+        wrongChoiceGuidance: "Oder wuerde eine Alternative ausdruecken. Denn erklaert einen Grund, der hier nicht gemeint ist."
+      },
+      {
+        id: "gap-2",
+        label: "2",
+        options: [
+          { id: "a", label: "A", text: "dass" },
+          { id: "b", label: "B", text: "damit" },
+          { id: "c", label: "C", text: "ob" }
+        ],
+        correctOptionId: "b",
+        clue: "Die Fotos wurden geschickt, damit der Schaden dokumentiert ist. Es geht um den Zweck.",
+        wrongChoiceGuidance: "Dass wuerde hier keinen sinnvollen Nebensatz bilden. Ob gehoert zu indirekten Fragen."
+      },
+      {
+        id: "gap-3",
+        label: "3",
+        options: [
+          { id: "a", label: "A", text: "kommt" },
+          { id: "b", label: "B", text: "komme" },
+          { id: "c", label: "C", text: "koenne" }
+        ],
+        correctOptionId: "c",
+        clue: "Nach sagte, dass ... folgt hier die indirekte Wiedergabe mit koenne.",
+        wrongChoiceGuidance: "Kommt und komme passen nicht zur indirekten Aussage nach sagte, dass."
+      },
+      {
+        id: "gap-4",
+        label: "4",
+        options: [
+          { id: "a", label: "A", text: "den" },
+          { id: "b", label: "B", text: "dem" },
+          { id: "c", label: "C", text: "der" }
+        ],
+        correctOptionId: "a",
+        clue: "Teppich ist maskulin und steht als Akkusativobjekt. Deshalb braucht man den.",
+        wrongChoiceGuidance: "Dem ist Dativ, der ist Nominativ oder feminin. Beides passt hier nicht."
+      },
+      {
+        id: "gap-5",
+        label: "5",
+        options: [
+          { id: "a", label: "A", text: "reparieren" },
+          { id: "b", label: "B", text: "Reparatur" },
+          { id: "c", label: "C", text: "repariert" }
+        ],
+        correctOptionId: "a",
+        clue: "Nach konnte ... schnell steht der Infinitiv reparieren.",
+        wrongChoiceGuidance: "Reparatur ist ein Nomen. Repariert ist hier keine passende Verbform."
+      }
+    ],
+    learningTip: "Bei Artikeln, Nebensaetzen und Infinitiven lohnt sich ein genauer Blick auf das Wort direkt davor.",
+    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Viele Luecken lassen sich loesen, wenn Sie Satzbau und Kasus pruefen."
   }
 ];
 
@@ -515,3 +767,4 @@ export function getReadingTaskSummary(taskId: string) {
 
   return null;
 }
+

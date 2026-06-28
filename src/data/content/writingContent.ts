@@ -161,6 +161,34 @@ const scenarioEnhancements: Record<
       "Wir interessieren uns sehr fuer das Programm und moechten den Abend gut planen, deshalb wuerde ich mich ueber eine kurze Rueckmeldung freuen.",
       "Falls es besondere Hinweise fuer Gruppen gibt, teilen Sie mir diese bitte ebenfalls mit."
     ]
+  },
+  "write-21": {
+    pointChecks: [["beratungstermin", "mittwoch", "14 uhr"], ["arzttermin", "grund"], ["neuen termin", "bitten"], ["telefonisch", "e mail", "erreichen"]],
+    extras: [
+      "Der Termin ist fuer mich wichtig, weil ich ueber meine weitere Ausbildung sprechen moechte und den Besuch deshalb nicht einfach ausfallen lassen will.",
+      "Wenn es in der kommenden Woche mehrere freie Zeiten gibt, koennen Sie mir gern zwei oder drei Vorschlaege schicken."
+    ]
+  },
+  "write-22": {
+    pointChecks: [["geraete", "nicht", "tage"], ["seit", "einigen tagen"], ["reparieren", "bitte"], ["bescheid", "rueckmeldung"]],
+    extras: [
+      "Viele Mitglieder kommen genau wegen dieser Geraete in den Trainingsraum und muessen ihr Training im Moment immer wieder unterbrechen oder ganz aendern.",
+      "Ich hoffe sehr, dass das Problem bald geloest wird, damit alle wieder normal trainieren koennen."
+    ]
+  },
+  "write-23": {
+    pointChecks: [["buergeramt", "termin"], ["10 uhr", "ankommen"], ["entschuldigen"], ["teammeeting", "aufgaben", "weiter"]],
+    extras: [
+      "Ich informiere Sie vorsichtshalber schon heute Abend, damit Sie morgen frueh besser planen koennen und mein spaeteres Kommen nicht ueberraschend ist.",
+      "Sollte sich beim Amt noch etwas aendern, melde ich mich sofort noch einmal bei Ihnen."
+    ]
+  },
+  "write-24": {
+    pointChecks: [["busreise", "hamburg"], ["datum", "naechste reise"], ["preis", "kostet"], ["leistungen", "fruehstueck", "hotel"]],
+    extras: [
+      "Ich reise zum ersten Mal auf diese Weise und moechte deshalb vorher genau wissen, welche Leistungen bereits im Angebot enthalten sind.",
+      "Ausserdem waere es fuer mich hilfreich zu erfahren, ob noch Plaetze frei sind und wie die Bezahlung funktioniert."
+    ]
   }
 };
 

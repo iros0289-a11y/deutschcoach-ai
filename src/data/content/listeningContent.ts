@@ -310,6 +310,80 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
       examFocus:
         "Darauf sollten Sie in der DTZ-Pruefung achten: Kleine Zeitangaben entscheiden oft ueber richtig oder falsch."
     }
+  },
+  {
+    id: "listen-p1-07",
+    part: "Teil 1",
+    title: "Aenderung beim Sprachkurs",
+    topic: "Kurs",
+    transcript:
+      "Sprachschule Dialog, guten Tag. Guten Tag, hier spricht Herr Duman. Ich wollte fragen, ob der B1 Kurs heute normal stattfindet. Ja, aber nicht in Raum drei, sondern in Raum sieben im zweiten Stock. Bleibt die Uhrzeit gleich? Ja, Beginn ist weiter um achtzehn Uhr. Danke, dann komme ich direkt dorthin.",
+    durationLabel: "00:31",
+    question: "Was moechte Herr Duman wissen?",
+    options: [
+      { id: "a", label: "A", text: "Ob der Kurs heute ausfaellt." },
+      { id: "b", label: "B", text: "Ob er fuer den Kurs bezahlen muss." },
+      { id: "c", label: "C", text: "Ob der Kurs eine halbe Stunde spaeter beginnt." }
+    ],
+    correctOptionId: "a",
+    feedback: {
+      correctTitle: "Richtig",
+      correctReason: "Herr Duman fragt direkt, ob der B1 Kurs heute normal stattfindet. Er will also wissen, ob es den Kurs heute gibt.",
+      learningTip: "Am Telefon steht die Loesung oft schon in der ersten Frage. Hoeren Sie auf den Anlass des Anrufs.",
+      incorrectReasonByOption: {
+        b: "Im Dialog wird ueber Geld nicht gesprochen.",
+        c: "Die Uhrzeit bleibt gleich. Nur der Raum aendert sich."
+      },
+      examFocus:
+        "Darauf sollten Sie in der DTZ-Pruefung achten: Verwechseln Sie den Anlass des Anrufs nicht mit den Informationen, die erst spaeter im Gespraech kommen."
+    },
+    statement: {
+      id: "listen-p1-07-statement",
+      text: "Der Kurs findet heute in einem anderen Raum statt.",
+      correctAnswer: true,
+      correctReason: "Die Mitarbeiterin sagt klar: nicht in Raum drei, sondern in Raum sieben.",
+      incorrectReason: "Die Aussage ist richtig, weil nur der Raum geaendert wurde, nicht der Termin.",
+      learningTip: "Hoeren Sie bei nicht ... sondern ... sehr genau hin. Diese Struktur kommt in DTZ-Aufgaben oft vor.",
+      examFocus:
+        "Darauf sollten Sie in der DTZ-Pruefung achten: Bei Raum- und Ortswechseln wird haeufig eine richtige/falsch-Aussage getestet."
+    }
+  },
+  {
+    id: "listen-p1-08",
+    part: "Teil 1",
+    title: "Rueckfrage im Supermarkt",
+    topic: "Einkaufen",
+    transcript:
+      "Entschuldigung, arbeiten Sie hier? Ja, kann ich Ihnen helfen? Ich habe im Prospekt gelesen, dass heute Waschmittel im Angebot ist, aber ich finde es nicht. Das Angebot steht vorne neben der Kasse, aber nur noch in der grossen Packung. Gut, dann nehme ich eine grosse Packung mit.",
+    durationLabel: "00:28",
+    question: "Warum spricht die Kundin die Mitarbeiterin an?",
+    options: [
+      { id: "a", label: "A", text: "Sie moechte ein Produkt aus dem Angebot finden." },
+      { id: "b", label: "B", text: "Sie moechte etwas an der Kasse bezahlen." },
+      { id: "c", label: "C", text: "Sie moechte Waschmittel zurueckgeben." }
+    ],
+    correctOptionId: "a",
+    feedback: {
+      correctTitle: "Richtig",
+      correctReason: "Die Kundin sagt, dass sie das Waschmittel aus dem Prospekt nicht findet. Sie sucht also das Angebot.",
+      learningTip: "Bei Einkaufssituationen helfen Verben wie suchen, finden, umtauschen oder bezahlen beim Verstehen der Situation.",
+      incorrectReasonByOption: {
+        b: "Die Kasse wird nur als Ort genannt, nicht als Grund fuer das Gespraech.",
+        c: "Von einer Rueckgabe spricht niemand."
+      },
+      examFocus:
+        "Darauf sollten Sie in der DTZ-Pruefung achten: Die Frage nach dem Grund eines Gespraechs wird oft mit einem sehr alltaeglichen Detail versteckt."
+    },
+    statement: {
+      id: "listen-p1-08-statement",
+      text: "Das Angebot gibt es nur noch in einer grossen Packung.",
+      correctAnswer: true,
+      correctReason: "Die Mitarbeiterin sagt ausdruecklich: nur noch in der grossen Packung.",
+      incorrectReason: "Die Aussage ist richtig, weil die Verpackungsgroesse am Ende klar genannt wird.",
+      learningTip: "Achten Sie auf kleine Einschraenkungen wie nur noch, schon oder leider. Sie sind oft entscheidend.",
+      examFocus:
+        "Darauf sollten Sie in der DTZ-Pruefung achten: Auch sehr kurze Zusatzinfos am Schluss koennen die Loesung liefern."
+    }
   }
 ];
 
@@ -637,6 +711,60 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
       },
       examFocus:
         "Darauf sollten Sie in der DTZ-Pruefung achten: In Terminnachrichten kommen oft mehrere Uhrzeiten vor. Die Frage entscheidet, welche davon wichtig ist."
+    }
+  },
+  {
+    id: "listen-p3-07",
+    part: "Teil 3",
+    title: "Durchsage im Bus",
+    topic: "Bus",
+    transcript:
+      "Wegen einer Baustelle faehrt der Bus 614 heute nicht ueber den Marktplatz. Bitte steigen Sie fuer das Rathaus an der Haltestelle Stadtmitte aus.",
+    durationLabel: "00:14",
+    question: "Wo sollen Fahrgaeste fuer das Rathaus aussteigen?",
+    options: [
+      { id: "a", label: "A", text: "Am Marktplatz." },
+      { id: "b", label: "B", text: "An der Haltestelle Stadtmitte." },
+      { id: "c", label: "C", text: "An der Baustelle." }
+    ],
+    correctOptionId: "b",
+    feedback: {
+      correctTitle: "Richtig",
+      correctReason: "Die Ansage nennt die Haltestelle Stadtmitte ausdruecklich als Ausstieg fuer das Rathaus.",
+      learningTip: "Bei kurzen Ansagen sollten Sie sofort auf Ortsnamen und Ersatzhaltestellen achten.",
+      incorrectReasonByOption: {
+        a: "Der Marktplatz wird gerade nicht angefahren.",
+        c: "Die Baustelle ist nur der Grund fuer die Aenderung, aber keine Haltestelle."
+      },
+      examFocus:
+        "Darauf sollten Sie in der DTZ-Pruefung achten: In Verkehrsdurchsagen sind Ort und Grund oft nah beieinander. Trennen Sie beides sauber."
+    }
+  },
+  {
+    id: "listen-p3-08",
+    part: "Teil 3",
+    title: "Ansage im Buergeramt",
+    topic: "Behoerde",
+    transcript:
+      "Nummer A 43 bitte zum Schalter 5. Fuer Meldebescheinigungen brauchen Sie neben dem Ausweis auch die Gebuehr in bar oder mit Karte.",
+    durationLabel: "00:13",
+    question: "Was braucht man fuer eine Meldebescheinigung zusaetzlich zum Ausweis?",
+    options: [
+      { id: "a", label: "A", text: "Ein Passfoto." },
+      { id: "b", label: "B", text: "Die Gebuehr." },
+      { id: "c", label: "C", text: "Einen Termin in der naechsten Woche." }
+    ],
+    correctOptionId: "b",
+    feedback: {
+      correctTitle: "Richtig",
+      correctReason: "Die Ansage sagt klar, dass man neben dem Ausweis auch die Gebuehr braucht.",
+      learningTip: "Bei Behoerdenansagen lohnen sich Woerter wie neben, zusaetzlich und brauchen.",
+      incorrectReasonByOption: {
+        a: "Ein Passfoto wird hier nicht genannt.",
+        c: "Von einem neuen Termin ist keine Rede."
+      },
+      examFocus:
+        "Darauf sollten Sie in der DTZ-Pruefung achten: Zusatzinformationen folgen in Ansagen oft direkt nach neben oder auch."
     }
   }
 ];

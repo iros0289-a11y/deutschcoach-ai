@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { colors, radius, spacing, typography } from "../../core/theme";
@@ -103,7 +103,7 @@ function MatchingFeedback({
 
   return (
     <FeedbackPanel
-      heading={`Richtige Lösung: ${optionTitleLookup[situation.correctId]}`}
+      heading={`Richtige LÃ¶sung: ${optionTitleLookup[situation.correctId]}`}
       accentColor={colors.danger}
       lines={[situation.correctReason, `Warum Ihre Wahl nicht passt: ${wrongReason}`, situation.examFocus, `Lerntipp: ${situation.learningTip}`]}
     />
@@ -133,11 +133,11 @@ function ReadingChoiceFeedback({
 
   const wrongReason = selectedOptionId
     ? feedback.incorrectReasonByOption[selectedOptionId] ?? "Diese Antwort passt nicht genau zum Text."
-    : "Sie haben noch keine Auswahl getroffen. In der Prüfung lohnt es sich trotzdem, die passende Textstelle zu markieren."
+    : "Sie haben noch keine Auswahl getroffen. In der PrÃ¼fung lohnt es sich trotzdem, die passende Textstelle zu markieren."
 
   return (
     <FeedbackPanel
-      heading={`Richtige Lösung: ${correctOptionId.toUpperCase()}`}
+      heading={`Richtige LÃ¶sung: ${correctOptionId.toUpperCase()}`}
       accentColor={colors.danger}
       lines={[feedback.correctReason, `Warum Ihre Wahl nicht passt: ${wrongReason}`, feedback.examFocus, `Lerntipp: ${feedback.learningTip}`]}
     />
@@ -201,7 +201,7 @@ function DualQuestionCard({
       <ChoiceChips options={task.options} selectedOptionId={selectedChoice} onSelect={onSelectChoice} />
 
       <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}>
-        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+        <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
       </Pressable>
 
       {revealed ? (
@@ -251,7 +251,7 @@ function GapTextCard({
 
   return (
     <InfoCard>
-      <Text style={styles.partLabel}>Lückentext</Text>
+      <Text style={styles.partLabel}>LÃ¼ckentext</Text>
       <Text style={styles.sectionTitle}>{task.title}</Text>
       <Text style={styles.body}>{task.instruction}</Text>
 
@@ -259,7 +259,7 @@ function GapTextCard({
         {task.segments.map((segment, index) => {
           const gap = task.gaps[index];
           const selectedLabel = gap
-            ? task.options.find((option) => option.id === selectedValues[gap.id])?.label
+            ? gap.options.find((option) => option.id === selectedValues[gap.id])?.label
             : undefined;
 
           return (
@@ -277,9 +277,9 @@ function GapTextCard({
 
       {task.gaps.map((gap) => (
         <View key={gap.id} style={styles.gapSelectorCard}>
-          <Text style={styles.question}>Lücke {gap.label}</Text>
+          <Text style={styles.question}>LÃ¼cke {gap.label}</Text>
           <ChoiceChips
-            options={task.options}
+            options={gap.options}
             selectedOptionId={selectedValues[gap.id]}
             onSelect={(optionId) => onSelect(gap.id, optionId)}
           />
@@ -287,13 +287,13 @@ function GapTextCard({
       ))}
 
       <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}>
-        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+        <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
       </Pressable>
 
       {revealed ? (
         <View style={styles.feedbackStack}>
           <FeedbackPanel
-            heading={correctCount === task.gaps.length ? "Richtig" : `Lösung: ${correctCount} von ${task.gaps.length} Lücken korrekt`}
+            heading={correctCount === task.gaps.length ? "Richtig" : `LÃ¶sung: ${correctCount} von ${task.gaps.length} LÃ¼cken korrekt`}
             accentColor={correctCount === task.gaps.length ? colors.success : colors.danger}
             lines={[
               `Lerntipp: ${task.learningTip}`,
@@ -303,19 +303,19 @@ function GapTextCard({
           {task.gaps.map((gap) => {
             const selectedOptionId = selectedValues[gap.id];
             const selectedLabel = selectedOptionId
-              ? task.options.find((option) => option.id === selectedOptionId)?.label ?? "-"
+              ? gap.options.find((option) => option.id === selectedOptionId)?.label ?? "-"
               : "-";
-            const correctLabel = task.options.find((option) => option.id === gap.correctOptionId)?.label ?? "-";
+            const correctLabel = gap.options.find((option) => option.id === gap.correctOptionId)?.label ?? "-";
             const gapCorrect = selectedOptionId === gap.correctOptionId;
 
             return (
               <FeedbackPanel
                 key={`${task.id}-${gap.id}`}
-                heading={`Lücke ${gap.label}: ${gapCorrect ? "Richtig" : `Richtige Lösung ${correctLabel}`}`}
+                heading={`LÃ¼cke ${gap.label}: ${gapCorrect ? "Richtig" : `Richtige LÃ¶sung ${correctLabel}`}`}
                 accentColor={gapCorrect ? colors.success : colors.danger}
                 lines={[
                   `Ihre Antwort: ${selectedLabel}`,
-                  `Begründung: ${gap.clue}`,
+                  `BegrÃ¼ndung: ${gap.clue}`,
                   `Warum andere Antworten nicht passen: ${gap.wrongChoiceGuidance}`
                 ]}
               />
@@ -400,7 +400,7 @@ export function ReadingScreen() {
               }}
               style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}
             >
-              <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+              <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
             </Pressable>
             {revealed[situation.id] ? (
               <MatchingFeedback selectedId={selectedAds[situation.id]} situation={situation} optionTitleLookup={adLookup} />
@@ -420,7 +420,7 @@ export function ReadingScreen() {
               <Text style={styles.referenceTitle}>{level.name}</Text>
               {level.places.map((place) => (
                 <Text key={place} style={styles.referenceText}>
-                  • {place}
+                  â€¢ {place}
                 </Text>
               ))}
             </View>
@@ -465,7 +465,7 @@ export function ReadingScreen() {
               }}
               style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}
             >
-              <Text style={styles.primaryActionText}>Antwort prüfen</Text>
+              <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
             </Pressable>
             {revealed[situation.id] ? (
               <MatchingFeedback selectedId={selectedFloors[situation.id]} situation={situation} optionTitleLookup={floorLookup} />
@@ -669,3 +669,5 @@ const styles = StyleSheet.create({
     padding: spacing.md
   }
 });
+
+

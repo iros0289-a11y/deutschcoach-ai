@@ -145,7 +145,12 @@ function PartOneTaskCard({
         {task.part} • {task.topic}
       </Text>
       <Text style={styles.cardTitle}>{task.title}</Text>
-      <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Hörtext abspielen" />
+      <SimpleAudioPlayer
+        durationLabel={task.durationLabel}
+        text={task.transcript}
+        title="Hörtext abspielen"
+        playbackMode="dialogue"
+      />
 
       <Text style={styles.subtaskTitle}>1. Frage beantworten</Text>
       <Text style={styles.question}>{task.question}</Text>
@@ -234,7 +239,12 @@ function PartTwoTaskCard({
         {listeningPartTwoSet.part} • {task.personLabel}
       </Text>
       <Text style={styles.cardTitle}>{task.prompt}</Text>
-      <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Aussage abspielen" />
+      <SimpleAudioPlayer
+        durationLabel={task.durationLabel}
+        text={task.transcript}
+        title="Aussage abspielen"
+        playbackMode="narration"
+      />
       <ChoiceChips options={listeningPartTwoSet.options} selectedOptionId={selectedOptionId} onSelect={onSelect} />
       <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}>
         <Text style={styles.primaryActionText}>Antwort prüfen</Text>
@@ -278,7 +288,12 @@ function PartThreeTaskCard({
         {task.part} • {task.topic}
       </Text>
       <Text style={styles.cardTitle}>{task.title}</Text>
-      <SimpleAudioPlayer durationLabel={task.durationLabel} text={task.transcript} title="Ansage abspielen" />
+      <SimpleAudioPlayer
+        durationLabel={task.durationLabel}
+        text={task.transcript}
+        title="Ansage abspielen"
+        playbackMode="announcement"
+      />
       <Text style={styles.question}>{task.question}</Text>
       <ChoiceChips options={task.options} selectedOptionId={selectedOptionId} onSelect={onSelect} />
       <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.primaryActionPressed]}>

@@ -329,6 +329,7 @@ export function SpeakingScreen() {
           durationLabel="00:38"
           text={speakingIntroPractice.expandedSampleAnswer}
           title="Musterlösung anhören"
+          playbackMode="narration"
         />
       </InfoCard>
 
@@ -355,7 +356,7 @@ export function SpeakingScreen() {
           })}
         </View>
         <View style={styles.photoDetail}>
-          <Image source={photo.image} resizeMode="contain" style={styles.photoLarge} />
+          <Image source={photo.largeImage} resizeMode="contain" style={styles.photoLarge} />
           <View style={styles.photoInfo}>
             <Text style={styles.referenceTitle}>{photo.title}</Text>
             {photo.responsePrompts.map((question) => (
@@ -392,6 +393,7 @@ export function SpeakingScreen() {
               durationLabel="00:34"
               text={photo.expandedSampleAnswer}
               title="Musterlösung anhören"
+              playbackMode="narration"
             />
           </View>
         </View>
@@ -476,7 +478,12 @@ export function SpeakingScreen() {
           <Text style={styles.referenceTitle}>Musterdialog als Text</Text>
           <Text style={styles.longText}>{plan.sampleDialogue}</Text>
         </View>
-        <SimpleAudioPlayer durationLabel="00:42" text={plan.sampleDialogue} title="Musterdialog anhören" />
+        <SimpleAudioPlayer
+          durationLabel="00:42"
+          text={plan.sampleDialogue}
+          title="Musterdialog anhören"
+          playbackMode="dialogue"
+        />
       </InfoCard>
     </Screen>
   );
@@ -600,9 +607,12 @@ const styles = StyleSheet.create({
   },
   photoDetail: { gap: spacing.md },
   photoLarge: {
+    alignSelf: "center",
+    aspectRatio: 16 / 11,
     backgroundColor: colors.background,
     borderRadius: radius.md,
-    height: 320,
+    maxWidth: 720,
+    minHeight: 240,
     width: "100%"
   },
   photoInfo: { gap: spacing.md },

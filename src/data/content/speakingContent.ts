@@ -1,4 +1,5 @@
 import {
+  getSpeakingPhotoLargeImage,
   speakingIntroPrompt as baseIntro,
   speakingPhotoPrompts as basePhotos,
   speakingPlanningTasks as basePlanning,
@@ -12,6 +13,7 @@ export type SpeakingIntroPractice = SpeakingIntroPrompt & {
 };
 
 export type SpeakingPhotoPractice = SpeakingPhotoPrompt & {
+  largeImage: ReturnType<typeof getSpeakingPhotoLargeImage>;
   responsePrompts: string[];
   expandedSampleAnswer: string;
   expectedKeywords: string[][];
@@ -89,6 +91,7 @@ export const speakingIntroPractice: SpeakingIntroPractice = {
 
 export const speakingPhotoPractice: SpeakingPhotoPractice[] = basePhotos.map((photo) => ({
   ...photo,
+  largeImage: getSpeakingPhotoLargeImage(photo.id) ?? photo.image,
   responsePrompts: [
     "Was sehen Sie auf dem Bild?",
     "Welche Situation zeigt das Bild?",

@@ -4,19 +4,116 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { colors, radius, spacing, typography } from "../../core/theme";
 
+type PlaybackMode = "dialogue" | "announcement" | "narration";
+
 type SimpleAudioPlayerProps = {
   text: string;
   durationLabel: string;
   title: string;
+  playbackMode?: PlaybackMode;
 };
 
-export function SimpleAudioPlayer({ durationLabel, text, title }: SimpleAudioPlayerProps) {
+function splitIntoSentences(text: string) {
+  return text
+    .replace(/\s+/g, " ")
+    .trim()
+    .match(/[^.!?]+[.!?]?/g)
+    ?.map((part) => part.trim())
+    .filter(Boolean) ?? [text.trim()];
+}
+
+function chooseGermanVoice(voices: SpeechSynthesisVoice[]) {
+  const germanVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("de"));
+  const rankedVoices = germanVoices.sort((left, right) => {
+    const score = (voice: SpeechSynthesisVoice) => {
+      const name = voice.name.toLowerCase();
+      let value = 0;
+
+      if (voice.default) {
+        value += 6;
+      }
+      if (voice.localService) {
+        value += 4;
+      }
+      if (name.includes("google deutsch") || name.includes("microsoft katja") || name.includes("microsoft conrad")) {
+        value += 5;
+      }
+      if (name.includes("deutsch")) {
+        value += 3;
+      }
+      if (name.includes("natural") || name.includes("online")) {
+        value += 2;
+      }
+
+      return value;
+    };
+
+    return score(right) - score(left);
+  });
+
+  return rankedVoices[0];
+}
+
+function buildPlaybackText(text: string, playbackMode: PlaybackMode) {
+  const normalized = text.replace(/\s+/g, " ").trim();
+
+  if (!normalized) {
+    return normalized;
+  }
+
+  if (normalized.includes(":")) {
+    return normalized
+      .replace(/([A-Za-zÄÖÜäöüß]+):/g, "$1. ")
+      .replace(/([.!?])\s+/g, "$1  ");
+  }
+
+  const sentences = splitIntoSentences(normalized);
+
+  if (playbackMode === "dialogue") {
+    return sentences
+      .map((sentence, index) => `Sprecher ${index % 2 === 0 ? "A" : "B"}. ${sentence}`)
+      .join("  ");
+  }
+
+  if (playbackMode === "announcement") {
+    return sentences.join(" ... ");
+  }
+
+  return sentences.join("  ");
+}
+
+export function SimpleAudioPlayer({
+  durationLabel,
+  text,
+  title,
+  playbackMode = "narration"
+}: SimpleAudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const supported = useMemo(
     () => Platform.OS === "web" && typeof window !== "undefined" && "speechSynthesis" in window,
     []
   );
+  const preparedText = useMemo(() => buildPlaybackText(text, playbackMode), [playbackMode, text]);
+  const selectedVoice = useMemo(() => chooseGermanVoice(voices), [voices]);
+
+  useEffect(() => {
+    if (!supported) {
+      return;
+    }
+
+    const updateVoices = () => {
+      setVoices(window.speechSynthesis.getVoices());
+    };
+
+    updateVoices();
+    window.speechSynthesis.addEventListener("voiceschanged", updateVoices);
+
+    return () => {
+      window.speechSynthesis.removeEventListener("voiceschanged", updateVoices);
+    };
+  }, [supported]);
 
   useEffect(() => {
     return () => {
@@ -28,9 +125,15 @@ export function SimpleAudioPlayer({ durationLabel, text, title }: SimpleAudioPla
 
   const startPlayback = () => {
     window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
+    const utterance = new SpeechSynthesisUtterance(preparedText);
     utterance.lang = "de-DE";
-    utterance.rate = 0.92;
+    utterance.rate = playbackMode === "announcement" ? 0.82 : 0.86;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    if (selectedVoice) {
+      utterance.voice = selectedVoice;
+      utterance.lang = selectedVoice.lang;
+    }
     utterance.onend = () => {
       setIsPlaying(false);
       setIsPaused(false);
