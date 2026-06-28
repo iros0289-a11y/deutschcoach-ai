@@ -592,7 +592,7 @@ const styles = StyleSheet.create({
     flexBasis: "31%",
     overflow: "hidden"
   },
-  photoThumbActive: { borderColor: colors.speaking, backgroundColor: "#F3E8FF" },
+  photoThumbActive: { borderColor: colors.speaking, backgroundColor: "#EEF4FA" },
   photoThumbPressed: { opacity: 0.84 },
   photoThumbImage: {
     backgroundColor: colors.background,
@@ -624,7 +624,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm
   },
-  choiceChipSelected: { backgroundColor: "#F3E8FF", borderColor: colors.speaking },
+  choiceChipSelected: { backgroundColor: "#EEF4FA", borderColor: colors.speaking },
   choiceChipText: { ...typography.caption, color: colors.textPrimary },
   choiceChipTextSelected: { color: colors.speaking },
   roleGrid: { gap: spacing.md },

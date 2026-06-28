@@ -1,4 +1,4 @@
-﻿export type ChoiceOption = {
+export type ChoiceOption = {
   id: string;
   label: string;
   text: string;
@@ -95,70 +95,70 @@ export const readingMatchingTask: ReadingMatchingTask = {
     {
       id: "ad-a",
       title: "Deutsch am Abend",
-      body: "Berufssprachkurs fuer Erwachsene. Dienstag und Donnerstag von 18 bis 20 Uhr. Schwerpunkt: Telefonieren, E Mails und Gespraeche im Beruf.",
+      body: "Berufssprachkurs für Erwachsene. Dienstag und Donnerstag von 18 bis 20 Uhr. Schwerpunkt: Telefonieren, E-Mails und Gespräche im Beruf.",
       contact: "sprachhaus-bonn.de"
     },
     {
       id: "ad-b",
       title: "WG-Zimmer mit Busanbindung",
-      body: "16 Quadratmeter, moebliert, ab sofort frei. Supermarkt und Bushaltestelle direkt vor dem Haus. Nur fuer Nichtraucher.",
+      body: "16 Quadratmeter, möbliert, ab sofort frei. Supermarkt und Bushaltestelle direkt vor dem Haus. Nur für Nichtraucher.",
       contact: "0176 344 1022"
     },
     {
       id: "ad-c",
       title: "Kinderfahrrad gesucht",
-      body: "Familie sucht ein gut erhaltenes Fahrrad fuer ein achtjaehriges Kind. Bitte nur Angebote aus dem Raum Koeln.",
+      body: "Familie sucht ein gut erhaltenes Fahrrad für ein achtjaehriges Kind. Bitte nur Angebote aus dem Raum Köln.",
       contact: "familie-kaya@mail.de"
     },
     {
       id: "ad-d",
       title: "Nachhilfe Mathematik",
-      body: "Erfahrene Lehrerin bietet Nachhilfe fuer Klasse 5 bis 10. Unterricht am Nachmittag oder online am Abend.",
+      body: "Erfahrene Lehrerin bietet Nachhilfe für Klasse 5 bis 10. Unterricht am Nachmittag oder online am Abend.",
       contact: "0221 882214"
     },
     {
       id: "ad-e",
       title: "Flohmarkt im Innenhof",
-      body: "Samstag von 10 bis 15 Uhr. Kleidung, Geschirr, Spielzeug und kleine Moebel. Kaffee und Kuchen gibt es auch.",
+      body: "Samstag von 10 bis 15 Uhr. Kleidung, Geschirr, Spielzeug und kleine Möbel. Kaffee und Kuchen gibt es auch.",
       contact: "Innenhof der Lindenstrasse 12"
     },
     {
       id: "ad-f",
       title: "Teilzeitkraft im Cafe",
-      body: "Cafe am Markt sucht freundliche Servicekraft fuer drei Vormittage pro Woche. Gute Deutschkenntnisse sind wichtig.",
+      body: "Cafe am Markt sucht freundliche Servicekraft für drei Vormittage pro Woche. Gute Deutschkenntnisse sind wichtig.",
       contact: "bewerbung@cafe-am-markt.de"
     }
   ],
   situations: [
     {
       id: "reading-match-s1",
-      text: "Sie arbeiten tagsueber und moechten Ihr Deutsch fuer den Beruf verbessern.",
+      text: "Sie arbeiten tagsüber und möchten Ihr Deutsch für den Beruf verbessern.",
       correctId: "ad-a",
-      correctReason: "Nur Anzeige A verbindet Berufsdeutsch mit Abendzeiten fuer Erwachsene.",
+      correctReason: "Nur Anzeige A verbindet Berufsdeutsch mit Abendzeiten für Erwachsene.",
       incorrectReasonByOption: {
         "ad-b": "Ein Zimmer passt nicht zu einem Sprachkurswunsch.",
         "ad-c": "Hier wird ein Fahrrad gesucht, kein Kurs angeboten.",
-        "ad-d": "Nachhilfe in Mathematik hilft nicht beim Deutsch fuer den Beruf.",
-        "ad-e": "Ein Flohmarkt ist keine Lernmoeglichkeit.",
+        "ad-d": "Nachhilfe in Mathematik hilft nicht beim Deutsch für den Beruf.",
+        "ad-e": "Ein Flohmarkt ist keine Lernmöglichkeit.",
         "ad-f": "Das ist ein Jobangebot und kein Sprachkurs."
       },
-      learningTip: "Pruefen Sie bei Anzeigen immer Thema, Zielgruppe und Uhrzeit zusammen.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Die beste Anzeige passt inhaltlich und organisatorisch."
+      learningTip: "Prüfen Sie bei Anzeigen immer Thema, Zielgruppe und Uhrzeit zusammen.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Die beste Anzeige passt inhaltlich und organisatorisch."
     },
     {
       id: "reading-match-s2",
-      text: "Sie suchen eine kleine Wohnung oder ein Zimmer und moechten ohne Auto gut in die Stadt kommen.",
+      text: "Sie suchen eine kleine Wohnung oder ein Zimmer und möchten ohne Auto gut in die Stadt kommen.",
       correctId: "ad-b",
       correctReason: "Anzeige B bietet ein WG Zimmer und nennt direkt die gute Busanbindung.",
       incorrectReasonByOption: {
-        "ad-a": "Ein Kurs ersetzt keine Wohnmoeglichkeit.",
+        "ad-a": "Ein Kurs ersetzt keine Wohnmöglichkeit.",
         "ad-c": "Diese Anzeige sucht selbst etwas und bietet kein Zimmer an.",
         "ad-d": "Nachhilfe ist kein Wohnangebot.",
         "ad-e": "Ein Flohmarkt ist nur eine Veranstaltung.",
-        "ad-f": "Ein Jobangebot loest nicht die Wohnungsfrage."
+        "ad-f": "Ein Jobangebot löst nicht die Wohnungsfrage."
       },
-      learningTip: "Suchen Sie nach Schluesselwoertern wie Zimmer, moebliert, frei oder Bushaltestelle.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Oft reicht ein einzelnes Schlagwort nicht; mehrere Details muessen passen."
+      learningTip: "Suchen Sie nach Schlüsselwörtern wie Zimmer, möbliert, frei oder Bushaltestelle.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Oft reicht ein einzelnes Schlagwort nicht; mehrere Details müssen passen."
     },
     {
       id: "reading-match-s3",
@@ -166,37 +166,37 @@ export const readingMatchingTask: ReadingMatchingTask = {
       correctId: "ad-d",
       correctReason: "Nur Anzeige D nennt Nachhilfe in Mathematik und Zeiten am Nachmittag.",
       incorrectReasonByOption: {
-        "ad-a": "Es geht dort um Deutsch im Beruf, nicht um Mathe fuer Schueler.",
+        "ad-a": "Es geht dort um Deutsch im Beruf, nicht um Mathe für Schueler.",
         "ad-b": "Ein WG Zimmer hilft dem Kind nicht bei Mathe.",
         "ad-c": "Hier wird ein Fahrrad gesucht.",
         "ad-e": "Ein Flohmarkt bietet keinen Unterricht.",
         "ad-f": "Das ist eine Stelle im Service und keine Nachhilfe."
       },
       learningTip: "Bei Schulthemen sind Fach, Klasse und Uhrzeit oft die wichtigsten Informationen.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Angebote fuer Erwachsene und fuer Kinder muessen sauber getrennt werden."
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Angebote für Erwachsene und für Kinder müssen sauber getrennt werden."
     },
     {
       id: "reading-match-s4",
-      text: "Sie suchen eine kleine Arbeit fuer einige Vormittage in der Woche und sprechen gern mit Menschen.",
+      text: "Sie suchen eine kleine Arbeit für einige Vormittage in der Woche und sprechen gern mit Menschen.",
       correctId: "ad-f",
-      correctReason: "Anzeige F beschreibt genau eine Teilzeitstelle an drei Vormittagen mit Kontakt zu Gaesten.",
+      correctReason: "Anzeige F beschreibt genau eine Teilzeitstelle an drei Vormittagen mit Kontakt zu Gästen.",
       incorrectReasonByOption: {
         "ad-a": "Der Sprachkurs ist keine bezahlte Arbeit.",
         "ad-b": "Ein Zimmer ist kein Job.",
-        "ad-c": "Die Anzeige ist eine Suchanzeige fuer ein Fahrrad.",
+        "ad-c": "Die Anzeige ist eine Suchanzeige für ein Fahrrad.",
         "ad-d": "Hier wird Unterricht angeboten, keine Servicearbeit.",
-        "ad-e": "Der Flohmarkt ist eine einzelne Veranstaltung und keine regelmaessige Stelle."
+        "ad-e": "Der Flohmarkt ist eine einzelne Veranstaltung und keine regelmäßige Stelle."
       },
       learningTip: "Achten Sie bei Jobanzeigen auf Umfang, Arbeitszeit und geforderte Faehigkeiten.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Verwechseln Sie kein einmaliges Ereignis mit einem festen Job."
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Verwechseln Sie kein einmaliges Ereignis mit einem festen Job."
     }
   ]
 };
 
 export const readingBuildingTask: ReadingBuildingTask = {
   id: "reading-building-01",
-  title: "Gebaeudeplan zuordnen",
-  buildingName: "Buergerzentrum Nord",
+  title: "Gebäudeplan zuordnen",
+  buildingName: "Bürgerzentrum Nord",
   instruction: "Lesen Sie die Informationen und ordnen Sie die richtige Etage zu.",
   levels: [
     {
@@ -217,12 +217,12 @@ export const readingBuildingTask: ReadingBuildingTask = {
     {
       id: "level-3",
       name: "3. Stock",
-      places: ["Schuldnerberatung", "Sozialdienst", "Seniorenbuero"]
+      places: ["Schuldnerberatung", "Sozialdienst", "Seniorenbüro"]
     },
     {
       id: "level-4",
       name: "4. Stock",
-      places: ["Veranstaltungssaal", "Seminarraeume", "Elterncafe"]
+      places: ["Veranstaltungssaal", "Seminarräume", "Elterncafe"]
     }
   ],
   situations: [
@@ -237,36 +237,36 @@ export const readingBuildingTask: ReadingBuildingTask = {
         "level-3": "Beratungsstellen helfen hier bei sozialen Fragen, nicht bei Dokumenten.",
         "level-4": "Im 4. Stock finden Veranstaltungen statt."
       },
-      learningTip: "Bei Gebaeudeplaenen hilft es, das gesuchte Anliegen in ein Schluesselwort zu uebersetzen, hier: Ausweis.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Die richtige Etage erkennt man oft an einem Fachbegriff wie Passstelle oder Meldeamt."
+      learningTip: "Bei Gebäudeplaenen hilft es, das gesuchte Anliegen in ein Schlüsselwort zu übersetzen, hier: Ausweis.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Die richtige Etage erkennt man oft an einem Fachbegriff wie Passstelle oder Meldeamt."
     },
     {
       id: "reading-building-s2",
-      text: "Frau Demir sucht Hilfe fuer eine Bewerbung und moechte ihren Lebenslauf verbessern.",
+      text: "Frau Demir sucht Hilfe für eine Bewerbung und möchte ihren Lebenslauf verbessern.",
       correctId: "level-2",
       correctReason: "Im 2. Stock befinden sich Jobberatung und Bewerbungsservice.",
       incorrectReasonByOption: {
         "level-0": "Unten gibt es keine Arbeitsberatung.",
         "level-1": "Dort werden Dokumente und Familienfragen bearbeitet.",
-        "level-3": "Der 3. Stock ist fuer Sozial- und Schuldnerberatung.",
-        "level-4": "Seminarraeume und Elterncafe helfen nicht direkt beim Lebenslauf."
+        "level-3": "Der 3. Stock ist für Sozial- und Schuldnerberatung.",
+        "level-4": "Seminarräume und Elterncafe helfen nicht direkt beim Lebenslauf."
       },
-      learningTip: "Achten Sie auf Woerter wie Bewerbung, Arbeit oder Lebenslauf. Sie fuehren oft direkt zur passenden Stelle.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Ein Gesuch nach Arbeit gehoert nicht automatisch ins Erdgeschoss oder zur Information."
+      learningTip: "Achten Sie auf Wörter wie Bewerbung, Arbeit oder Lebenslauf. Sie fuehren oft direkt zur passenden Stelle.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Ein Gesuch nach Arbeit gehoert nicht automatisch ins Erdgeschoss oder zur Information."
     },
     {
       id: "reading-building-s3",
-      text: "Ein Senior moechte sich ueber Freizeitangebote fuer aeltere Menschen informieren.",
+      text: "Ein Senior möchte sich über Freizeitangebote für ältere Menschen informieren.",
       correctId: "level-3",
-      correctReason: "Im 3. Stock liegt das Seniorenbuero. Dort gibt es Angebote und Beratung fuer aeltere Menschen.",
+      correctReason: "Im 3. Stock liegt das Seniorenbüro. Dort gibt es Angebote und Beratung für ältere Menschen.",
       incorrectReasonByOption: {
         "level-0": "Die Information kann nur weiterleiten, ist aber nicht die eigentliche Fachstelle.",
-        "level-1": "Der 1. Stock ist fuer Meldeamt, Passstelle und Familienservice.",
+        "level-1": "Der 1. Stock ist für Meldeamt, Passstelle und Familienservice.",
         "level-2": "Im 2. Stock stehen Beruf und Sprache im Mittelpunkt.",
-        "level-4": "Veranstaltungsraeume sind nicht automatisch das Seniorenbuero."
+        "level-4": "Veranstaltungsräume sind nicht automatisch das Seniorenbüro."
       },
-      learningTip: "Pruefen Sie, ob die Person Informationen, ein Formular oder eine Veranstaltung sucht. Das ist nicht dasselbe.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Fachstellen sind oft besser als allgemeine Infopunkte."
+      learningTip: "Prüfen Sie, ob die Person Informationen, ein Formular oder eine Veranstaltung sucht. Das ist nicht dasselbe.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Fachstellen sind oft besser als allgemeine Infopunkte."
     }
   ]
 };
@@ -278,28 +278,28 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     title: "Nachricht von der Hausverwaltung",
     sourceTitle: "E-Mail der Hausverwaltung Morgenstern",
     text:
-      "Sehr geehrte Mieterinnen und Mieter,\n\nam kommenden Mittwoch, den 14. August, werden im Haus Lindenweg 6 Wartungsarbeiten an der Heizungsanlage durchgefuehrt. Deshalb wird das warme Wasser voraussichtlich zwischen 8 Uhr und 14 Uhr abgestellt. Bitte lassen Sie in dieser Zeit die Heizkoerper ausgeschaltet und sorgen Sie dafuer, dass der Zugang zum Keller frei bleibt, damit die Handwerker ohne Verzoegerung arbeiten koennen.\n\nFalls Sie an diesem Tag Besuch von einem Pflegedienst oder anderen Dienstleistern erwarten, informieren Sie diese bitte ueber die Arbeiten. Bei Fragen erreichen Sie uns bis Dienstag um 17 Uhr telefonisch oder per E-Mail.\n\nMit freundlichen Gruessen\nIhre Hausverwaltung",
+      "Sehr geehrte Mieterinnen und Mieter,\n\nam kommenden Mittwoch, den 14. August, werden im Haus Lindenweg 6 Wartungsarbeiten an der Heizungsanlage durchgeführt. Deshalb wird das warme Wasser voraussichtlich zwischen 8 Uhr und 14 Uhr abgestellt. Bitte lassen Sie in dieser Zeit die Heizkörper ausgeschaltet und sorgen Sie dafür, dass der Zugang zum Keller frei bleibt, damit die Handwerker ohne Verzögerung arbeiten können.\n\nFalls Sie an diesem Tag Besuch von einem Pflegedienst oder anderen Dienstleistern erwarten, informieren Sie diese bitte über die Arbeiten. Bei Fragen erreichen Sie uns bis Dienstag um 17 Uhr telefonisch oder per E-Mail.\n\nMit freundlichen Grüßen\nIhre Hausverwaltung",
     statement: {
-      text: "Am Mittwoch gibt es fuer einige Stunden kein warmes Wasser.",
+      text: "Am Mittwoch gibt es für einige Stunden kein warmes Wasser.",
       correctAnswer: true,
       correctReason: "Die E-Mail sagt deutlich, dass das warme Wasser von 8 Uhr bis 14 Uhr abgestellt wird.",
       incorrectReason: "Die Aussage ist richtig, weil die Unterbrechung des warmen Wassers im ersten Absatz direkt genannt wird."
     },
-    question: "Was sollen die Mieterinnen und Mieter zusaetzlich beachten?",
+    question: "Was sollen die Mieterinnen und Mieter zusätzlich beachten?",
     options: [
-      { id: "a", label: "A", text: "Sie sollen den Keller frei zugÃ¤nglich lassen." },
+      { id: "a", label: "A", text: "Sie sollen den Keller frei zugänglich lassen." },
       { id: "b", label: "B", text: "Sie sollen am Mittwoch zu Hause bleiben." },
       { id: "c", label: "C", text: "Sie sollen die Reparatur selbst bezahlen." }
     ],
     correctOptionId: "a",
     feedback: {
-      correctReason: "Im Text steht, dass der Zugang zum Keller frei bleiben soll, damit die Handwerker arbeiten koennen.",
+      correctReason: "Im Text steht, dass der Zugang zum Keller frei bleiben soll, damit die Handwerker arbeiten können.",
       incorrectReasonByOption: {
         b: "Niemand muss zu Hause bleiben. Im Text wird nur auf den freien Zugang zum Keller hingewiesen.",
         c: "Von Kosten oder eigener Bezahlung steht in der E-Mail nichts."
       },
       learningTip: "Lesen Sie bei E-Mails nicht nur das Hauptproblem, sondern auch konkrete Handlungsanweisungen.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Nebensaetze mit damit oder bitte enthalten oft die Antwort."
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Nebensätze mit damit oder bitte enthalten oft die Antwort."
     }
   },
   {
@@ -308,28 +308,28 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     title: "Aushang im Sprachzentrum",
     sourceTitle: "Information im Foyer des Sprachzentrums",
     text:
-      "Wichtige Information fuer alle Teilnehmenden des Abendkurses B1:\n\nAb Montag, dem 2. September, findet der Unterricht nicht mehr in Raum 204 statt. Wegen Umbauarbeiten zieht der Kurs fuer etwa drei Wochen in Raum 118 im Erdgeschoss um. Die Unterrichtszeiten bleiben unveraendert: Montag und Mittwoch von 18.15 Uhr bis 20.30 Uhr. Bitte kommen Sie in den ersten Tagen einige Minuten frueher, weil die neue Anwesenheitsliste vor dem Unterricht unterschrieben werden muss.\n\nLehrmaterialien, die bereits gekauft wurden, koennen weiter benutzt werden. Wer noch kein Kursbuch hat, kann am Montag vor Unterrichtsbeginn im Sekretariat ein Exemplar kaufen.",
+      "Wichtige Information für alle Teilnehmenden des Abendkurses B1:\n\nAb Montag, dem 2. September, findet der Unterricht nicht mehr in Raum 204 statt. Wegen Umbauarbeiten zieht der Kurs für etwa drei Wochen in Raum 118 im Erdgeschoss um. Die Unterrichtszeiten bleiben unverändert: Montag und Mittwoch von 18.15 Uhr bis 20.30 Uhr. Bitte kommen Sie in den ersten Tagen einige Minuten früher, weil die neue Anwesenheitsliste vor dem Unterricht unterschrieben werden muss.\n\nLehrmaterialien, die bereits gekauft wurden, können weiter benutzt werden. Wer noch kein Kursbuch hat, kann am Montag vor Unterrichtsbeginn im Sekretariat ein Exemplar kaufen.",
     statement: {
-      text: "Die Unterrichtszeiten des Abendkurses aendern sich im September.",
+      text: "Die Unterrichtszeiten des Abendkurses ändern sich im September.",
       correctAnswer: false,
-      correctReason: "Die Aussage ist falsch. Im Aushang steht ausdruecklich, dass die Unterrichtszeiten unveraendert bleiben.",
-      incorrectReason: "Wenn Sie falsch gewaehlt haben, haben Sie richtig erkannt, dass nur der Raum wechselt, nicht die Zeit."
+      correctReason: "Die Aussage ist falsch. Im Aushang steht ausdrücklich, dass die Unterrichtszeiten unverändert bleiben.",
+      incorrectReason: "Wenn Sie falsch gewähllt haben, haben Sie richtig erkannt, dass nur der Raum wechselt, nicht die Zeit."
     },
-    question: "Warum sollen die Teilnehmenden am Anfang frueher kommen?",
+    question: "Warum sollen die Teilnehmenden am Anfang früher kommen?",
     options: [
       { id: "a", label: "A", text: "Weil zuerst ein neuer Sprachtest geschrieben wird." },
-      { id: "b", label: "B", text: "Weil sie vor dem Unterricht eine Liste unterschreiben muessen." },
-      { id: "c", label: "C", text: "Weil das Sekretariat frueher schliesst." }
+      { id: "b", label: "B", text: "Weil sie vor dem Unterricht eine Liste unterschreiben müssen." },
+      { id: "c", label: "C", text: "Weil das Sekretariat früher schliesst." }
     ],
     correctOptionId: "b",
     feedback: {
       correctReason: "Im Text steht, dass in den ersten Tagen vor dem Unterricht die neue Anwesenheitsliste unterschrieben werden muss.",
       incorrectReasonByOption: {
-        a: "Ein Sprachtest wird nirgends erwaehnt.",
-        c: "Die Schliesszeit des Sekretariats ist fuer diesen Hinweis nicht der Grund."
+        a: "Ein Sprachtest wird nirgends erwählnt.",
+        c: "Die Schließzeit des Sekretariats ist für diesen Hinweis nicht der Grund."
       },
-      learningTip: "Bei Aushaengen steckt der Grund oft direkt nach weil oder da.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Raumwechsel, Zeit und Zusatzaufgaben muessen sauber getrennt werden."
+      learningTip: "Bei Aushängen steckt der Grund oft direkt nach weil oder da.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Raumwechsel, Zeit und Zusatzaufgaben müssen sauber getrennt werden."
     }
   },
   {
@@ -338,9 +338,9 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     title: "Verbindung zum Flughafen",
     sourceTitle: "Auszug aus dem Fahrplan Bonn Hauptbahnhof - Flughafen",
     text:
-      "Linie RE 8\nBonn Hbf ab 08:12 - Troisdorf 08:29 - Flughafen Terminal 08:41\nBonn Hbf ab 08:42 - Troisdorf 08:59 - Flughafen Terminal 09:11\nBonn Hbf ab 09:12 - Troisdorf 09:29 - Flughafen Terminal 09:41\n\nLinie S 13\nBonn Hbf ab 08:25 - Beuel 08:31 - Flughafen Terminal 08:57\nBonn Hbf ab 08:55 - Beuel 09:01 - Flughafen Terminal 09:27\n\nHinweis: Der RE 8 faehrt schneller, die S 13 haelt an mehr Stationen.",
+      "Linie RE 8\nBonn Hbf ab 08:12 - Troisdorf 08:29 - Flughafen Terminal 08:41\nBonn Hbf ab 08:42 - Troisdorf 08:59 - Flughafen Terminal 09:11\nBonn Hbf ab 09:12 - Troisdorf 09:29 - Flughafen Terminal 09:41\n\nLinie S 13\nBonn Hbf ab 08:25 - Beuel 08:31 - Flughafen Terminal 08:57\nBonn Hbf ab 08:55 - Beuel 09:01 - Flughafen Terminal 09:27\n\nHinweis: Der RE 8 fährt schneller, die S 13 haelt an mehr Stationen.",
     statement: {
-      text: "Die S 13 braucht laenger bis zum Flughafen als der RE 8.",
+      text: "Die S 13 braucht länger bis zum Flughafen als der RE 8.",
       correctAnswer: true,
       correctReason: "Der RE 8 von 08:12 bis 08:41 braucht 29 Minuten. Die S 13 von 08:25 bis 08:57 braucht 32 Minuten und ist damit langsamer.",
       incorrectReason: "Die Aussage ist richtig. Das sieht man am direkten Zeitvergleich und am Hinweis unter dem Fahrplan."
@@ -355,11 +355,11 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     feedback: {
       correctReason: "Der RE 8 um 08:42 kommt um 09:11 an und ist damit die erste Verbindung nach 9 Uhr.",
       incorrectReasonByOption: {
-        b: "Die S 13 um 08:55 kommt erst um 09:24 an und ist spaeter.",
+        b: "Die S 13 um 08:55 kommt erst um 09:24 an und ist später.",
         c: "Der RE 8 um 09:12 erreicht den Flughafen erst um 09:41."
       },
       learningTip: "Vergleichen Sie bei Fahrplaenen immer Abfahrts- und Ankunftszeit. Nur die Abfahrt reicht nicht.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Bei Fahrplaenen wird oft nach der fruehesten passenden Ankunft gefragt."
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Bei Fahrplaenen wird oft nach der frühesten passenden Ankunft gefragt."
     }
   },
   {
@@ -368,14 +368,14 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     title: "Nachricht aus dem Kindergarten",
     sourceTitle: "E-Mail der Kita Regenbogen",
     text:
-      "Liebe Eltern,\n\nam Donnerstag macht unsere Gruppe einen Ausflug in den Stadtpark. Bitte bringen Sie Ihr Kind spaetestens um 8.15 Uhr in die Kita, weil der Bus schon um 8.30 Uhr abfaehrt. Denken Sie auch an wetterfeste Kleidung, eine Trinkflasche und ein kleines Fruehstueck ohne Schokolade. Das Mittagessen bekommen die Kinder wie gewohnt in der Kita, wenn wir gegen 13 Uhr zurueck sind.\n\nFalls Ihr Kind an diesem Tag Medikamente braucht, sprechen Sie bitte spaetestens bis Mittwoch mit uns. Bei starkem Regen faellt der Ausflug nicht aus; wir besuchen dann stattdessen das Kindermuseum.\n\nViele Gruesse\nIhr Kita-Team",
+      "Liebe Eltern,\n\nam Donnerstag macht unsere Gruppe einen Ausflug in den Stadtpark. Bitte bringen Sie Ihr Kind spätestens um 8.15 Uhr in die Kita, weil der Bus schon um 8.30 Uhr abfährt. Denken Sie auch an wetterfeste Kleidung, eine Trinkflasche und ein kleines Frühstueck ohne Schokolade. Das Mittagessen bekommen die Kinder wie gewohnt in der Kita, wenn wir gegen 13 Uhr zurück sind.\n\nFalls Ihr Kind an diesem Tag Medikamente braucht, sprechen Sie bitte spätestens bis Mittwoch mit uns. Bei starkem Regen fällt der Ausflug nicht aus; wir besuchen dann stattdessen das Kindermuseum.\n\nViele Grüße\nIhr Kita-Team",
     statement: {
       text: "Die Kinder essen mittags im Stadtpark.",
       correctAnswer: false,
-      correctReason: "Die Aussage ist falsch. Im Text steht, dass das Mittagessen wie gewohnt in der Kita stattfindet, wenn die Gruppe zurueck ist.",
-      incorrectReason: "Wenn Sie falsch gewaehlt haben, haben Sie richtig erkannt, dass nur das Fruehstueck mitgenommen wird."
+      correctReason: "Die Aussage ist falsch. Im Text steht, dass das Mittagessen wie gewohnt in der Kita stattfindet, wenn die Gruppe zurück ist.",
+      incorrectReason: "Wenn Sie falsch gewähllt haben, haben Sie richtig erkannt, dass nur das Frühstueck mitgenommen wird."
     },
-    question: "Was sollen die Eltern zusaetzlich beachten?",
+    question: "Was sollen die Eltern zusätzlich beachten?",
     options: [
       { id: "a", label: "A", text: "Sie sollen eine warme Mahlzeit mitgeben." },
       { id: "b", label: "B", text: "Sie sollen bei Medikamenten vorher mit der Kita sprechen." },
@@ -383,13 +383,13 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     ],
     correctOptionId: "b",
     feedback: {
-      correctReason: "Im letzten Absatz steht, dass Eltern bei Medikamenten spaetestens bis Mittwoch mit der Kita sprechen sollen.",
+      correctReason: "Im letzten Absatz steht, dass Eltern bei Medikamenten spätestens bis Mittwoch mit der Kita sprechen sollen.",
       incorrectReasonByOption: {
-        a: "Eine warme Mahlzeit ist nicht noetig. Das Mittagessen gibt es spaeter in der Kita.",
-        c: "8.30 Uhr ist zu spaet, weil der Bus dann schon abfaehrt."
+        a: "Eine warme Mahlzeit ist nicht nötig. Das Mittagessen gibt es später in der Kita.",
+        c: "8.30 Uhr ist zu spät, weil der Bus dann schon abfährt."
       },
       learningTip: "Achten Sie bei E-Mails an Eltern auf Uhrzeiten, Mitbringsachen und Sonderhinweise am Ende des Textes.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Oft steht die eigentliche Zusatzinformation nicht am Anfang, sondern im letzten Absatz."
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Oft steht die eigentliche Zusatzinformation nicht am Anfang, sondern im letzten Absatz."
     }
   },
   {
@@ -398,28 +398,28 @@ export const readingDualQuestionTasks: ReadingDualQuestionTask[] = [
     title: "Information im Fitnessstudio",
     sourceTitle: "Aushang am Empfang",
     text:
-      "Wichtige Information fuer alle Mitglieder:\n\nVon Montag, 7. Oktober, bis Freitag, 11. Oktober, wird der grosse Kursraum im ersten Stock renoviert. Deshalb finden alle Gruppenangebote in dieser Woche in anderen Raeumen statt. Yoga am Montag und Mittwoch beginnt wie gewohnt um 18 Uhr, jetzt aber im Bewegungsraum neben dem Empfang. Der Rueckenkurs am Dienstag startet eine halbe Stunde spaeter, also erst um 19.30 Uhr, weil das Trainerteam vorher noch Geraete umstellen muss.\n\nMitglieder, die in dieser Woche nur an Kursen teilnehmen, duerfen kostenlos auch den Saunabereich benutzen. Aktuelle Raumplaene liegen am Empfang aus.",
+      "Wichtige Information für alle Mitglieder:\n\nVon Montag, 7. Oktober, bis Freitag, 11. Oktober, wird der große Kursraum im ersten Stock renoviert. Deshalb finden alle Gruppenangebote in dieser Woche in anderen Räumen statt. Yoga am Montag und Mittwoch beginnt wie gewohnt um 18 Uhr, jetzt aber im Bewegungsraum neben dem Empfang. Der Rückenkurs am Dienstag startet eine halbe Stunde später, also erst um 19.30 Uhr, weil das Trainerteam vorher noch Geräte umstellen muss.\n\nMitglieder, die in dieser Woche nur an Kursen teilnehmen, dürfen kostenlos auch den Saunabereich benutzen. Aktuelle Raumplaene liegen am Empfang aus.",
     statement: {
-      text: "Der Rueckenkurs beginnt in dieser Woche frueher als sonst.",
+      text: "Der Rückenkurs beginnt in dieser Woche früher als sonst.",
       correctAnswer: false,
-      correctReason: "Die Aussage ist falsch. Im Aushang steht, dass der Rueckenkurs eine halbe Stunde spaeter startet.",
-      incorrectReason: "Wenn Sie falsch gewaehlt haben, haben Sie die Schluesselstelle erst um 19.30 Uhr richtig gelesen."
+      correctReason: "Die Aussage ist falsch. Im Aushang steht, dass der Rückenkurs eine halbe Stunde später startet.",
+      incorrectReason: "Wenn Sie falsch gewähllt haben, haben Sie die Schlüsselstelle erst um 19.30 Uhr richtig gelesen."
     },
-    question: "Warum beginnt der Rueckenkurs spaeter?",
+    question: "Warum beginnt der Rückenkurs später?",
     options: [
       { id: "a", label: "A", text: "Weil zuerst ein neuer Raumplan ausliegt." },
-      { id: "b", label: "B", text: "Weil vorher Geraete umgestellt werden." },
+      { id: "b", label: "B", text: "Weil vorher Geräte umgestellt werden." },
       { id: "c", label: "C", text: "Weil der Trainer krank ist." }
     ],
     correctOptionId: "b",
     feedback: {
-      correctReason: "Der Grund steht direkt im Text: Das Trainerteam muss vorher noch Geraete umstellen.",
+      correctReason: "Der Grund steht direkt im Text: Das Trainerteam muss vorher noch Geräte umstellen.",
       incorrectReasonByOption: {
-        a: "Der Raumplan liegt nur am Empfang aus, ist aber nicht der Grund fuer die spaetere Uhrzeit.",
+        a: "Der Raumplan liegt nur am Empfang aus, ist aber nicht der Grund für die spätere Uhrzeit.",
         c: "Von Krankheit steht im Aushang nichts."
       },
-      learningTip: "Bei Aushaengen helfen Signalwoerter wie deshalb, weil und also besonders schnell zur Loesung.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Verwechseln Sie eine Organisationsinfo nicht mit dem eigentlichen Grund."
+      learningTip: "Bei Aushängen helfen Signalwörter wie deshalb, weil und also besonders schnell zur Lösung.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Verwechseln Sie eine Organisationsinfo nicht mit dem eigentlichen Grund."
     }
   }
 ];
@@ -429,13 +429,13 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
     id: "reading-gap-01",
     title: "Information vor dem Elternabend",
     topic: "Schule",
-    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
+    instruction: "Lesen Sie den Text. Wähllen Sie für jede Lücke die passende Antwort A, B oder C.",
     segments: [
-      "Naechste Woche findet an der Grundschule Sonnenblick ein Elternabend fuer die neuen ersten Klassen statt. Der Abend beginnt ",
-      " in der Aula. Dort erhalten die Eltern Informationen ueber Unterrichtszeiten, Materiallisten und die ersten Projekttage. ",
-      " werden auch Fragen zum Schulweg und zur Mittagsbetreuung besprochen. Deshalb bittet die Schule alle Familien, schon einige Minuten frueher zu kommen, ",
-      " sie sich vor dem offiziellen Beginn in eine Liste eintragen muessen. Fuer juengere Geschwister gibt es in dieser Zeit eine Spielecke im Nebenraum; die Betreuung ist ",
-      ". Wer eine Uebersetzung in Arabisch oder Tuerkisch benoetigt, kann das bis Dienstag im Sekretariat melden, ",
+      "Nächste Woche findet an der Grundschule Sonnenblick ein Elternabend für die neuen ersten Klassen statt. Der Abend beginnt ",
+      " in der Aula. Dort erhalten die Eltern Informationen über Unterrichtszeiten, Materiallisten und die ersten Projekttage. ",
+      " werden auch Fragen zum Schulweg und zur Mittagsbetreuung besprochen. Deshalb bittet die Schule alle Familien, schon einige Minuten früher zu kommen, ",
+      " sie sich vor dem offiziellen Beginn in eine Liste eintragen müssen. Für jüngere Geschwister gibt es in dieser Zeit eine Spielecke im Nebenraum; die Betreuung ist ",
+      ". Wer eine Übersetzung in Arabisch oder Türkisch benötigt, kann das bis Dienstag im Sekretariat melden, ",
       " die Schule die passenden Unterlagen vorbereiten kann."
     ],
     gaps: [
@@ -449,19 +449,19 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         ],
         correctOptionId: "a",
         clue: "Nach beginnt braucht man eine Zeitangabe mit um. Deshalb ist um 18 Uhr grammatisch und inhaltlich richtig.",
-        wrongChoiceGuidance: "Die anderen Antworten benutzen die falsche Praeposition. Bei Uhrzeiten steht im Deutschen hier um."
+        wrongChoiceGuidance: "Die anderen Antworten benutzen die falsche Präposition. Bei Uhrzeiten steht im Deutschen hier um."
       },
       {
         id: "gap-2",
         label: "2",
         options: [
-          { id: "a", label: "A", text: "Ausserdem" },
+          { id: "a", label: "A", text: "Außerdem" },
           { id: "b", label: "B", text: "Trotzdem" },
           { id: "c", label: "C", text: "Danach" }
         ],
         correctOptionId: "a",
-        clue: "Hier wird ein weiterer Inhalt des Elternabends ergaenzt. Ausserdem passt als verbindendes Signalwort.",
-        wrongChoiceGuidance: "Trotzdem wuerde einen Gegensatz ausdruecken, den es hier nicht gibt. Danach passt nicht, weil keine Reihenfolge beschrieben wird."
+        clue: "Hier wird ein weiterer Inhalt des Elternabends ergaenzt. Außerdem passt als verbindendes Signalwort.",
+        wrongChoiceGuidance: "Trotzdem würde einen Gegensatz ausdrücken, den es hier nicht gibt. Danach passt nicht, weil keine Reihenfolge beschrieben wird."
       },
       {
         id: "gap-3",
@@ -472,8 +472,8 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
           { id: "c", label: "C", text: "weil" }
         ],
         correctOptionId: "c",
-        clue: "Nach deshalb wird der Grund fuer das fruehe Kommen genannt. Mit weil wird dieser Grund korrekt eingeleitet.",
-        wrongChoiceGuidance: "Obwohl drueckt einen Gegensatz aus. Damit beschreibt eher ein Ziel und passt hier nicht direkt zur Begruendung."
+        clue: "Nach deshalb wird der Grund für das frühe Kommen genannt. Mit weil wird dieser Grund korrekt eingeleitet.",
+        wrongChoiceGuidance: "Obwohl drückt einen Gegensatz aus. Damit beschreibt eher ein Ziel und passt hier nicht direkt zur Begründung."
       },
       {
         id: "gap-4",
@@ -496,24 +496,24 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
           { id: "c", label: "C", text: "ob" }
         ],
         correctOptionId: "b",
-        clue: "Hier wird das Ziel der Rueckmeldung beschrieben: damit die Schule Unterlagen vorbereiten kann.",
-        wrongChoiceGuidance: "Falls wuerde eine Bedingung ausdruecken. Ob passt nicht, weil hier kein indirekter Fragesatz folgt."
+        clue: "Hier wird das Ziel der Rückmeldung beschrieben: damit die Schule Unterlagen vorbereiten kann.",
+        wrongChoiceGuidance: "Falls würde eine Bedingung ausdrücken. Ob passt nicht, weil hier kein indirekter Fragesatz folgt."
       }
     ],
-    learningTip: "Pruefen Sie bei jeder Luecke zuerst die Grammatik: Praeposition, Verbform, Konnektor oder Adjektiv.",
-    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Schauen Sie immer links und rechts von der Luecke. Dort sehen Sie oft, welche Wortart fehlt."
+    learningTip: "Prüfen Sie bei jeder Lücke zuerst die Grammatik: Präposition, Verbform, Konnektor oder Adjektiv.",
+    examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Schauen Sie immer links und rechts von der Lücke. Dort sehen Sie oft, welche Wortart fehlt."
   },
   {
     id: "reading-gap-02",
     title: "Ankommen im neuen Job",
     topic: "Arbeit",
-    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
+    instruction: "Lesen Sie den Text. Wähllen Sie für jede Lücke die passende Antwort A, B oder C.",
     segments: [
-      "Viele Menschen freuen sich auf ihre erste Arbeitswoche, sind aber gleichzeitig unsicher. Ein guter Start gelingt leichter, wenn man sich frueh informiert und Fragen stellt. Viele Betriebe planen ",
-      " am ersten Tag ein Einfuehrungsgespraech. So wissen neue Mitarbeitende sofort, wer fuer welche Themen zustaendig ist. ",
+      "Viele Menschen freuen sich auf ihre erste Arbeitswoche, sind aber gleichzeitig unsicher. Ein guter Start gelingt leichter, wenn man sich früh informiert und Fragen stellt. Viele Betriebe planen ",
+      " am ersten Tag ein Einführungsgespräch. So wissen neue Mitarbeitende sofort, wer für welche Themen zuständig ist. ",
       " ist es sinnvoll, Arbeitszeiten, Pausenregeln und wichtige Telefonnummern gleich am Anfang zu notieren, ",
-      " man spaeter alles leichter nachlesen kann. Wer etwas nicht verstanden hat, sollte lieber noch einmal nachfragen, ",
-      " Fehler zu wiederholen. Das zeigt Interesse und hilft, Missverstaendnisse zu vermeiden. Dann fuehlen sich neue Kolleginnen und Kollegen ",
+      " man später alles leichter nachlesen kann. Wer etwas nicht verstanden hat, sollte lieber noch einmal nachfragen, ",
+      " Fehler zu wiederholen. Das zeigt Interesse und hilft, Missverständnisse zu vermeiden. Dann fühlen sich neue Kolleginnen und Kollegen ",
       " sicherer."
     ],
     gaps: [
@@ -534,12 +534,12 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         label: "2",
         options: [
           { id: "a", label: "A", text: "Trotzdem" },
-          { id: "b", label: "B", text: "Ausserdem" },
+          { id: "b", label: "B", text: "Außerdem" },
           { id: "c", label: "C", text: "Zuerst" }
         ],
         correctOptionId: "b",
-        clue: "Nach einem ersten Tipp folgt ein weiterer. Ausserdem verbindet diese beiden Hinweise logisch.",
-        wrongChoiceGuidance: "Trotzdem passt nicht, weil kein Gegensatz vorliegt. Zuerst wuerde eine Reihenfolge anfangen, die der Text hier nicht nutzt."
+        clue: "Nach einem ersten Tipp folgt ein weiterer. Außerdem verbindet diese beiden Hinweise logisch.",
+        wrongChoiceGuidance: "Trotzdem passt nicht, weil kein Gegensatz vorliegt. Zuerst würde eine Reihenfolge anfangen, die der Text hier nicht nutzt."
       },
       {
         id: "gap-3",
@@ -551,7 +551,7 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         ],
         correctOptionId: "b",
         clue: "Hier wird das Ziel des Notierens genannt. Damit leitet eine Zielangabe korrekt ein.",
-        wrongChoiceGuidance: "Weil erklaert einen Grund, nicht ein Ziel. Ob passt nur zu indirekten Fragen."
+        wrongChoiceGuidance: "Weil erklärt einen Grund, nicht ein Ziel. Ob passt nur zu indirekten Fragen."
       },
       {
         id: "gap-4",
@@ -559,11 +559,11 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         options: [
           { id: "a", label: "A", text: "statt" },
           { id: "b", label: "B", text: "ohne" },
-          { id: "c", label: "C", text: "waehrend" }
+          { id: "c", label: "C", text: "während" }
         ],
         correctOptionId: "a",
         clue: "Die feste Verbindung lautet: statt Fehler zu wiederholen. Sie beschreibt die bessere Alternative.",
-        wrongChoiceGuidance: "Ohne und waehrend passen semantisch nicht zu der Vergleichaussage im Satz."
+        wrongChoiceGuidance: "Ohne und während passen semantisch nicht zu der Vergleichaussage im Satz."
       },
       {
         id: "gap-5",
@@ -574,24 +574,24 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
           { id: "c", label: "C", text: "am schnellsten" }
         ],
         correctOptionId: "b",
-        clue: "Mit fuehlen sich ... sicherer braucht der Satz den Komparativ schneller.",
-        wrongChoiceGuidance: "Schnell ist kein Vergleich. Am schnellsten wuerde hier grammatisch und inhaltlich zu stark wirken."
+        clue: "Mit fühlen sich ... sicherer braucht der Satz den Komparativ schneller.",
+        wrongChoiceGuidance: "Schnell ist kein Vergleich. Am schnellsten würde hier grammatisch und inhaltlich zu stark wirken."
       }
     ],
-    learningTip: "Achten Sie bei Lueckentexten auch auf feste Verbindungen wie statt zu, um zu oder damit.",
-    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Oft prueft der Lueckentext nicht nur den Inhalt, sondern auch kleine Grammatiksignale."
+    learningTip: "Achten Sie bei Lückentexten auch auf feste Verbindungen wie statt zu, um zu oder damit.",
+    examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Oft prueft der Lückentext nicht nur den Inhalt, sondern auch kleine Grammatiksignale."
   },
   {
     id: "reading-gap-03",
     title: "Termin in der Arztpraxis",
     topic: "Arzt",
-    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
+    instruction: "Lesen Sie den Text. Wähllen Sie für jede Lücke die passende Antwort A, B oder C.",
     segments: [
       "Ich brauchte letzte Woche dringend einen Termin beim Hausarzt, ",
-      " ich seit zwei Tagen starke Rueckenschmerzen hatte. Am Telefon sagte die Sprechstundenhilfe, dass am Mittwoch um 11 Uhr noch ein Termin ",
+      " ich seit zwei Tagen starke Rückenschmerzen hatte. Am Telefon sagte die Sprechstundenhilfe, dass am Mittwoch um 11 Uhr noch ein Termin ",
       ". Sie bat mich, meine Versicherungskarte mitzubringen und ",
-      " zehn Minuten frueher da zu sein. Im Wartezimmer musste ich zuerst ein kurzes Formular ausfuellen, ",
-      " ich in diesem Quartal noch nicht in der Praxis gewesen war. Nach der Untersuchung bekam ich ein Rezept und den Rat, mich in den naechsten Tagen viel zu ",
+      " zehn Minuten früher da zu sein. Im Wartezimmer musste ich zuerst ein kurzes Formular ausfuellen, ",
+      " ich in diesem Quartal noch nicht in der Praxis gewesen war. Nach der Untersuchung bekam ich ein Rezept und den Rat, mich in den nächsten Tagen viel zu ",
       "."
     ],
     gaps: [
@@ -604,8 +604,8 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
           { id: "c", label: "C", text: "damit" }
         ],
         correctOptionId: "a",
-        clue: "Die Rueckenschmerzen sind der Grund fuer den Termin. Deshalb passt weil.",
-        wrongChoiceGuidance: "Obwohl wuerde einen Gegensatz ausdruecken. Damit beschreibt ein Ziel und passt hier nicht."
+        clue: "Die Rückenschmerzen sind der Grund für den Termin. Deshalb passt weil.",
+        wrongChoiceGuidance: "Obwohl würde einen Gegensatz ausdrücken. Damit beschreibt ein Ziel und passt hier nicht."
       },
       {
         id: "gap-2",
@@ -617,7 +617,7 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         ],
         correctOptionId: "a",
         clue: "Der Telefonanruf liegt in der Vergangenheit. Darum passt die Vergangenheitsform frei war.",
-        wrongChoiceGuidance: "Frei ist passt zeitlich nicht. Frei gewesen ist hier unvollstaendig und klingt grammatisch falsch."
+        wrongChoiceGuidance: "Frei ist passt zeitlich nicht. Frei gewesen ist hier unvollständig und klingt grammatisch falsch."
       },
       {
         id: "gap-3",
@@ -628,7 +628,7 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
           { id: "c", label: "C", text: "seit" }
         ],
         correctOptionId: "b",
-        clue: "Die feste Formulierung lautet etwa zehn Minuten frueher.",
+        clue: "Die feste Formulierung lautet etwa zehn Minuten früher.",
         wrongChoiceGuidance: "Am und seit passen grammatisch nicht vor eine Zeitspanne dieser Art."
       },
       {
@@ -640,8 +640,8 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
           { id: "c", label: "C", text: "wenn" }
         ],
         correctOptionId: "b",
-        clue: "Hier wird der Grund fuer das Formular genannt. Diesen Grund leitet weil ein.",
-        wrongChoiceGuidance: "Deshalb braucht einen neuen Hauptsatz. Wenn drueckt eine Bedingung aus und passt nicht."
+        clue: "Hier wird der Grund für das Formular genannt. Diesen Grund leitet weil ein.",
+        wrongChoiceGuidance: "Deshalb braucht einen neuen Hauptsatz. Wenn drückt eine Bedingung aus und passt nicht."
       },
       {
         id: "gap-5",
@@ -657,19 +657,19 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
       }
     ],
     learningTip: "Achten Sie auf Zeitformen und feste Wendungen wie etwa zehn Minuten oder sich ausruhen.",
-    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Bei kurzen Woertern entscheidet oft die Grammatik ueber die richtige Antwort."
+    examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Bei kurzen Wörtern entscheidet oft die Grammatik über die richtige Antwort."
   },
   {
     id: "reading-gap-04",
     title: "Meldung an die Hausverwaltung",
     topic: "Wohnung",
-    instruction: "Lesen Sie den Text. Waehlen Sie fuer jede Luecke die passende Antwort A, B oder C.",
+    instruction: "Lesen Sie den Text. Wähllen Sie für jede Lücke die passende Antwort A, B oder C.",
     segments: [
       "Seit dem starken Regen am Wochenende tropft in unserer Wohnung Wasser von der Decke, ",
       " besonders im Flur und im Schlafzimmer. Ich habe das Problem sofort der Hausverwaltung gemeldet und auch Fotos geschickt, ",
-      " der Schaden gut dokumentiert ist. Die Mitarbeiterin am Telefon sagte, dass ein Handwerker am naechsten Morgen vorbeikommen ",
-      ". Bis dahin sollten wir die betroffenen Moebel von der Wand wegstellen und ",
-      " Teppich im Schlafzimmer hochrollen. Zum Glueck kam der Handwerker puenktlich und konnte das Loch im Dach schnell ",
+      " der Schaden gut dokumentiert ist. Die Mitarbeiterin am Telefon sagte, dass ein Handwerker am nächsten Morgen vorbeikommen ",
+      ". Bis dahin sollten wir die betroffenen Möbel von der Wand wegstellen und ",
+      " Teppich im Schlafzimmer hochrollen. Zum Glück kam der Handwerker pünktlich und konnte das Loch im Dach schnell ",
       "."
     ],
     gaps: [
@@ -683,7 +683,7 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         ],
         correctOptionId: "a",
         clue: "Hier werden zwei betroffene Orte einfach verbunden. Das leistet und.",
-        wrongChoiceGuidance: "Oder wuerde eine Alternative ausdruecken. Denn erklaert einen Grund, der hier nicht gemeint ist."
+        wrongChoiceGuidance: "Oder würde eine Alternative ausdrücken. Denn erklärt einen Grund, der hier nicht gemeint ist."
       },
       {
         id: "gap-2",
@@ -695,7 +695,7 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         ],
         correctOptionId: "b",
         clue: "Die Fotos wurden geschickt, damit der Schaden dokumentiert ist. Es geht um den Zweck.",
-        wrongChoiceGuidance: "Dass wuerde hier keinen sinnvollen Nebensatz bilden. Ob gehoert zu indirekten Fragen."
+        wrongChoiceGuidance: "Dass würde hier keinen sinnvollen Nebensatz bilden. Ob gehoert zu indirekten Fragen."
       },
       {
         id: "gap-3",
@@ -703,10 +703,10 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         options: [
           { id: "a", label: "A", text: "kommt" },
           { id: "b", label: "B", text: "komme" },
-          { id: "c", label: "C", text: "koenne" }
+          { id: "c", label: "C", text: "könne" }
         ],
         correctOptionId: "c",
-        clue: "Nach sagte, dass ... folgt hier die indirekte Wiedergabe mit koenne.",
+        clue: "Nach sagte, dass ... folgt hier die indirekte Wiedergabe mit könne.",
         wrongChoiceGuidance: "Kommt und komme passen nicht zur indirekten Aussage nach sagte, dass."
       },
       {
@@ -734,8 +734,8 @@ export const readingGapTextTasks: ReadingGapTextTask[] = [
         wrongChoiceGuidance: "Reparatur ist ein Nomen. Repariert ist hier keine passende Verbform."
       }
     ],
-    learningTip: "Bei Artikeln, Nebensaetzen und Infinitiven lohnt sich ein genauer Blick auf das Wort direkt davor.",
-    examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Viele Luecken lassen sich loesen, wenn Sie Satzbau und Kasus pruefen."
+    learningTip: "Bei Artikeln, Nebensätzen und Infinitiven lohnt sich ein genauer Blick auf das Wort direkt davor.",
+    examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Viele Lücken lassen sich lösen, wenn Sie Satzbau und Kasus prüfen."
   }
 ];
 
@@ -747,7 +747,7 @@ export function getReadingTaskSummary(taskId: string) {
 
   const building = readingBuildingTask.situations.find((item) => item.id === taskId);
   if (building) {
-    return { title: "Lesen - Gebaeudeplan", prompt: building.text };
+    return { title: "Lesen - Gebäudeplan", prompt: building.text };
   }
 
   const dual = readingDualQuestionTasks.find((item) => item.id === taskId);

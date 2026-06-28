@@ -15,8 +15,8 @@ const sectionTimes: Record<string, string> = {
 
 const sectionMeta: Record<string, string> = {
   listening: "Teil 1, Teil 2, Teil 3 - Dialoge, Zuordnungen und Kurzansagen",
-  reading: "Anzeigen, Gebaeudeplan, Lesetexte und Lueckentext",
-  writing: "1 Pruefungsaufgabe mit Bewertung und Musterloesung",
+  reading: "Anzeigen, Gebäudeplan, Lesetexte und Lückentext",
+  writing: "1 Prüfungsaufgabe mit Bewertung und Musterlösung",
   speaking: "Teil 1, Teil 2, Teil 3 - Vorstellung, Bildbeschreibung, Planung"
 };
 
@@ -24,17 +24,17 @@ export function ExamsScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
       <InfoCard>
-        <Text style={styles.eyebrow}>Pruefungen</Text>
-        <Text style={styles.title}>Modellpruefungen</Text>
+        <Text style={styles.eyebrow}>Prüfungen</Text>
+        <Text style={styles.title}>Modellprüfungen</Text>
         <Text style={styles.body}>
-          Die erste Modellpruefung ist jetzt auf die ueberarbeiteten Bereiche Hoeren, Lesen, Schreiben und Sprechen abgestimmt und komplett im Browser nutzbar.
+          Die erste Modellprüfung ist jetzt auf die überarbeiteten Bereiche Hören, Lesen, Schreiben und Sprechen abgestimmt und komplett im Browser nutzbar.
         </Text>
-        <PrimaryButton href="/exam/model-1" icon="clipboard-check-outline" label="Modellpruefung 1 oeffnen" />
+        <PrimaryButton href="/exam/model-1" icon="clipboard-check-outline" label="Modellprüfung 1 öffnen" />
       </InfoCard>
 
       <InfoCard>
         <Text style={styles.examTitle}>{phaseOneExamMeta.title}</Text>
-        <Text style={styles.examMeta}>Status: vollstaendig fuer Phase 2</Text>
+        <Text style={styles.examMeta}>Status: vollständig für Phase 2</Text>
         <View style={styles.sectionList}>
           {phaseOneExamMeta.sections.map((section) => (
             <View key={section.id} style={styles.sectionRow}>
@@ -48,19 +48,19 @@ export function ExamsScreen() {
             </View>
           ))}
         </View>
-        <PrimaryButton href="/exam/model-1" icon="arrow-right" label="Zur Pruefungsuebersicht" />
+        <PrimaryButton href="/exam/model-1" icon="arrow-right" label="Zur Prüfungsübersicht" />
       </InfoCard>
 
       <InfoCard>
-        <Text style={styles.examTitle}>Naechster Ausbau</Text>
+        <Text style={styles.examTitle}>Nächster Ausbau</Text>
         <Text style={styles.body}>
-          Nach Ihrer Freigabe werden 19 weitere Modellpruefungen mit gleicher Struktur, aber neuen Themen, Dialogen, Texten und Bildern ergaenzt.
+          Nach Ihrer Freigabe werden 19 weitere Modellprüfungen mit gleicher Struktur, aber neuen Themen, Dialogen, Texten und Bildern ergänzt.
         </Text>
         <View style={styles.sectionList}>
           <View style={styles.sectionRow}>
             <View style={styles.sectionText}>
               <Text style={styles.sectionName}>Geplanter Umfang</Text>
-              <Text style={styles.sectionMeta}>20 vollstaendige Pruefungen ohne Wiederholungen</Text>
+              <Text style={styles.sectionMeta}>20 vollständige Prüfungen ohne Wiederholungen</Text>
             </View>
           </View>
         </View>

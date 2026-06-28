@@ -77,38 +77,38 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     title: "Termin in der Arztpraxis",
     topic: "Arzt",
     transcript:
-      "Praxis Dr. Wegner, guten Morgen. Guten Morgen, hier ist Frau Celik. Ich hatte fuer morgen um neun Uhr einen Termin, aber mein Sohn hat heute Nacht hohes Fieber bekommen. Kann ich bitte schon heute kommen? Heute ist um sechzehn Uhr noch etwas frei. Ja, das passt. Vielen Dank.",
+      "Praxis Dr. Wegner, guten Morgen. Guten Morgen, hier ist Frau Celik. Ich hatte für morgen um neun Uhr einen Termin, aber mein Sohn hat heute Nacht hohes Fieber bekommen. Kann ich bitte schon heute kommen? Heute ist um sechzehn Uhr noch etwas frei. Ja, das passt. Vielen Dank.",
     durationLabel: "00:33",
     question: "Warum ruft Frau Celik in der Praxis an?",
     options: [
-      { id: "a", label: "A", text: "Sie moechte ein Rezept bestellen." },
-      { id: "b", label: "B", text: "Sie moechte einen frueheren Termin bekommen." },
-      { id: "c", label: "C", text: "Sie moechte die Rechnung bezahlen." }
+      { id: "a", label: "A", text: "Sie möchte ein Rezept bestellen." },
+      { id: "b", label: "B", text: "Sie möchte einen früheren Termin bekommen." },
+      { id: "c", label: "C", text: "Sie möchte die Rechnung bezahlen." }
     ],
     correctOptionId: "b",
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Frau Celik sagt, dass ihr Sohn hohes Fieber hat und sie statt morgen schon heute kommen moechte. Es geht also um einen frueheren Termin.",
+        "Frau Celik sagt, dass ihr Sohn hohes Fieber hat und sie statt morgen schon heute kommen möchte. Es geht also um einen früheren Termin.",
       learningTip:
-        "Achten Sie im Hoeren auf Verben wie absagen, verschieben, frueher kommen oder spaeter kommen. Sie zeigen oft direkt die richtige Funktion des Gespraechs.",
+        "Achten Sie im Hören auf Verben wie absagen, verschieben, früher kommen oder später kommen. Sie zeigen oft direkt die richtige Funktion des Gesprächs.",
       incorrectReasonByOption: {
-        a: "Von einem Rezept ist im Gespraech keine Rede. Das Thema ist nur der Termin wegen des kranken Kindes.",
-        c: "Niemand spricht ueber Geld oder eine Rechnung. Diese Antwort passt inhaltlich nicht zum Anruf."
+        a: "Von einem Rezept ist im Gespräch keine Rede. Das Thema ist nur der Termin wegen des kranken Kindes.",
+        c: "Niemand spricht über Geld oder eine Rechnung. Diese Antwort passt inhaltlich nicht zum Anruf."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Die richtige Antwort steht oft im Anlass des Anrufs, nicht nur in einzelnen Woertern."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Die richtige Antwort steht oft im Anlass des Anrufs, nicht nur in einzelnen Wörtern."
     },
     statement: {
       id: "listen-p1-01-statement",
-      text: "Der urspruengliche Termin war morgen frueh.",
+      text: "Der ursprüngliche Termin war morgen früh.",
       correctAnswer: true,
-      correctReason: "Frau Celik sagt deutlich: Ich hatte fuer morgen um neun Uhr einen Termin.",
-      incorrectReason: "Die Aussage ist richtig, weil der urspruengliche Termin explizit fuer morgen um neun Uhr genannt wird.",
+      correctReason: "Frau Celik sagt deutlich: Ich hatte für morgen um neun Uhr einen Termin.",
+      incorrectReason: "Die Aussage ist richtig, weil der ursprüngliche Termin explizit für morgen um neun Uhr genannt wird.",
       learningTip:
-        "Merken Sie sich bei Terminaufgaben immer Tag und Uhrzeit. Diese Details werden in richtig/falsch-Aussagen haeufig abgefragt.",
+        "Merken Sie sich bei Terminaufgaben immer Tag und Uhrzeit. Diese Details werden in richtig/falsch-Aussagen häufig abgefragt.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Zeitangaben wie morgen, heute, um neun oder um sechzehn sind typische Schluesselinformationen."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Zeitangaben wie morgen, heute, um neun oder um sechzehn sind typische Schlüsselinformationen."
     }
   },
   {
@@ -117,7 +117,7 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     title: "Anruf aus der Kita",
     topic: "Familie",
     transcript:
-      "Hallo, hier ist die Kita Sonnenweg. Spreche ich mit Herrn Yildiz? Ja. Ihre Tochter Elif fuehlt sich nicht gut und hat Bauchschmerzen. Koennen Sie sie frueher abholen? Ich bin noch bei der Arbeit. Meine Schwester ist in zwanzig Minuten dort. Gut, dann warten wir mit Elif im Buero.",
+      "Hallo, hier ist die Kita Sonnenweg. Spreche ich mit Herrn Yildiz? Ja. Ihre Tochter Elif fühlt sich nicht gut und hat Bauchschmerzen. Können Sie sie früher abholen? Ich bin noch bei der Arbeit. Meine Schwester ist in zwanzig Minuten dort. Gut, dann warten wir mit Elif im Büro.",
     durationLabel: "00:32",
     question: "Wer holt Elif aus der Kita ab?",
     options: [
@@ -131,24 +131,24 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
       correctReason:
         "Der Vater sagt, dass seine Schwester in zwanzig Minuten dort ist. Sie wird Elif also abholen.",
       learningTip:
-        "Bei Familiengespraechen lohnt es sich, auf Pronomen und Besitzformen zu achten: meine Schwester, sein Bruder, ihre Mutter.",
+        "Bei Familiengesprächen lohnt es sich, auf Pronomen und Besitzformen zu achten: meine Schwester, sein Bruder, ihre Mutter.",
       incorrectReasonByOption: {
         a: "Der Vater sagt gerade, dass er noch bei der Arbeit ist. Deshalb kann er nicht selbst kommen.",
         b: "Die Kita bietet nur an zu warten. Niemand sagt, dass eine Erzieherin das Kind nach Hause bringt."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Wer etwas macht, erkennt man oft erst im zweiten Teil des Dialogs."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Wer etwas macht, erkennt man oft erst im zweiten Teil des Dialogs."
     },
     statement: {
       id: "listen-p1-02-statement",
       text: "Elif bleibt noch kurz in der Kita.",
       correctAnswer: true,
-      correctReason: "Die Erzieherin sagt: Dann warten wir mit Elif im Buero.",
+      correctReason: "Die Erzieherin sagt: Dann warten wir mit Elif im Büro.",
       incorrectReason: "Die Aussage ist richtig, weil Elif nicht sofort abgeholt wird, sondern noch dort wartet.",
       learningTip:
-        "Wenn Sie richtig/falsch entscheiden, vergleichen Sie die Aussage sehr genau mit dem letzten Satz des Hoertexts.",
+        "Wenn Sie richtig/falsch entscheiden, vergleichen Sie die Aussage sehr genau mit dem letzten Satz des Hörtexts.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Der Schluss eines Dialogs enthaelt oft die Entscheidung oder das Ergebnis."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Der Schluss eines Dialogs enthält oft die Entscheidung oder das Ergebnis."
     }
   },
   {
@@ -157,9 +157,9 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     title: "Schicht auf der Arbeit",
     topic: "Arbeit",
     transcript:
-      "Guten Abend, Frau Aksoy. Morgen beginnt Ihre Schicht ausnahmsweise erst um zehn Uhr, nicht wie sonst um sieben. Am Vormittag wird zuerst die neue Maschine erklaert. Alles klar, dann bin ich kurz vor zehn da. Bitte denken Sie an Sicherheitsschuhe. Danke fuer die Info.",
+      "Guten Abend, Frau Aksoy. Morgen beginnt Ihre Schicht ausnahmsweise erst um zehn Uhr, nicht wie sonst um sieben. Am Vormittag wird zuerst die neue Maschine erklärt. Alles klar, dann bin ich kurz vor zehn da. Bitte denken Sie an Sicherheitsschuhe. Danke für die Info.",
     durationLabel: "00:30",
-    question: "Warum kommt Frau Aksoy morgen spaeter zur Arbeit?",
+    question: "Warum kommt Frau Aksoy morgen später zur Arbeit?",
     options: [
       { id: "a", label: "A", text: "Weil sie Urlaub genommen hat." },
       { id: "b", label: "B", text: "Weil zuerst eine Einweisung stattfindet." },
@@ -169,26 +169,26 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Im Hoertext wird erklaert, dass am Vormittag zuerst die neue Maschine erklaert wird. Deshalb beginnt die Schicht spaeter.",
+        "Im Hörtext wird erklärt, dass am Vormittag zuerst die neue Maschine erklärt wird. Deshalb beginnt die Schicht später.",
       learningTip:
-        "Achten Sie auf Signale wie weil, deshalb, zuerst oder ausnahmsweise. Sie erklaeren oft den Grund.",
+        "Achten Sie auf Signale wie weil, deshalb, zuerst oder ausnahmsweise. Sie erklären oft den Grund.",
       incorrectReasonByOption: {
-        a: "Urlaub wird nicht erwaehnt. Frau Aksoy soll ja gerade kommen, nur spaeter als sonst.",
-        c: "Die Firma ist nicht geschlossen. Es findet sogar eine Einweisung fuer eine neue Maschine statt."
+        a: "Urlaub wird nicht erwählnt. Frau Aksoy soll ja gerade kommen, nur später als sonst.",
+        c: "Die Firma ist nicht geschlossen. Es findet sogar eine Einweisung für eine neue Maschine statt."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Gruende werden haeufig mit weil oder deshalb markiert."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Gruende werden häufig mit weil oder deshalb markiert."
     },
     statement: {
       id: "listen-p1-03-statement",
       text: "Frau Aksoy soll ihre Arbeit morgen wie immer um sieben Uhr beginnen.",
       correctAnswer: false,
-      correctReason: "Diese Aussage ist falsch. Im Text heisst es ausdruecklich: erst um zehn Uhr, nicht wie sonst um sieben.",
-      incorrectReason: "Wenn Sie falsch angekreuzt haben, haben Sie die Gegenueberstellung von zehn Uhr und sieben Uhr richtig erkannt.",
+      correctReason: "Diese Aussage ist falsch. Im Text heißt es ausdrücklich: erst um zehn Uhr, nicht wie sonst um sieben.",
+      incorrectReason: "Wenn Sie falsch angekreuzt haben, haben Sie die Gegenüberstellung von zehn Uhr und sieben Uhr richtig erkannt.",
       learningTip:
         "Vergleichen Sie bei Zeitangaben immer die neue Information mit der gewohnten Situation. Genau dort steckt oft die Falle.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Woerter wie nicht, erst oder statt zeigen oft, dass eine Aussage falsch ist."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Wörter wie nicht, erst oder statt zeigen oft, dass eine Aussage falsch ist."
     }
   },
   {
@@ -197,38 +197,38 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     title: "Durchsage am Bahnhof",
     topic: "Bahnhof",
     transcript:
-      "Achtung am Gleis vier. Der Regionalexpress nach Koeln faehrt heute zehn Minuten spaeter ab. Der Zug nach Koblenz auf Gleis sechs ist puenktlich. Reisende nach Koeln nutzen bitte weiterhin Gleis vier.",
+      "Achtung am Gleis vier. Der Regionalexpress nach Köln fährt heute zehn Minuten später ab. Der Zug nach Koblenz auf Gleis sechs ist pünktlich. Reisende nach Köln nutzen bitte weiterhin Gleis vier.",
     durationLabel: "00:22",
-    question: "Was erfahren die Reisenden nach Koeln?",
+    question: "Was erfahren die Reisenden nach Köln?",
     options: [
-      { id: "a", label: "A", text: "Ihr Zug faehrt von einem anderen Gleis." },
-      { id: "b", label: "B", text: "Ihr Zug hat eine kurze Verspaetung." },
-      { id: "c", label: "C", text: "Ihr Zug faellt heute aus." }
+      { id: "a", label: "A", text: "Ihr Zug fährt von einem anderen Gleis." },
+      { id: "b", label: "B", text: "Ihr Zug hat eine kurze Verspätung." },
+      { id: "c", label: "C", text: "Ihr Zug fällt heute aus." }
     ],
     correctOptionId: "b",
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Die Durchsage sagt klar: Der Regionalexpress nach Koeln faehrt heute zehn Minuten spaeter ab. Es geht also um eine Verspaetung.",
+        "Die Durchsage sagt klar: Der Regionalexpress nach Köln fährt heute zehn Minuten später ab. Es geht also um eine Verspätung.",
       learningTip:
         "Bei Bahnhofsdurchsagen sind Zielort, Gleis und Zeit die drei wichtigsten Informationen. Halten Sie diese mental getrennt.",
       incorrectReasonByOption: {
-        a: "Gerade das wird verneint. Reisende nach Koeln sollen weiterhin Gleis vier benutzen.",
-        c: "Von einem Ausfall ist keine Rede. Es gibt nur eine Verspaetung von zehn Minuten."
+        a: "Gerade das wird verneint. Reisende nach Köln sollen weiterhin Gleis vier benutzen.",
+        c: "Von einem Ausfall ist keine Rede. Es gibt nur eine Verspätung von zehn Minuten."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Lassen Sie sich nicht von einem zweiten Zug oder einem anderen Zielort verwirren."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Lassen Sie sich nicht von einem zweiten Zug oder einem anderen Zielort verwirren."
     },
     statement: {
       id: "listen-p1-04-statement",
-      text: "Der Zug nach Koblenz ist puenktlich.",
+      text: "Der Zug nach Koblenz ist pünktlich.",
       correctAnswer: true,
-      correctReason: "Im zweiten Satz sagt die Durchsage genau das: Der Zug nach Koblenz auf Gleis sechs ist puenktlich.",
-      incorrectReason: "Die Aussage ist richtig, weil die Durchsage die Puenktlichkeit des Zuges nach Koblenz direkt bestaetigt.",
+      correctReason: "Im zweiten Satz sagt die Durchsage genau das: Der Zug nach Koblenz auf Gleis sechs ist pünktlich.",
+      incorrectReason: "Die Aussage ist richtig, weil die Durchsage die Pünktlichkeit des Zuges nach Koblenz direkt bestätigt.",
       learningTip:
         "Wenn mehrere Orte oder Zuege genannt werden, ordnen Sie jede Information sofort dem richtigen Ziel zu.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: In Bahnhofstexten stehen oft zwei aehnliche Informationen nebeneinander. Nur eine passt zur Aussage."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: In Bahnhofstexten stehen oft zwei ähnliche Informationen nebeneinander. Nur eine passt zur Aussage."
     }
   },
   {
@@ -237,7 +237,7 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     title: "Paket beim Nachbarn",
     topic: "Nachbarn",
     transcript:
-      "Hallo Frau Santos, hier ist Ihr Nachbar Herr Baum. Ein Paket fuer Sie wurde heute bei mir abgegeben. Ich bin jetzt noch zu Hause und spaeter noch einmal zwischen achtzehn und zwanzig Uhr erreichbar. Super, dann komme ich nach der Arbeit vorbei.",
+      "Hallo Frau Santos, hier ist Ihr Nachbar Herr Baum. Ein Paket für Sie wurde heute bei mir abgegeben. Ich bin jetzt noch zu Hause und später noch einmal zwischen achtzehn und zwanzig Uhr erreichbar. Super, dann komme ich nach der Arbeit vorbei.",
     durationLabel: "00:23",
     question: "Wann kann Frau Santos ihr Paket abholen?",
     options: [
@@ -249,26 +249,26 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Herr Baum sagt, dass er spaeter noch einmal zwischen achtzehn und zwanzig Uhr erreichbar ist. Dieses Zeitfenster passt.",
+        "Herr Baum sagt, dass er später noch einmal zwischen achtzehn und zwanzig Uhr erreichbar ist. Dieses Zeitfenster passt.",
       learningTip:
-        "Bei Abholzeiten hilft es, auf Woerter wie noch einmal, spaeter oder zwischen zu achten.",
+        "Bei Abholzeiten hilft es, auf Wörter wie noch einmal, später oder zwischen zu achten.",
       incorrectReasonByOption: {
-        a: "Der Nachbar nennt extra noch einen zweiten Zeitraum am Abend. Die Abholung ist also nicht nur vormittags moeglich.",
-        b: "Gerade das Gegenteil steht im Text: Auch nach der Arbeit, also am Abend, ist eine Abholung moeglich."
+        a: "Der Nachbar nennt extra noch einen zweiten Zeitraum am Abend. Die Abholung ist also nicht nur vormittags möglich.",
+        b: "Gerade das Gegenteil steht im Text: Auch nach der Arbeit, also am Abend, ist eine Abholung möglich."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Zeitfenster werden oft indirekt beschrieben, zum Beispiel nach der Arbeit oder spaeter noch einmal."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Zeitfenster werden oft indirekt beschrieben, zum Beispiel nach der Arbeit oder später noch einmal."
     },
     statement: {
       id: "listen-p1-05-statement",
       text: "Frau Santos will das Paket nach der Arbeit holen.",
       correctAnswer: true,
       correctReason: "Sie sagt am Ende selbst: Dann komme ich nach der Arbeit vorbei.",
-      incorrectReason: "Die Aussage ist richtig, weil Frau Santos ausdruecklich eine Abholung nach der Arbeit ankundigt.",
+      incorrectReason: "Die Aussage ist richtig, weil Frau Santos ausdrücklich eine Abholung nach der Arbeit ankündigt.",
       learningTip:
-        "Auch die Antwort der zweiten Person kann entscheidend sein. Hoeren Sie bis ganz zum Schluss aufmerksam zu.",
+        "Auch die Antwort der zweiten Person kann entscheidend sein. Hören Sie bis ganz zum Schluss aufmerksam zu.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Oft bestaetigt die zweite Person die korrekte Loesung mit einem kurzen Schlusssatz."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Oft bestätigt die zweite Person die korrekte Lösung mit einem kurzen Schlusssatz."
     }
   },
   {
@@ -277,9 +277,9 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     title: "Elternabend in der Schule",
     topic: "Schule",
     transcript:
-      "Liebe Eltern der Klasse 6b, der Elternabend am Donnerstag findet nicht im Musikraum statt, sondern online. Beginn ist wie geplant um neunzehn Uhr. Den Link schicken wir Ihnen morgen per E Mail. Bei technischen Problemen melden Sie sich bitte im Sekretariat.",
+      "Liebe Eltern der Klasse 6b, der Elternabend am Donnerstag findet nicht im Musikraum statt, sondern online. Beginn ist wie geplant um neunzehn Uhr. Den Link schicken wir Ihnen morgen per E-Mail. Bei technischen Problemen melden Sie sich bitte im Sekretariat.",
     durationLabel: "00:28",
-    question: "Was hat sich beim Elternabend geaendert?",
+    question: "Was hat sich beim Elternabend geändert?",
     options: [
       { id: "a", label: "A", text: "Der Termin wurde abgesagt." },
       { id: "b", label: "B", text: "Der Beginn wurde auf morgen verschoben." },
@@ -289,78 +289,78 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Die Nachricht erklaert, dass der Elternabend nicht im Musikraum, sondern online stattfindet. Geaendert hat sich also der Ort beziehungsweise die Form.",
+        "Die Nachricht erklärt, dass der Elternabend nicht im Musikraum, sondern online stattfindet. Geändert hat sich also der Ort beziehungsweise die Form.",
       learningTip:
-        "Wenn Sie nicht ... sondern ... hoeren, steckt die richtige Antwort oft genau in diesem Gegensatz.",
+        "Wenn Sie nicht ... sondern ... hören, steckt die richtige Antwort oft genau in diesem Gegensatz.",
       incorrectReasonByOption: {
         a: "Der Elternabend wird nicht abgesagt. Er findet statt, nur in anderer Form.",
-        b: "Die Uhrzeit bleibt gleich. Es wird nur gesagt, dass der Link morgen per E Mail geschickt wird."
+        b: "Die Uhrzeit bleibt gleich. Es wird nur gesagt, dass der Link morgen per E-Mail geschickt wird."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Trennen Sie Termin, Uhrzeit und Ort klar voneinander."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Trennen Sie Termin, Uhrzeit und Ort klar voneinander."
     },
     statement: {
       id: "listen-p1-06-statement",
       text: "Der Link zum Elternabend kommt noch am selben Tag.",
       correctAnswer: false,
-      correctReason: "Die Aussage ist falsch. Im Text steht, dass der Link erst morgen per E Mail geschickt wird.",
+      correctReason: "Die Aussage ist falsch. Im Text steht, dass der Link erst morgen per E-Mail geschickt wird.",
       incorrectReason: "Wenn Sie falsch markiert haben, haben Sie den Zeitunterschied zwischen heute und morgen richtig verstanden.",
       learningTip:
-        "Achten Sie bei digitalen Terminen besonders auf kleine Zeitwoerter wie heute, morgen oder spaeter.",
+        "Achten Sie bei digitalen Terminen besonders auf kleine Zeitwörter wie heute, morgen oder später.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Kleine Zeitangaben entscheiden oft ueber richtig oder falsch."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Kleine Zeitangaben entscheiden oft über richtig oder falsch."
     }
   },
   {
     id: "listen-p1-07",
     part: "Teil 1",
-    title: "Aenderung beim Sprachkurs",
+    title: "Änderung beim Sprachkurs",
     topic: "Kurs",
     transcript:
       "Sprachschule Dialog, guten Tag. Guten Tag, hier spricht Herr Duman. Ich wollte fragen, ob der B1 Kurs heute normal stattfindet. Ja, aber nicht in Raum drei, sondern in Raum sieben im zweiten Stock. Bleibt die Uhrzeit gleich? Ja, Beginn ist weiter um achtzehn Uhr. Danke, dann komme ich direkt dorthin.",
     durationLabel: "00:31",
-    question: "Was moechte Herr Duman wissen?",
+    question: "Was möchte Herr Duman wissen?",
     options: [
-      { id: "a", label: "A", text: "Ob der Kurs heute ausfaellt." },
-      { id: "b", label: "B", text: "Ob er fuer den Kurs bezahlen muss." },
-      { id: "c", label: "C", text: "Ob der Kurs eine halbe Stunde spaeter beginnt." }
+      { id: "a", label: "A", text: "Ob der Kurs heute ausfällt." },
+      { id: "b", label: "B", text: "Ob er für den Kurs bezahlen muss." },
+      { id: "c", label: "C", text: "Ob der Kurs eine halbe Stunde später beginnt." }
     ],
     correctOptionId: "a",
     feedback: {
       correctTitle: "Richtig",
       correctReason: "Herr Duman fragt direkt, ob der B1 Kurs heute normal stattfindet. Er will also wissen, ob es den Kurs heute gibt.",
-      learningTip: "Am Telefon steht die Loesung oft schon in der ersten Frage. Hoeren Sie auf den Anlass des Anrufs.",
+      learningTip: "Am Telefon steht die Lösung oft schon in der ersten Frage. Hören Sie auf den Anlass des Anrufs.",
       incorrectReasonByOption: {
-        b: "Im Dialog wird ueber Geld nicht gesprochen.",
-        c: "Die Uhrzeit bleibt gleich. Nur der Raum aendert sich."
+        b: "Im Dialog wird über Geld nicht gesprochen.",
+        c: "Die Uhrzeit bleibt gleich. Nur der Raum ändert sich."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Verwechseln Sie den Anlass des Anrufs nicht mit den Informationen, die erst spaeter im Gespraech kommen."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Verwechseln Sie den Anlass des Anrufs nicht mit den Informationen, die erst später im Gespräch kommen."
     },
     statement: {
       id: "listen-p1-07-statement",
       text: "Der Kurs findet heute in einem anderen Raum statt.",
       correctAnswer: true,
       correctReason: "Die Mitarbeiterin sagt klar: nicht in Raum drei, sondern in Raum sieben.",
-      incorrectReason: "Die Aussage ist richtig, weil nur der Raum geaendert wurde, nicht der Termin.",
-      learningTip: "Hoeren Sie bei nicht ... sondern ... sehr genau hin. Diese Struktur kommt in DTZ-Aufgaben oft vor.",
+      incorrectReason: "Die Aussage ist richtig, weil nur der Raum geändert wurde, nicht der Termin.",
+      learningTip: "Hören Sie bei nicht ... sondern ... sehr genau hin. Diese Struktur kommt in DTZ-Aufgaben oft vor.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Bei Raum- und Ortswechseln wird haeufig eine richtige/falsch-Aussage getestet."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Bei Raum- und Ortswechseln wird häufig eine richtige/falsch-Aussage getestet."
     }
   },
   {
     id: "listen-p1-08",
     part: "Teil 1",
-    title: "Rueckfrage im Supermarkt",
+    title: "Rückfrage im Supermarkt",
     topic: "Einkaufen",
     transcript:
-      "Entschuldigung, arbeiten Sie hier? Ja, kann ich Ihnen helfen? Ich habe im Prospekt gelesen, dass heute Waschmittel im Angebot ist, aber ich finde es nicht. Das Angebot steht vorne neben der Kasse, aber nur noch in der grossen Packung. Gut, dann nehme ich eine grosse Packung mit.",
+      "Entschuldigung, arbeiten Sie hier? Ja, kann ich Ihnen helfen? Ich habe im Prospekt gelesen, dass heute Waschmittel im Angebot ist, aber ich finde es nicht. Das Angebot steht vorne neben der Kasse, aber nur noch in der großen Packung. Gut, dann nehme ich eine große Packung mit.",
     durationLabel: "00:28",
     question: "Warum spricht die Kundin die Mitarbeiterin an?",
     options: [
-      { id: "a", label: "A", text: "Sie moechte ein Produkt aus dem Angebot finden." },
-      { id: "b", label: "B", text: "Sie moechte etwas an der Kasse bezahlen." },
-      { id: "c", label: "C", text: "Sie moechte Waschmittel zurueckgeben." }
+      { id: "a", label: "A", text: "Sie möchte ein Produkt aus dem Angebot finden." },
+      { id: "b", label: "B", text: "Sie möchte etwas an der Kasse bezahlen." },
+      { id: "c", label: "C", text: "Sie möchte Waschmittel zurückgeben." }
     ],
     correctOptionId: "a",
     feedback: {
@@ -368,21 +368,21 @@ export const listeningPartOneTasks: ListeningPartOneTask[] = [
       correctReason: "Die Kundin sagt, dass sie das Waschmittel aus dem Prospekt nicht findet. Sie sucht also das Angebot.",
       learningTip: "Bei Einkaufssituationen helfen Verben wie suchen, finden, umtauschen oder bezahlen beim Verstehen der Situation.",
       incorrectReasonByOption: {
-        b: "Die Kasse wird nur als Ort genannt, nicht als Grund fuer das Gespraech.",
-        c: "Von einer Rueckgabe spricht niemand."
+        b: "Die Kasse wird nur als Ort genannt, nicht als Grund für das Gespräch.",
+        c: "Von einer Rückgabe spricht niemand."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Die Frage nach dem Grund eines Gespraechs wird oft mit einem sehr alltaeglichen Detail versteckt."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Die Frage nach dem Grund eines Gesprächs wird oft mit einem sehr alltäglichen Detail versteckt."
     },
     statement: {
       id: "listen-p1-08-statement",
-      text: "Das Angebot gibt es nur noch in einer grossen Packung.",
+      text: "Das Angebot gibt es nur noch in einer großen Packung.",
       correctAnswer: true,
-      correctReason: "Die Mitarbeiterin sagt ausdruecklich: nur noch in der grossen Packung.",
-      incorrectReason: "Die Aussage ist richtig, weil die Verpackungsgroesse am Ende klar genannt wird.",
-      learningTip: "Achten Sie auf kleine Einschraenkungen wie nur noch, schon oder leider. Sie sind oft entscheidend.",
+      correctReason: "Die Mitarbeiterin sagt ausdrücklich: nur noch in der großen Packung.",
+      incorrectReason: "Die Aussage ist richtig, weil die Verpackungsgröße am Ende klar genannt wird.",
+      learningTip: "Achten Sie auf kleine Einschränkungen wie nur noch, schon oder leider. Sie sind oft entscheidend.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Auch sehr kurze Zusatzinfos am Schluss koennen die Loesung liefern."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Auch sehr kurze Zusatzinfos am Schluss können die Lösung liefern."
     }
   }
 ];
@@ -393,43 +393,43 @@ export const listeningPartTwoSet: ListeningPartTwoSet = {
   title: "Welcher Kurs passt?",
   topic: "Freizeit und Alltag",
   instruction:
-    "Sie hoeren sechs Personen. Welche Aussage A bis F passt am besten zu der Person? Jede Aussage passt nur einmal.",
+    "Sie hören sechs Personen. Welche Aussage A bis F passt am besten zu der Person? Jede Aussage passt nur einmal.",
   options: [
-    { id: "a", label: "A", text: "Ein Abendkurs fuer Berufstaetige, die ihr Deutsch im Beruf verbessern wollen." },
+    { id: "a", label: "A", text: "Ein Abendkurs für Berufstätige, die ihr Deutsch im Beruf verbessern wollen." },
     { id: "b", label: "B", text: "Ein Eltern-Kind-Schwimmkurs am Samstagvormittag." },
-    { id: "c", label: "C", text: "Ein Computerkurs fuer Anfaenger mit einfacher Bedienung." },
-    { id: "d", label: "D", text: "Ein Kochkurs mit guenstigen Gerichten fuer Familien." },
-    { id: "e", label: "E", text: "Ein Fahrradtraining fuer Erwachsene, die unsicher im Strassenverkehr sind." },
-    { id: "f", label: "F", text: "Ein Bewegungskurs fuer Seniorinnen und Senioren am Nachmittag." }
+    { id: "c", label: "C", text: "Ein Computerkurs für Anfänger mit einfacher Bedienung." },
+    { id: "d", label: "D", text: "Ein Kochkurs mit günstigen Gerichten für Familien." },
+    { id: "e", label: "E", text: "Ein Fahrradtraining für Erwachsene, die unsicher im Strassenverkehr sind." },
+    { id: "f", label: "F", text: "Ein Bewegungskurs für Seniorinnen und Senioren am Nachmittag." }
   ],
   tasks: [
     {
       id: "listen-p2-01",
       personLabel: "Person 1",
       transcript:
-        "Ich arbeite bis siebzehn Uhr in einer Baeckerei und spreche im Laden oft mit Kunden. Ich verstehe schon viel, aber am Telefon bin ich noch unsicher. Einen Kurs am Vormittag kann ich nicht besuchen.",
+        "Ich arbeite bis siebzehn Uhr in einer Bäckerei und spreche im Laden oft mit Kunden. Ich verstehe schon viel, aber am Telefon bin ich noch unsicher. Einen Kurs am Vormittag kann ich nicht besuchen.",
       durationLabel: "00:24",
       prompt: "Welche Aussage passt zu Person 1?",
       correctOptionId: "a",
       correctReason:
-        "Die Person arbeitet und braucht besonders sprachliche Sicherheit im Beruf. Ausserdem ist nur ein Abendkurs moeglich.",
+        "Die Person arbeitet und braucht besonders sprachliche Sicherheit im Beruf. Außerdem ist nur ein Abendkurs möglich.",
       incorrectReasonByOption: {
-        b: "Die Person sucht keinen Kurs fuer Kinder oder Schwimmen.",
+        b: "Die Person sucht keinen Kurs für Kinder oder Schwimmen.",
         c: "Es geht nicht um Computer, sondern um Deutsch im Berufsalltag.",
         d: "Kochen spielt in der Aussage keine Rolle.",
-        e: "Die Person erwaehnt keine Unsicherheit beim Fahrradfahren.",
-        f: "Die Person ist berufstaetig und sucht keinen Seniorenkurs am Nachmittag."
+        e: "Die Person erwählnt keine Unsicherheit beim Fahrradfahren.",
+        f: "Die Person ist berufstätig und sucht keinen Seniorenkurs am Nachmittag."
       },
       learningTip:
-        "Hoeren Sie bei Zuordnungsaufgaben immer auf zwei Ebenen: Thema und Uhrzeit. Beides muss passen.",
+        "Hören Sie bei Zuordnungsaufgaben immer auf zwei Ebenen: Thema und Uhrzeit. Beides muss passen.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Die beste Loesung passt inhaltlich und organisatorisch zugleich."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Die beste Lösung passt inhaltlich und organisatorisch zugleich."
     },
     {
       id: "listen-p2-02",
       personLabel: "Person 2",
       transcript:
-        "Meine Tochter ist fuenf Jahre alt und liebt Wasser. Ich moechte gern am Wochenende etwas mit ihr zusammen machen. Unter der Woche schaffen wir das nicht, weil ich bis spaet arbeite.",
+        "Meine Tochter ist fünf Jahre alt und liebt Wasser. Ich möchte gern am Wochenende etwas mit ihr zusammen machen. Unter der Woche schaffen wir das nicht, weil ich bis spät arbeite.",
       durationLabel: "00:22",
       prompt: "Welche Aussage passt zu Person 2?",
       correctOptionId: "b",
@@ -437,26 +437,26 @@ export const listeningPartTwoSet: ListeningPartTwoSet = {
         "Hier werden ein Kind, gemeinsames Lernen und ein Termin am Wochenende genannt. Das passt genau zum Eltern-Kind-Schwimmkurs.",
       incorrectReasonByOption: {
         a: "Es geht nicht um einen Berufssprachkurs.",
-        c: "Computer werden nicht erwaehnt.",
+        c: "Computer werden nicht erwählnt.",
         d: "Gemeinsames Kochen ist nicht das Ziel; wichtig sind Kind, Wochenende und Wasser.",
-        e: "Die Person spricht nicht ueber Strassenverkehr oder Fahrradfahren.",
-        f: "Ein Seniorenkurs passt weder zum Alter des Kindes noch zum Wunsch nach gemeinsamer Aktivitaet."
+        e: "Die Person spricht nicht über Strassenverkehr oder Fahrradfahren.",
+        f: "Ein Seniorenkurs passt weder zum Alter des Kindes noch zum Wunsch nach gemeinsamer Aktivität."
       },
       learningTip:
-        "Markieren Sie gedanklich Hinweise auf Familie, Alter und Tageszeit. Diese Kombination fuehrt oft direkt zur passenden Aussage.",
+        "Markieren Sie gedanklich Hinweise auf Familie, Alter und Tageszeit. Diese Kombination führt oft direkt zur passenden Aussage.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Einzelne Schluesselwoerter reichen nicht. Die ganze Situation muss zusammenpassen."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Einzelne Schlüsselwörter reichen nicht. Die ganze Situation muss zusammenpassen."
     },
     {
       id: "listen-p2-03",
       personLabel: "Person 3",
       transcript:
-        "Seit kurzem habe ich einen Laptop, aber ich weiss nicht einmal, wie ich E Mails schreibe oder Dokumente speichere. Alles soll langsam erklaert werden. Ich habe bisher noch nie mit solchen Programmen gearbeitet.",
+        "Seit kurzem habe ich einen Laptop, aber ich weiß nicht einmal, wie ich E-Mails schreibe oder Dokumente speichere. Alles soll langsam erklärt werden. Ich habe bisher noch nie mit solchen Programmen gearbeitet.",
       durationLabel: "00:22",
       prompt: "Welche Aussage passt zu Person 3?",
       correctOptionId: "c",
       correctReason:
-        "Die Person ist absolute Anfaengerin oder absoluter Anfaenger am Computer und braucht einfache Erklaerungen.",
+        "Die Person ist absolute Anfängerin oder absoluter Anfänger am Computer und braucht einfache Erklärungen.",
       incorrectReasonByOption: {
         a: "Das Problem ist technisch, nicht sprachlich.",
         b: "Es geht weder um Kinder noch um Schwimmen.",
@@ -465,75 +465,75 @@ export const listeningPartTwoSet: ListeningPartTwoSet = {
         f: "Das Alter wird nicht genannt; wichtig ist die fehlende Computererfahrung."
       },
       learningTip:
-        "Bei Zuordnungsaufgaben helfen Verben wie speichern, schreiben, erklaeren oder lernen, um das Thema genauer zu erkennen.",
+        "Bei Zuordnungsaufgaben helfen Verben wie speichern, schreiben, erklären oder lernen, um das Thema genauer zu erkennen.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Eine Aussage ist oft durch sehr typische Fachwoerter eindeutig."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Eine Aussage ist oft durch sehr typische Fachwörter eindeutig."
     },
     {
       id: "listen-p2-04",
       personLabel: "Person 4",
       transcript:
-        "Wir sind zu Hause zu viert und ich suche Ideen fuer leckeres Essen, das nicht teuer ist. Besonders wichtig ist mir, dass die Rezepte auch im Alltag schnell funktionieren.",
+        "Wir sind zu Hause zu viert und ich suche Ideen für leckeres Essen, das nicht teuer ist. Besonders wichtig ist mir, dass die Rezepte auch im Alltag schnell funktionieren.",
       durationLabel: "00:18",
       prompt: "Welche Aussage passt zu Person 4?",
       correctOptionId: "d",
       correctReason:
-        "Die Person sucht guenstige Rezepte fuer eine Familie und moechte alltagstauglich kochen. Das passt direkt zu Aussage D.",
+        "Die Person sucht günstige Rezepte für eine Familie und möchte alltagstauglich kochen. Das passt direkt zu Aussage D.",
       incorrectReasonByOption: {
         a: "Es geht nicht um Deutsch im Beruf.",
-        b: "Kinder werden zwar indirekt erwaehnt, aber das Thema ist Essen, nicht Schwimmen.",
+        b: "Kinder werden zwar indirekt erwählnt, aber das Thema ist Essen, nicht Schwimmen.",
         c: "Computerkenntnisse spielen hier keine Rolle.",
         e: "Von Fahrradtraining ist nicht die Rede.",
-        f: "Ein Bewegungskurs fuer Senioren passt inhaltlich gar nicht."
+        f: "Ein Bewegungskurs für Senioren passt inhaltlich gar nicht."
       },
       learningTip:
-        "Achten Sie auf Woerter wie guenstig, Familie, Alltag oder schnell. Sie zeigen oft sehr praezise, welche Aussage gemeint ist.",
+        "Achten Sie auf Wörter wie günstig, Familie, Alltag oder schnell. Sie zeigen oft sehr präzise, welche Aussage gemeint ist.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Wenn mehrere Aussagen irgendwie passen koennten, gewinnt die spezifischere."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Wenn mehrere Aussagen irgendwie passen könnten, gewinnt die spezifischere."
     },
     {
       id: "listen-p2-05",
       personLabel: "Person 5",
       transcript:
-        "Ich habe als Kind nie richtig Radfahren gelernt. Jetzt wohne ich in der Stadt und moechte sicherer werden, besonders an Kreuzungen und auf grossen Strassen.",
+        "Ich habe als Kind nie richtig Radfahren gelernt. Jetzt wohne ich in der Stadt und möchte sicherer werden, besonders an Kreuzungen und auf großen Strassen.",
       durationLabel: "00:18",
       prompt: "Welche Aussage passt zu Person 5?",
       correctOptionId: "e",
       correctReason:
         "Unsicherheit im Stadtverkehr und der Wunsch nach mehr Sicherheit auf dem Fahrrad passen genau zu Aussage E.",
       incorrectReasonByOption: {
-        a: "Die Person spricht nicht ueber Sprache oder Arbeit.",
+        a: "Die Person spricht nicht über Sprache oder Arbeit.",
         b: "Es geht nicht um Kinder oder Schwimmen.",
         c: "Computer sind kein Thema.",
         d: "Kochen passt hier inhaltlich nicht.",
-        f: "Die Person sucht Verkehrssicherheit, nicht Gymnastik oder Bewegung fuer Senioren."
+        f: "Die Person sucht Verkehrssicherheit, nicht Gymnastik oder Bewegung für Senioren."
       },
       learningTip:
-        "Wenn Orte wie Kreuzung, Strasse oder Verkehr fallen, pruefen Sie sofort Aussagen zum Mobilitaetsbereich.",
+        "Wenn Orte wie Kreuzung, Strasse oder Verkehr fallen, prüfen Sie sofort Aussagen zum Mobilitätsbereich.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Manche Loesungen werden durch zwei bis drei sehr konkrete Woerter fast eindeutig."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Manche Lösungen werden durch zwei bis drei sehr konkrete Wörter fast eindeutig."
     },
     {
       id: "listen-p2-06",
       personLabel: "Person 6",
       transcript:
-        "Meine Mutter ist vor Kurzem siebzig geworden. Sie moechte sich mehr bewegen, aber keinen anstrengenden Sport machen. Vormittags passt es ihr nicht, weil sie dann oft Arzttermine hat.",
+        "Meine Mutter ist vor Kurzem siebzig geworden. Sie möchte sich mehr bewegen, aber keinen anstrengenden Sport machen. Vormittags passt es ihr nicht, weil sie dann oft Arzttermine hat.",
       durationLabel: "00:21",
       prompt: "Welche Aussage passt zu Person 6?",
       correctOptionId: "f",
       correctReason:
-        "Hier geht es um eine aeltere Person, leichte Bewegung und einen Termin am Nachmittag. Das passt eindeutig zu Aussage F.",
+        "Hier geht es um eine ältere Person, leichte Bewegung und einen Termin am Nachmittag. Das passt eindeutig zu Aussage F.",
       incorrectReasonByOption: {
         a: "Deutsch im Beruf ist kein Thema.",
-        b: "Der Kurs ist weder fuer Kinder noch fuer Samstag geplant.",
-        c: "Computerkenntnisse werden nicht benoetigt.",
+        b: "Der Kurs ist weder für Kinder noch für Samstag geplant.",
+        c: "Computerkenntnisse werden nicht benötigt.",
         d: "Es geht nicht um Essen oder Kochen.",
         e: "Radfahren im Strassenverkehr wird nicht angesprochen."
       },
       learningTip:
-        "Neben dem Inhalt spielt die passende Zielgruppe eine wichtige Rolle. Seniorin, Kind oder Berufstaetige sind oft entscheidend.",
+        "Neben dem Inhalt spielt die passende Zielgruppe eine wichtige Rolle. Seniorin, Kind oder Berufstätige sind oft entscheidend.",
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Zielgruppe und Uhrzeit zusammen sichern die richtige Zuordnung ab."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Zielgruppe und Uhrzeit zusammen sichern die richtige Zuordnung ab."
     }
   ]
 };
@@ -545,27 +545,27 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     title: "Ansage im Supermarkt",
     topic: "Einkaufen",
     transcript:
-      "Liebe Kundinnen und Kunden, wegen eines technischen Problems schliessen wir heute schon um neunzehn Uhr. Frische Backwaren erhalten Sie noch bis achtzehn Uhr an der Theke.",
+      "Liebe Kundinnen und Kunden, wegen eines technischen Problems schließen wir heute schon um neunzehn Uhr. Frische Backwaren erhalten Sie noch bis achtzehn Uhr an der Theke.",
     durationLabel: "00:17",
     question: "Was ist heute anders als sonst?",
     options: [
-      { id: "a", label: "A", text: "Der Supermarkt oeffnet spaeter." },
-      { id: "b", label: "B", text: "Der Supermarkt schliesst frueher." },
+      { id: "a", label: "A", text: "Der Supermarkt öffnet später." },
+      { id: "b", label: "B", text: "Der Supermarkt schliesst früher." },
       { id: "c", label: "C", text: "Backwaren gibt es heute nicht." }
     ],
     correctOptionId: "b",
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "In der Ansage heisst es klar, dass der Markt heute schon um neunzehn Uhr schliesst. Das ist die Veraenderung.",
+        "In der Ansage heißt es klar, dass der Markt heute schon um neunzehn Uhr schliesst. Das ist die Veränderung.",
       learningTip:
-        "Bei Durchsagen in Geschaeften wird die eigentliche Information oft direkt nach wegen oder heute genannt.",
+        "Bei Durchsagen in Geschäften wird die eigentliche Information oft direkt nach wegen oder heute genannt.",
       incorrectReasonByOption: {
-        a: "Die Oeffnungszeit wird nicht angesprochen. Es geht nur um das fruehere Schliessen.",
+        a: "Die Öffnungszeit wird nicht angesprochen. Es geht nur um das frühere Schließen.",
         c: "Backwaren gibt es noch bis achtzehn Uhr. Sie fallen also nicht komplett aus."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Verwechseln Sie Teilschlusszeiten einzelner Bereiche nicht mit der Hauptinformation."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Verwechseln Sie Teilschlusszeiten einzelner Bereiche nicht mit der Hauptinformation."
     }
   },
   {
@@ -574,9 +574,9 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     title: "Nachricht aus der Bibliothek",
     topic: "Freizeit",
     transcript:
-      "Die Stadtbibliothek erinnert daran, dass ausgeliehene Medien bis spaetestens Montag zurueckgegeben werden muessen. Am Samstag bleibt die Bibliothek wegen einer Veranstaltung geschlossen.",
+      "Die Stadtbibliothek erinnert daran, dass ausgeliehene Medien bis spätestens Montag zurückgegeben werden müssen. Am Samstag bleibt die Bibliothek wegen einer Veranstaltung geschlossen.",
     durationLabel: "00:16",
-    question: "Wann ist die Bibliothek nicht geoeffnet?",
+    question: "Wann ist die Bibliothek nicht geöffnet?",
     options: [
       { id: "a", label: "A", text: "Am Montag." },
       { id: "b", label: "B", text: "Am Samstag." },
@@ -586,15 +586,15 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Die Ansage nennt den Samstag ausdruecklich als Schliessungstag wegen einer Veranstaltung.",
+        "Die Ansage nennt den Samstag ausdrücklich als Schließungstag wegen einer Veranstaltung.",
       learningTip:
-        "Bei oeffentlichen Einrichtungen sollten Sie besonders auf Wochentage achten. Sie sind oft die Loesung.",
+        "Bei öffentlichen Einrichtungen sollten Sie besonders auf Wochentage achten. Sie sind oft die Lösung.",
       incorrectReasonByOption: {
-        a: "Montag ist nur der Rueckgabetermin, nicht der Schliessungstag.",
-        c: "Von einer eingeschraenkten Oeffnungszeit ist keine Rede. Die Bibliothek bleibt ganz geschlossen."
+        a: "Montag ist nur der Rückgabetermin, nicht der Schließungstag.",
+        c: "Von einer eingeschraenkten Öffnungszeit ist keine Rede. Die Bibliothek bleibt ganz geschlossen."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Ein genannter Abgabetermin ist nicht automatisch die Antwort auf die eigentliche Frage."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Ein genannter Abgabetermin ist nicht automatisch die Antwort auf die eigentliche Frage."
     }
   },
   {
@@ -609,7 +609,7 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     options: [
       { id: "a", label: "A", text: "Am Museum einsteigen oder aussteigen." },
       { id: "b", label: "B", text: "Eine andere Buslinie suchen." },
-      { id: "c", label: "C", text: "Zur Haltestelle Zentrum zurueckgehen." }
+      { id: "c", label: "C", text: "Zur Haltestelle Zentrum zurückgehen." }
     ],
     correctOptionId: "a",
     feedback: {
@@ -617,13 +617,13 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
       correctReason:
         "Die Ansage gibt direkt die Ersatzhaltestelle am Museum an. Diese sollen die Fahrgaeste benutzen.",
       learningTip:
-        "Wenn Sie bitte benutzen Sie stattdessen hoeren, folgt meist sofort die korrekte Handlung.",
+        "Wenn Sie bitte benutzen Sie stattdessen hören, folgt meist sofort die korrekte Handlung.",
       incorrectReasonByOption: {
-        b: "Es wird keine andere Linie verlangt. Nur die Haltestelle aendert sich.",
+        b: "Es wird keine andere Linie verlangt. Nur die Haltestelle ändert sich.",
         c: "Gerade diese Haltestelle kann nicht angefahren werden. Die Fahrgaeste sollen also nicht dorthin."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Ersatzorte oder Ersatzwege werden oft mit stattdessen signalisiert."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Ersatzorte oder Ersatzwege werden oft mit stattdessen signalisiert."
     }
   },
   {
@@ -632,9 +632,9 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     title: "Schwimmbad",
     topic: "Freizeit",
     transcript:
-      "Bitte beachten Sie: Das Kinderbecken ist heute wegen einer Reparatur nicht benutzbar. Das Sportbecken und die Sauna bleiben wie gewohnt geoeffnet.",
+      "Bitte beachten Sie: Das Kinderbecken ist heute wegen einer Reparatur nicht benutzbar. Das Sportbecken und die Sauna bleiben wie gewohnt geöffnet.",
     durationLabel: "00:14",
-    question: "Was ist heute nicht moeglich?",
+    question: "Was ist heute nicht möglich?",
     options: [
       { id: "a", label: "A", text: "Die Sauna besuchen." },
       { id: "b", label: "B", text: "Das Kinderbecken benutzen." },
@@ -646,24 +646,24 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
       correctReason:
         "Nur das Kinderbecken ist wegen einer Reparatur gesperrt. Die anderen Bereiche bleiben offen.",
       learningTip:
-        "Achten Sie auf Aufzaehlungen mit nur, aber oder wie gewohnt. Sie grenzen die richtige Antwort ein.",
+        "Achten Sie auf Aufzählungen mit nur, aber oder wie gewohnt. Sie grenzen die richtige Antwort ein.",
       incorrectReasonByOption: {
-        a: "Die Sauna bleibt geoeffnet. Diese Option widerspricht dem letzten Satz.",
-        c: "Auch das Sportbecken bleibt wie gewohnt geoeffnet."
+        a: "Die Sauna bleibt geöffnet. Diese Option widerspricht dem letzten Satz.",
+        c: "Auch das Sportbecken bleibt wie gewohnt geöffnet."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Bei mehreren Bereichen muessen Sie genau unterscheiden, was geschlossen und was offen bleibt."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Bei mehreren Bereichen müssen Sie genau unterscheiden, was geschlossen und was offen bleibt."
     }
   },
   {
     id: "listen-p3-05",
     part: "Teil 3",
-    title: "Buergerbuero",
-    topic: "Behoerde",
+    title: "Bürgerbüro",
+    topic: "Behörde",
     transcript:
-      "Nummer achtundvierzig bitte zum Schalter drei. Fuer neue Ausweisdokumente benoetigen wir heute zusaetzlich ein aktuelles Passfoto.",
+      "Nummer achtundvierzig bitte zum Schalter drei. Für neue Ausweisdokumente benötigen wir heute zusätzlich ein aktuelles Passfoto.",
     durationLabel: "00:13",
-    question: "Was muessen Personen heute mitbringen?",
+    question: "Was müssen Personen heute mitbringen?",
     options: [
       { id: "a", label: "A", text: "Ein aktuelles Passfoto." },
       { id: "b", label: "B", text: "Eine Geburtsurkunde." },
@@ -673,15 +673,15 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     feedback: {
       correctTitle: "Richtig",
       correctReason:
-        "Die Ansage nennt ausdruecklich ein aktuelles Passfoto als zusaetzlich noetiges Dokument.",
+        "Die Ansage nennt ausdrücklich ein aktuelles Passfoto als zusätzlich nötiges Dokument.",
       learningTip:
-        "Bei Behoerdenaufgaben helfen Woerter wie benoetigen, mitbringen oder zusaetzlich. Danach kommt oft die Loesung.",
+        "Bei Behördenaufgaben helfen Wörter wie benötigen, mitbringen oder zusätzlich. Danach kommt oft die Lösung.",
       incorrectReasonByOption: {
-        b: "Eine Geburtsurkunde wird ueberhaupt nicht genannt.",
+        b: "Eine Geburtsurkunde wird überhaupt nicht genannt.",
         c: "Von Geld ist keine Rede. Gefragt wird nach einem Dokument."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Lassen Sie sich nicht von typischen Alltagserwartungen leiten. Entscheidend ist nur, was wirklich gesagt wird."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Lassen Sie sich nicht von typischen Alltagserwartungen leiten. Entscheidend ist nur, was wirklich gesagt wird."
     }
   },
   {
@@ -690,7 +690,7 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     title: "Nachricht vom Zahnarzt",
     topic: "Arzt",
     transcript:
-      "Hier spricht die Zahnarztpraxis Hartmann. Ihr Termin am Dienstag muss leider auf Donnerstag um elf Uhr verschoben werden. Wenn Sie diesen Termin nicht wahrnehmen koennen, rufen Sie uns bitte bis morgen Mittag an.",
+      "Hier spricht die Zahnarztpraxis Hartmann. Ihr Termin am Dienstag muss leider auf Donnerstag um elf Uhr verschoben werden. Wenn Sie diesen Termin nicht wahrnehmen können, rufen Sie uns bitte bis morgen Mittag an.",
     durationLabel: "00:20",
     question: "Wann ist der neue Termin?",
     options: [
@@ -704,13 +704,13 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
       correctReason:
         "Die Praxis sagt klar, dass der Termin auf Donnerstag um elf Uhr verschoben wird.",
       learningTip:
-        "Unterscheiden Sie bei Terminen zwischen altem Termin, neuem Termin und Rueckmeldefrist. Das sind drei verschiedene Informationen.",
+        "Unterscheiden Sie bei Terminen zwischen altem Termin, neuem Termin und Rückmeldefrist. Das sind drei verschiedene Informationen.",
       incorrectReasonByOption: {
-        a: "Dienstag ist der urspruengliche Termin, nicht der neue.",
-        c: "Morgen Mittag ist nur die Frist fuer den Rueckruf, nicht die neue Behandlung."
+        a: "Dienstag ist der ursprüngliche Termin, nicht der neue.",
+        c: "Morgen Mittag ist nur die Frist für den Rückruf, nicht die neue Behandlung."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: In Terminnachrichten kommen oft mehrere Uhrzeiten vor. Die Frage entscheidet, welche davon wichtig ist."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: In Terminnachrichten kommen oft mehrere Uhrzeiten vor. Die Frage entscheidet, welche davon wichtig ist."
     }
   },
   {
@@ -719,9 +719,9 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     title: "Durchsage im Bus",
     topic: "Bus",
     transcript:
-      "Wegen einer Baustelle faehrt der Bus 614 heute nicht ueber den Marktplatz. Bitte steigen Sie fuer das Rathaus an der Haltestelle Stadtmitte aus.",
+      "Wegen einer Baustelle fährt der Bus 614 heute nicht über den Marktplatz. Bitte steigen Sie für das Rathaus an der Haltestelle Stadtmitte aus.",
     durationLabel: "00:14",
-    question: "Wo sollen Fahrgaeste fuer das Rathaus aussteigen?",
+    question: "Wo sollen Fahrgaeste für das Rathaus aussteigen?",
     options: [
       { id: "a", label: "A", text: "Am Marktplatz." },
       { id: "b", label: "B", text: "An der Haltestelle Stadtmitte." },
@@ -730,41 +730,41 @@ export const listeningPartThreeTasks: ListeningPartThreeTask[] = [
     correctOptionId: "b",
     feedback: {
       correctTitle: "Richtig",
-      correctReason: "Die Ansage nennt die Haltestelle Stadtmitte ausdruecklich als Ausstieg fuer das Rathaus.",
+      correctReason: "Die Ansage nennt die Haltestelle Stadtmitte ausdrücklich als Ausstieg für das Rathaus.",
       learningTip: "Bei kurzen Ansagen sollten Sie sofort auf Ortsnamen und Ersatzhaltestellen achten.",
       incorrectReasonByOption: {
         a: "Der Marktplatz wird gerade nicht angefahren.",
-        c: "Die Baustelle ist nur der Grund fuer die Aenderung, aber keine Haltestelle."
+        c: "Die Baustelle ist nur der Grund für die Änderung, aber keine Haltestelle."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: In Verkehrsdurchsagen sind Ort und Grund oft nah beieinander. Trennen Sie beides sauber."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: In Verkehrsdurchsagen sind Ort und Grund oft nah beieinander. Trennen Sie beides sauber."
     }
   },
   {
     id: "listen-p3-08",
     part: "Teil 3",
-    title: "Ansage im Buergeramt",
-    topic: "Behoerde",
+    title: "Ansage im Bürgeramt",
+    topic: "Behörde",
     transcript:
-      "Nummer A 43 bitte zum Schalter 5. Fuer Meldebescheinigungen brauchen Sie neben dem Ausweis auch die Gebuehr in bar oder mit Karte.",
+      "Nummer A 43 bitte zum Schalter 5. Für Meldebescheinigungen brauchen Sie neben dem Ausweis auch die Gebühr in bar oder mit Karte.",
     durationLabel: "00:13",
-    question: "Was braucht man fuer eine Meldebescheinigung zusaetzlich zum Ausweis?",
+    question: "Was braucht man für eine Meldebescheinigung zusätzlich zum Ausweis?",
     options: [
       { id: "a", label: "A", text: "Ein Passfoto." },
-      { id: "b", label: "B", text: "Die Gebuehr." },
-      { id: "c", label: "C", text: "Einen Termin in der naechsten Woche." }
+      { id: "b", label: "B", text: "Die Gebühr." },
+      { id: "c", label: "C", text: "Einen Termin in der nächsten Woche." }
     ],
     correctOptionId: "b",
     feedback: {
       correctTitle: "Richtig",
-      correctReason: "Die Ansage sagt klar, dass man neben dem Ausweis auch die Gebuehr braucht.",
-      learningTip: "Bei Behoerdenansagen lohnen sich Woerter wie neben, zusaetzlich und brauchen.",
+      correctReason: "Die Ansage sagt klar, dass man neben dem Ausweis auch die Gebühr braucht.",
+      learningTip: "Bei Behördenansagen lohnen sich Wörter wie neben, zusätzlich und brauchen.",
       incorrectReasonByOption: {
         a: "Ein Passfoto wird hier nicht genannt.",
         c: "Von einem neuen Termin ist keine Rede."
       },
       examFocus:
-        "Darauf sollten Sie in der DTZ-Pruefung achten: Zusatzinformationen folgen in Ansagen oft direkt nach neben oder auch."
+        "Darauf sollten Sie in der DTZ-Prüfung achten: Zusatzinformationen folgen in Ansagen oft direkt nach neben oder auch."
     }
   }
 ];

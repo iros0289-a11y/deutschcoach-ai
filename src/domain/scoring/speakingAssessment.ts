@@ -32,7 +32,7 @@ type SpeakingAssessmentInput = {
 const connectors = [
   "weil",
   "deshalb",
-  "ausserdem",
+  "außerdem",
   "danach",
   "vielleicht",
   "zuerst",
@@ -93,7 +93,7 @@ export function assessSpeakingResponse({
       comment:
         pronunciationScore >= 4
           ? "Sie sprechen schon lang genug, um klar und nachvollziehbar zu wirken."
-          : "Sprechen Sie etwas laenger und vollstaendiger, damit Ihre Antwort sicherer klingt."
+          : "Sprechen Sie etwas länger und vollständiger, damit Ihre Antwort sicherer klingt."
     },
     {
       id: "grammar",
@@ -102,8 +102,8 @@ export function assessSpeakingResponse({
       maxScore: 5,
       comment:
         grammarScore >= 4
-          ? "Ihre Antwort wirkt grammatisch ueberwiegend stabil."
-          : "Bilden Sie mehr vollstaendige Saetze statt einzelner Wortgruppen."
+          ? "Ihre Antwort wirkt grammatisch überwiegend stabil."
+          : "Bilden Sie mehr vollständige Sätze statt einzelner Wortgruppen."
     },
     {
       id: "vocabulary",
@@ -113,7 +113,7 @@ export function assessSpeakingResponse({
       comment:
         vocabularyScore >= 4
           ? "Sie verwenden schon einen recht passenden Wortschatz."
-          : "Nutzen Sie mehr konkrete Woerter zur Situation."
+          : "Nutzen Sie mehr konkrete Wörter zur Situation."
     },
     {
       id: "fluency",
@@ -122,8 +122,8 @@ export function assessSpeakingResponse({
       maxScore: 5,
       comment:
         fluencyScore >= 4
-          ? "Die Antwort hat eine gute Laenge fuer die Aufgabe."
-          : "Versuchen Sie, Ihre Gedanken etwas laenger am Stueck auszusprechen."
+          ? "Die Antwort hat eine gute Laenge für die Aufgabe."
+          : "Versuchen Sie, Ihre Gedanken etwas länger am Stück auszusprechen."
     },
     {
       id: "sentenceStructure",
@@ -133,7 +133,7 @@ export function assessSpeakingResponse({
       comment:
         sentenceStructureScore >= 4
           ? "Sie verbinden Ihre Gedanken schon gut miteinander."
-          : "Nutzen Sie mehr Verknuepfungen wie weil, dann, deshalb oder ausserdem."
+          : "Nutzen Sie mehr Verknüpfungen wie weil, dann, deshalb oder außerdem."
     },
     {
       id: "b1Level",
@@ -142,8 +142,8 @@ export function assessSpeakingResponse({
       maxScore: 5,
       comment:
         b1Score >= 4
-          ? "Die Antwort erreicht schon eine gute B1-Naehe."
-          : "Fuer B1 helfen mehr Details, Beispiele und klar verbundene Aussagen."
+          ? "Die Antwort erreicht schon eine gute B1-Nähe."
+          : "Für B1 helfen mehr Details, Beispiele und klar verbundene Aussagen."
     }
   ];
 
@@ -159,8 +159,8 @@ export function assessSpeakingResponse({
   ].filter(Boolean);
 
   const improvements = [
-    words.length < 30 ? "Sprechen Sie etwas laenger und geben Sie mehr konkrete Details." : "",
-    connectorHits < 2 ? "Verwenden Sie mehr Redemittel wie weil, dann, ausserdem oder ich denke." : "",
+    words.length < 30 ? "Sprechen Sie etwas länger und geben Sie mehr konkrete Details." : "",
+    connectorHits < 2 ? "Verwenden Sie mehr Redemittel wie weil, dann, außerdem oder ich denke." : "",
     keywordHits < Math.max(2, expectedKeywords.length - 1)
       ? "Gehen Sie noch deutlicher auf alle Teilfragen der Aufgabe ein."
       : ""

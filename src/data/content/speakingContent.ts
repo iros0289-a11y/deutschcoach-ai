@@ -50,7 +50,7 @@ function getMeetingSuggestion(setting: string) {
     return "uns am Bahnhof treffen und dann gemeinsam weiterfahren";
   }
 
-  if (normalized.includes("dtz-pruefung") || normalized.includes("bibliothek")) {
+  if (normalized.includes("dtz-prüfung") || normalized.includes("bibliothek")) {
     return "uns direkt vor der Bibliothek treffen";
   }
 
@@ -65,23 +65,23 @@ function buildPlanningSampleDialogue(title: string, setting: string) {
   const meetingSuggestion = getMeetingSuggestion(setting);
 
   return [
-    `Partner: Hallo, wir muessen noch genauer ueber ${title.toLowerCase()} sprechen. Wann passt es dir am besten?`,
+    `Partner: Hallo, wir müssen noch genauer über ${title.toLowerCase()} sprechen. Wann passt es dir am besten?`,
     "Ich: Am besten am Samstagnachmittag gegen 15 Uhr, dann haben die meisten Zeit und ich bin schon mit der Arbeit fertig.",
     "Partner: Gut, das passt. Und wo wollen wir uns treffen?",
-    `Ich: Wir koennen ${meetingSuggestion}. Das ist fuer alle einfach zu finden und niemand muss lange suchen.`,
-    "Partner: Einverstanden. Wer uebernimmt denn die wichtigsten Aufgaben?",
-    "Ich: Ich bringe Essen und Getraenke mit. Du kannst bitte die anderen informieren und noch an die wichtigsten Sachen denken.",
-    "Partner: Und was machen wir, wenn etwas schiefgeht, zum Beispiel Regen oder Verspaetung?",
-    "Ich: Dann brauchen wir eine Alternative. Wenn es regnet, koennen wir den Plan aendern oder spaeter anfangen. Hauptsache, wir sprechen uns vorher gut ab."
+    `Ich: Wir können ${meetingSuggestion}. Das ist für alle einfach zu finden und niemand muss lange suchen.`,
+    "Partner: Einverstanden. Wer übernimmt denn die wichtigsten Aufgaben?",
+    "Ich: Ich bringe Essen und Getränke mit. Du kannst bitte die anderen informieren und noch an die wichtigsten Sachen denken.",
+    "Partner: Und was machen wir, wenn etwas schiefgeht, zum Beispiel Regen oder Verspätung?",
+    "Ich: Dann brauchen wir eine Alternative. Wenn es regnet, können wir den Plan ändern oder später anfangen. Hauptsache, wir sprechen uns vorher gut ab."
   ].join("\n");
 }
 
 export const speakingIntroPractice: SpeakingIntroPractice = {
   ...baseIntro,
   expandedSampleAnswer:
-    "Guten Tag. Ich heisse Merve Kaya und komme aus der Tuerkei. Seit zwei Jahren lebe ich mit meinem Mann und meinen beiden Kindern in Bonn. Vormittags arbeite ich in einer Baeckerei, und am Abend lerne ich Deutsch. In meiner Freizeit lese ich gern, koche fuer meine Familie und treffe Freunde aus meinem Sprachkurs. Ich lerne Deutsch, weil ich im Alltag und im Beruf sicherer sprechen moechte und spaeter eine Ausbildung im kaufmaennischen Bereich machen will.",
+    "Guten Tag. Ich heiße Merve Kaya und komme aus der Türkei. Seit zwei Jahren lebe ich mit meinem Mann und meinen beiden Kindern in Bonn. Vormittags arbeite ich in einer Bäckerei, und am Abend lerne ich Deutsch. In meiner Freizeit lese ich gern, koche für meine Familie und treffe Freunde aus meinem Sprachkurs. Ich lerne Deutsch, weil ich im Alltag und im Beruf sicherer sprechen möchte und später eine Ausbildung im kaufmännischen Bereich machen will.",
   expectedKeywords: [
-    ["heisse", "name", "ich bin"],
+    ["heiße", "name", "ich bin"],
     ["komme", "aus", "herkunft"],
     ["arbeite", "beruf", "freizeit"],
     ["wohne", "familie", "zusammen"],
@@ -97,7 +97,7 @@ export const speakingPhotoPractice: SpeakingPhotoPractice[] = basePhotos.map((ph
     "Welche Situation zeigt das Bild?",
     "Welche Erfahrungen haben Sie damit?"
   ],
-  expandedSampleAnswer: `${photo.sampleAnswer} Ausserdem kann ich mir gut vorstellen, wie die Personen sich fuehlen oder warum sie genau in dieser Situation sind. Ich versuche in so einer Aufgabe immer zuerst die Personen, dann die Handlung und zum Schluss meine eigene Erfahrung klar zu beschreiben.`,
+  expandedSampleAnswer: `${photo.sampleAnswer} Außerdem kann ich mir gut vorstellen, wie die Personen sich fühlen oder warum sie genau in dieser Situation sind. Ich versuche in so einer Aufgabe immer zuerst die Personen, dann die Handlung und zum Schluss meine eigene Erfahrung klar zu beschreiben.`,
   expectedKeywords: [
     ["bild", "sehe", "personen", "frau", "mann", "kinder"],
     ["situation", "vielleicht", "wahrscheinlich", "zeigt"],
@@ -117,7 +117,7 @@ export const speakingPlanningPractice: SpeakingPlanningPractice[] = basePlanning
     {
       id: `${task.id}-partner-1`,
       speaker: "partner",
-      text: `Hallo, wir muessen noch genauer ueber ${task.title.toLowerCase()} sprechen. Wann passt es dir am besten?`
+      text: `Hallo, wir müssen noch genauer über ${task.title.toLowerCase()} sprechen. Wann passt es dir am besten?`
     },
     {
       id: `${task.id}-user-1`,
@@ -128,7 +128,7 @@ export const speakingPlanningPractice: SpeakingPlanningPractice[] = basePlanning
     {
       id: `${task.id}-partner-2`,
       speaker: "partner",
-      text: "Gut. Und wo sollen wir uns treffen oder was ist der beste Ort dafuer?"
+      text: "Gut. Und wo sollen wir uns treffen oder was ist der beste Ort dafür?"
     },
     {
       id: `${task.id}-user-2`,
@@ -139,32 +139,32 @@ export const speakingPlanningPractice: SpeakingPlanningPractice[] = basePlanning
     {
       id: `${task.id}-partner-3`,
       speaker: "partner",
-      text: "Dann brauchen wir noch Aufgaben. Wer bringt was mit oder was uebernimmst du?"
+      text: "Dann brauchen wir noch Aufgaben. Wer bringt was mit oder was übernimmst du?"
     },
     {
       id: `${task.id}-user-3`,
       speaker: "user",
       text: "Antwort der Nutzerin oder des Nutzers",
-      goalKeywords: ["ich bringe", "du bringst", "essen", "getraenke", "tickets", "einladung", "planen"]
+      goalKeywords: ["ich bringe", "du bringst", "essen", "getränke", "tickets", "einladung", "planen"]
     },
     {
       id: `${task.id}-partner-4`,
       speaker: "partner",
-      text: "Super. Lass uns noch kurz besprechen, was wir machen, wenn etwas schiefgeht, zum Beispiel Regen oder Verspaetung."
+      text: "Super. Lass uns noch kurz besprechen, was wir machen, wenn etwas schiefgeht, zum Beispiel Regen oder Verspätung."
     },
     {
       id: `${task.id}-user-4`,
       speaker: "user",
       text: "Antwort der Nutzerin oder des Nutzers",
-      goalKeywords: ["wenn", "regen", "alternative", "spaeter", "notfalls", "dann"]
+      goalKeywords: ["wenn", "regen", "alternative", "später", "notfalls", "dann"]
     }
   ],
   sampleDialogue: buildPlanningSampleDialogue(task.title, task.setting),
   expectedKeywords: [
     ["zeit", "uhr", "samstag", "sonntag", "morgen", "nachmittag"],
     ["ort", "treffen", "park", "haus", "schule", "bahnhof"],
-    ["ich bringe", "du bringst", "essen", "getraenke", "tickets", "planen"],
-    ["wenn", "alternative", "regen", "spaeter", "problem", "notfalls"]
+    ["ich bringe", "du bringst", "essen", "getränke", "tickets", "planen"],
+    ["wenn", "alternative", "regen", "später", "problem", "notfalls"]
   ]
 }));
 

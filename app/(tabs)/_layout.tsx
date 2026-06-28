@@ -12,15 +12,17 @@ export default function TabsLayout() {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,
         tabBarLabelStyle: {
+          fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           fontSize: 12,
-          fontWeight: "700"
+          fontWeight: "600"
         },
         tabBarStyle: {
           backgroundColor: colors.surface,
           borderTopColor: colors.border,
-          height: 70,
-          paddingBottom: 10,
-          paddingTop: 8
+          borderTopWidth: 1,
+          height: 74,
+          paddingBottom: 12,
+          paddingTop: 10
         }
       }}
     >
@@ -39,4 +41,3 @@ export default function TabsLayout() {
     </Tabs>
   );
 }
-

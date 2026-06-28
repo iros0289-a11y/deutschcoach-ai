@@ -33,12 +33,12 @@ export function WritingScreen() {
         <Text style={styles.eyebrow}>DTZ</Text>
         <Text style={styles.title}>Schreiben</Text>
         <Text style={styles.body}>
-          Sie trainieren {writingPracticeScenarios.length} Alltagssituationen mit vier Inhaltspunkten, automatischer Rueckmeldung und ausfuehrlicher Musterloesung auf B1-Niveau.
+          Sie trainieren {writingPracticeScenarios.length} Alltagssituationen mit vier Inhaltspunkten, automatischer Rückmeldung und ausführlicher Musterlösung auf B1-Niveau.
         </Text>
       </InfoCard>
 
       <InfoCard>
-        <Text style={styles.sectionTitle}>Aufgaben auswaehlen</Text>
+        <Text style={styles.sectionTitle}>Aufgaben auswählen</Text>
         <View style={styles.choiceWrap}>
           {writingPracticeScenarios.map((entry) => {
             const active = entry.id === scenario.id;
@@ -64,7 +64,7 @@ export function WritingScreen() {
       <InfoCard>
         <Text style={styles.partLabel}>{scenario.category}</Text>
         <Text style={styles.sectionTitle}>{scenario.title}</Text>
-        <Text style={styles.body}>Empfaenger: {scenario.recipient}</Text>
+        <Text style={styles.body}>Empfänger: {scenario.recipient}</Text>
         <Text style={styles.longText}>{scenario.situation}</Text>
 
         <View style={styles.pointsCard}>
@@ -158,7 +158,7 @@ export function WritingScreen() {
             ))}
             {currentAssessment.coveredPoints.length > 0 ? (
               <Text style={styles.referenceText}>
-                • Erfuellte Inhaltspunkte: {currentAssessment.coveredPoints.join(", ")}
+                • Erfüllte Inhaltspunkte: {currentAssessment.coveredPoints.join(", ")}
               </Text>
             ) : null}
             {currentAssessment.missingPoints.length > 0 ? (

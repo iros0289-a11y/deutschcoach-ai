@@ -5,7 +5,7 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { colors } from "../src/core/theme";
+import { colors, typography } from "../src/core/theme";
 import { AppStateProvider } from "../src/features/app-state/AppStateProvider";
 
 export default function RootLayout() {
@@ -20,8 +20,8 @@ export default function RootLayout() {
             headerStyle: { backgroundColor: colors.background },
             headerTintColor: colors.textPrimary,
             headerTitleStyle: {
-              fontSize: 20,
-              fontWeight: "800"
+              ...typography.bodyStrong,
+              fontSize: 20
             }
           }}
         >
@@ -37,3 +37,4 @@ export default function RootLayout() {
     </SafeAreaProvider>
   );
 }
+

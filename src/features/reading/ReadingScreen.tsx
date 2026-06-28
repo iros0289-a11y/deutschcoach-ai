@@ -103,7 +103,7 @@ function MatchingFeedback({
 
   return (
     <FeedbackPanel
-      heading={`Richtige LÃ¶sung: ${optionTitleLookup[situation.correctId]}`}
+      heading={`Richtige Lösung: ${optionTitleLookup[situation.correctId]}`}
       accentColor={colors.danger}
       lines={[situation.correctReason, `Warum Ihre Wahl nicht passt: ${wrongReason}`, situation.examFocus, `Lerntipp: ${situation.learningTip}`]}
     />
@@ -133,11 +133,11 @@ function ReadingChoiceFeedback({
 
   const wrongReason = selectedOptionId
     ? feedback.incorrectReasonByOption[selectedOptionId] ?? "Diese Antwort passt nicht genau zum Text."
-    : "Sie haben noch keine Auswahl getroffen. In der PrÃ¼fung lohnt es sich trotzdem, die passende Textstelle zu markieren."
+    : "Sie haben noch keine Auswahl getroffen. In der Prüfung lohnt es sich trotzdem, die passende Textstelle zu markieren."
 
   return (
     <FeedbackPanel
-      heading={`Richtige LÃ¶sung: ${correctOptionId.toUpperCase()}`}
+      heading={`Richtige Lösung: ${correctOptionId.toUpperCase()}`}
       accentColor={colors.danger}
       lines={[feedback.correctReason, `Warum Ihre Wahl nicht passt: ${wrongReason}`, feedback.examFocus, `Lerntipp: ${feedback.learningTip}`]}
     />
@@ -196,12 +196,12 @@ function DualQuestionCard({
         })}
       </View>
 
-      <Text style={styles.subtaskTitle}>2. Passende Antwort waehlen</Text>
+      <Text style={styles.subtaskTitle}>2. Passende Antwort wähllen</Text>
       <Text style={styles.question}>{task.question}</Text>
       <ChoiceChips options={task.options} selectedOptionId={selectedChoice} onSelect={onSelectChoice} />
 
       <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}>
-        <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
+        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
       </Pressable>
 
       {revealed ? (
@@ -222,7 +222,7 @@ function DualQuestionCard({
               lines={[
                 task.statement.correctReason,
                 `Warum Ihre Wahl nicht passt: ${task.statement.incorrectReason}`,
-                "Darauf sollten Sie in der DTZ-Pruefung achten: Aussagen werden oft durch kleine Woerter wie nur, nicht oder weiterhin entschieden."
+                "Darauf sollten Sie in der DTZ-Prüfung achten: Aussagen werden oft durch kleine Wörter wie nur, nicht oder weiterhin entschieden."
               ]}
             />
           )}
@@ -251,7 +251,7 @@ function GapTextCard({
 
   return (
     <InfoCard>
-      <Text style={styles.partLabel}>LÃ¼ckentext</Text>
+      <Text style={styles.partLabel}>Lückentext</Text>
       <Text style={styles.sectionTitle}>{task.title}</Text>
       <Text style={styles.body}>{task.instruction}</Text>
 
@@ -277,7 +277,7 @@ function GapTextCard({
 
       {task.gaps.map((gap) => (
         <View key={gap.id} style={styles.gapSelectorCard}>
-          <Text style={styles.question}>LÃ¼cke {gap.label}</Text>
+          <Text style={styles.question}>Lücke {gap.label}</Text>
           <ChoiceChips
             options={gap.options}
             selectedOptionId={selectedValues[gap.id]}
@@ -287,13 +287,13 @@ function GapTextCard({
       ))}
 
       <Pressable onPress={onSubmit} style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}>
-        <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
+        <Text style={styles.primaryActionText}>Antwort prüfen</Text>
       </Pressable>
 
       {revealed ? (
         <View style={styles.feedbackStack}>
           <FeedbackPanel
-            heading={correctCount === task.gaps.length ? "Richtig" : `LÃ¶sung: ${correctCount} von ${task.gaps.length} LÃ¼cken korrekt`}
+            heading={correctCount === task.gaps.length ? "Richtig" : `Lösung: ${correctCount} von ${task.gaps.length} Lücken korrekt`}
             accentColor={correctCount === task.gaps.length ? colors.success : colors.danger}
             lines={[
               `Lerntipp: ${task.learningTip}`,
@@ -311,11 +311,11 @@ function GapTextCard({
             return (
               <FeedbackPanel
                 key={`${task.id}-${gap.id}`}
-                heading={`LÃ¼cke ${gap.label}: ${gapCorrect ? "Richtig" : `Richtige LÃ¶sung ${correctLabel}`}`}
+                heading={`Lücke ${gap.label}: ${gapCorrect ? "Richtig" : `Richtige Lösung ${correctLabel}`}`}
                 accentColor={gapCorrect ? colors.success : colors.danger}
                 lines={[
                   `Ihre Antwort: ${selectedLabel}`,
-                  `BegrÃ¼ndung: ${gap.clue}`,
+                  `Begründung: ${gap.clue}`,
                   `Warum andere Antworten nicht passen: ${gap.wrongChoiceGuidance}`
                 ]}
               />
@@ -345,7 +345,7 @@ export function ReadingScreen() {
         <Text style={styles.eyebrow}>DTZ</Text>
         <Text style={styles.title}>Lesen</Text>
         <Text style={styles.body}>
-          Sie trainieren Anzeigen, Gebaeudeplaene, laengere Alltagstexte und zwei Lueckentexte auf B1-Niveau.
+          Sie trainieren Anzeigen, Gebäudepläne, längere Alltagstexte und vier Lückentexte auf B1-Niveau.
         </Text>
       </InfoCard>
 
@@ -400,7 +400,7 @@ export function ReadingScreen() {
               }}
               style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}
             >
-              <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
+              <Text style={styles.primaryActionText}>Antwort prüfen</Text>
             </Pressable>
             {revealed[situation.id] ? (
               <MatchingFeedback selectedId={selectedAds[situation.id]} situation={situation} optionTitleLookup={adLookup} />
@@ -420,7 +420,7 @@ export function ReadingScreen() {
               <Text style={styles.referenceTitle}>{level.name}</Text>
               {level.places.map((place) => (
                 <Text key={place} style={styles.referenceText}>
-                  â€¢ {place}
+                  • {place}
                 </Text>
               ))}
             </View>
@@ -465,7 +465,7 @@ export function ReadingScreen() {
               }}
               style={({ pressed }) => [styles.primaryAction, pressed && styles.choiceChipPressed]}
             >
-              <Text style={styles.primaryActionText}>Antwort prÃ¼fen</Text>
+              <Text style={styles.primaryActionText}>Antwort prüfen</Text>
             </Pressable>
             {revealed[situation.id] ? (
               <MatchingFeedback selectedId={selectedFloors[situation.id]} situation={situation} optionTitleLookup={floorLookup} />

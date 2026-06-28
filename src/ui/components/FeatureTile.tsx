@@ -38,23 +38,23 @@ const styles = StyleSheet.create({
   tile: {
     backgroundColor: colors.surface,
     borderColor: colors.border,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     borderWidth: 1,
     flexBasis: "47%",
     flexGrow: 1,
-    gap: spacing.sm,
-    minHeight: 146,
-    padding: spacing.lg
+    gap: spacing.md,
+    minHeight: 154,
+    padding: spacing.xl
   },
   pressed: {
     opacity: 0.78
   },
   iconBox: {
     alignItems: "center",
-    borderRadius: radius.md,
-    height: 48,
+    borderRadius: radius.lg,
+    height: 52,
     justifyContent: "center",
-    width: 48
+    width: 52
   },
   title: {
     ...typography.bodyStrong,

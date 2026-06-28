@@ -62,6 +62,12 @@ function buildPlaybackText(text: string, playbackMode: PlaybackMode) {
   }
 
   if (normalized.includes(":")) {
+    if (playbackMode === "dialogue") {
+      return normalized
+        .replace(/(?:Sprecher\s*[A-Z]|Partner|Ich|Frau\s+[A-ZÄÖÜ][a-zäöüß]+|Herr\s+[A-ZÄÖÜ][a-zäöüß]+)\s*:\s*/g, "")
+        .replace(/([.!?])\s+/g, "$1  ");
+    }
+
     return normalized
       .replace(/([A-Za-zÄÖÜäöüß]+):/g, "$1. ")
       .replace(/([.!?])\s+/g, "$1  ");
@@ -69,14 +75,12 @@ function buildPlaybackText(text: string, playbackMode: PlaybackMode) {
 
   const sentences = splitIntoSentences(normalized);
 
-  if (playbackMode === "dialogue") {
-    return sentences
-      .map((sentence, index) => `Sprecher ${index % 2 === 0 ? "A" : "B"}. ${sentence}`)
-      .join("  ");
-  }
-
   if (playbackMode === "announcement") {
     return sentences.join(" ... ");
+  }
+
+  if (playbackMode === "dialogue") {
+    return sentences.join("  ");
   }
 
   return sentences.join("  ");

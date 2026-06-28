@@ -16,7 +16,7 @@ export function Screen({ children, contentContainerStyle, scroll = true }: Scree
     styles.content,
     {
       paddingBottom: insets.bottom + spacing.xl,
-      paddingTop: insets.top + spacing.lg
+      paddingTop: insets.top + spacing.xl
     },
     contentContainerStyle
   ];
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   content: {
-    paddingHorizontal: spacing.lg
+    paddingHorizontal: spacing.xl
   }
 });
-

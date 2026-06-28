@@ -31,8 +31,8 @@ const connectors = [
   "weil",
   "deshalb",
   "darum",
-  "ausserdem",
-  "zusaetzlich",
+  "außerdem",
+  "zusätzlich",
   "leider",
   "deshalb",
   "trotzdem",
@@ -62,7 +62,7 @@ export function assessWritingDraft(
   const uniqueWords = new Set(words.map((word) => normalize(word)));
   const connectorCount = connectors.filter((term) => normalize(trimmed).includes(term)).length;
   const hasGreeting = /^(sehr geehrte|liebe|guten tag|hallo)/i.test(trimmed);
-  const hasClosing = /(mit freundlichen gruessen|freundliche gruesse|viele gruesse|herzliche gruesse)/i.test(
+  const hasClosing = /(mit freundlichen grüßen|freundliche grüße|viele grüße|herzliche grüße)/i.test(
     trimmed
   );
   const coveredPointIndexes = scenario.pointChecks
@@ -75,7 +75,7 @@ export function assessWritingDraft(
 
   const taskCompletionScore = Math.min(5, Math.max(1, coveredPoints.length + (words.length >= 90 ? 1 : 0)));
   const politenessScore =
-    (hasGreeting ? 2 : 0) + (hasClosing ? 2 : 0) + (/bitte|danke|ich waere ihnen dankbar/i.test(trimmed) ? 1 : 0);
+    (hasGreeting ? 2 : 0) + (hasClosing ? 2 : 0) + (/bitte|danke|ich wäre ihnen dankbar/i.test(trimmed) ? 1 : 0);
   const grammarScore =
     (sentences.length >= 5 ? 2 : 1) +
     (/[.!?]/.test(trimmed) ? 1 : 0) +
@@ -85,7 +85,7 @@ export function assessWritingDraft(
     (uniqueWords.size >= 45 ? 2 : 1) +
     (uniqueWords.size >= 70 ? 1 : 0) +
     (connectorCount >= 2 ? 1 : 0) +
-    (/termin|anfrage|bitte|leider|danke|rueckmeldung|moeglich/i.test(trimmed) ? 1 : 0);
+    (/termin|anfrage|bitte|leider|danke|rückmeldung|möglich/i.test(trimmed) ? 1 : 0);
   const sentenceStructureScore =
     (sentences.length >= 5 ? 2 : 1) +
     (connectorCount >= 2 ? 2 : connectorCount >= 1 ? 1 : 0) +
@@ -103,8 +103,8 @@ export function assessWritingDraft(
       maxScore: 5,
       comment:
         grammarScore >= 4
-          ? "Die Antwort wirkt ueberwiegend sicher und gut lesbar."
-          : "Achten Sie auf vollstaendige Saetze und klare Satzenden."
+          ? "Die Antwort wirkt überwiegend sicher und gut lesbar."
+          : "Achten Sie auf vollständige Sätze und klare Satzenden."
     },
     {
       id: "vocabulary",
@@ -114,7 +114,7 @@ export function assessWritingDraft(
       comment:
         vocabularyScore >= 4
           ? "Sie verwenden schon passenden Alltagswortschatz."
-          : "Nutzen Sie mehr thematische Woerter aus der Situation."
+          : "Nutzen Sie mehr thematische Wörter aus der Situation."
     },
     {
       id: "sentenceStructure",
@@ -123,12 +123,12 @@ export function assessWritingDraft(
       maxScore: 5,
       comment:
         sentenceStructureScore >= 4
-          ? "Die Saetze sind verbunden und wirken zusammenhaengend."
-          : "Verbinden Sie Ihre Saetze oefter mit Woertern wie weil, deshalb oder ausserdem."
+          ? "Die Sätze sind verbunden und wirken zusammenhängend."
+          : "Verbinden Sie Ihre Sätze oefter mit Wörtern wie weil, deshalb oder außerdem."
     },
     {
       id: "taskCompletion",
-      label: "Aufgabe erfuellt",
+      label: "Aufgabe erfüllt",
       score: Math.min(5, taskCompletionScore),
       maxScore: 5,
       comment:
@@ -138,7 +138,7 @@ export function assessWritingDraft(
     },
     {
       id: "politeness",
-      label: "Hoeflichkeit",
+      label: "Höflichkeit",
       score: Math.min(5, politenessScore),
       maxScore: 5,
       comment:
@@ -154,7 +154,7 @@ export function assessWritingDraft(
       comment:
         b1LevelScore >= 4
           ? "Die Antwort geht schon in Richtung einer guten DTZ-B1-Leistung."
-          : "Fuer B1 helfen mehr Details, bessere Verknuepfungen und vollstaendige Inhaltspunkte."
+          : "Für B1 helfen mehr Details, bessere Verknüpfungen und vollständige Inhaltspunkte."
     }
   ];
 
@@ -166,14 +166,14 @@ export function assessWritingDraft(
   const strengths = [
     coveredPoints.length >= 3 ? "Die Hauptpunkte der Aufgabe sind schon gut erkennbar." : "",
     hasGreeting && hasClosing ? "Die Nachricht hat eine passende Anrede und einen sinnvollen Abschluss." : "",
-    connectorCount >= 2 ? "Ihre Saetze sind schon recht gut miteinander verbunden." : ""
+    connectorCount >= 2 ? "Ihre Sätze sind schon recht gut miteinander verbunden." : ""
   ].filter(Boolean);
 
   const improvements = [
-    missingPoints.length > 0 ? `Ergaenzen Sie noch: ${missingPoints.join(", ")}.` : "",
-    words.length < 90 ? "Schreiben Sie etwas ausfuehrlicher, damit Ihre Antwort sicherer auf B1-Niveau wirkt." : "",
-    connectorCount < 2 ? "Verwenden Sie mehr Verbindungswoerter wie weil, deshalb oder ausserdem." : "",
-    !hasGreeting || !hasClosing ? "Achten Sie auf eine vollstaendige Anrede und einen hoeflichen Schluss." : ""
+    missingPoints.length > 0 ? `Ergänzen Sie noch: ${missingPoints.join(", ")}.` : "",
+    words.length < 90 ? "Schreiben Sie etwas ausführlicher, damit Ihre Antwort sicherer auf B1-Niveau wirkt." : "",
+    connectorCount < 2 ? "Verwenden Sie mehr Verbindungswörter wie weil, deshalb oder außerdem." : "",
+    !hasGreeting || !hasClosing ? "Achten Sie auf eine vollständige Anrede und einen höflichen Schluss." : ""
   ].filter(Boolean);
 
   return {

@@ -41,12 +41,14 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "center",
     backgroundColor: colors.primary,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: "#1B3856",
     flexDirection: "row",
     gap: spacing.sm,
     justifyContent: "center",
     minHeight: 54,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.xl,
     paddingVertical: spacing.md
   },
   pressed: {
@@ -57,4 +59,3 @@ const styles = StyleSheet.create({
     color: colors.surface
   }
 });
-

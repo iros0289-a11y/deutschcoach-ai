@@ -1,4 +1,4 @@
-﻿import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 import { colors, radius, spacing, typography } from "../../core/theme";
@@ -198,11 +198,11 @@ function RecorderPanel({
       <Text style={styles.metaText}>
         {supported
           ? recording
-            ? "Aufnahme laeuft. Sprechen Sie moeglichst frei und zusammenhaengend."
+            ? "Aufnahme läuft. Sprechen Sie möglichst frei und zusammenhängend."
             : durationLabel
               ? `Letzte Aufnahme: ${durationLabel}`
-              : "Bereit fuer die Aufnahme."
-          : "Sprachaufnahme wird in diesem Browser nicht unterstuetzt."}
+              : "Bereit für die Aufnahme."
+          : "Sprachaufnahme wird in diesem Browser nicht unterstützt."}
       </Text>
       <Text style={styles.transcriptBox}>{transcript || "Hier erscheint Ihr erkannter Text nach der Aufnahme."}</Text>
     </View>
@@ -583,8 +583,8 @@ export function ModelExamScreen() {
         const key = `${task.id}:${gap.id}`;
         const selectedOptionId = readingGapAnswers[key];
         return selectedOptionId === gap.correctOptionId
-          ? `Luecke ${gap.label}: ${gap.clue}`
-          : `Luecke ${gap.label}: ${gap.wrongChoiceGuidance} Richtiger Hinweis: ${gap.clue}`;
+          ? `Lücke ${gap.label}: ${gap.clue}`
+          : `Lücke ${gap.label}: ${gap.wrongChoiceGuidance} Richtiger Hinweis: ${gap.clue}`;
       });
       const gapScore = task.gaps.filter((gap) => readingGapAnswers[`${task.id}:${gap.id}`] === gap.correctOptionId).length;
       readingPoints += gapScore;
@@ -626,9 +626,9 @@ export function ModelExamScreen() {
       prompt: writingScenario.situation,
       ownAnswer: writingDraft.trim() || "Keine Antwort",
       correctAnswer: writingScenario.expandedSampleText,
-      explanation: `Aufgabe erfuellt: ${writingAssessment.criteria.find((item) => item.id === "taskCompletion")?.comment ?? ""}\nB1-Niveau: ${writingAssessment.criteria.find((item) => item.id === "b1Level")?.comment ?? ""}`,
+      explanation: `Aufgabe erfüllt: ${writingAssessment.criteria.find((item) => item.id === "taskCompletion")?.comment ?? ""}\nB1-Niveau: ${writingAssessment.criteria.find((item) => item.id === "b1Level")?.comment ?? ""}`,
       learningTip: writingAssessment.improvements[0] ?? "Bearbeiten Sie alle vier Inhaltspunkte in einer klaren Reihenfolge.",
-      examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Schreiben Sie vollstaendige Saetze, bearbeiten Sie alle vier Punkte und bleiben Sie freundlich.",
+      examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Schreiben Sie vollständige Sätze, bearbeiten Sie alle vier Punkte und bleiben Sie freundlich.",
       isCorrect: writingCorrect
     });
 
@@ -675,7 +675,7 @@ export function ModelExamScreen() {
         ownAnswer: speakingTranscripts["speaking-intro"] ?? "Keine Antwort",
         correctAnswer: speakingIntroPractice.expandedSampleAnswer,
         assessment: introAssessment,
-        learningTipFallback: "Sprechen Sie in ganzen Saetzen ueber Name, Herkunft, Alltag und Ziel."
+        learningTipFallback: "Sprechen Sie in ganzen Sätzen über Name, Herkunft, Alltag und Ziel."
       },
       {
         taskId: speakingPhoto.id,
@@ -705,7 +705,7 @@ export function ModelExamScreen() {
         correctAnswer: item.correctAnswer,
         explanation: item.assessment.criteria.map((criterion) => `${criterion.label}: ${criterion.comment}`).join("\n"),
         learningTip: item.assessment.improvements[0] ?? item.learningTipFallback,
-        examFocus: "Darauf sollten Sie in der DTZ-Pruefung achten: Antworten Sie zusammenhaengend, nutzen Sie Redemittel und geben Sie konkrete Details.",
+        examFocus: "Darauf sollten Sie in der DTZ-Prüfung achten: Antworten Sie zusammenhängend, nutzen Sie Redemittel und geben Sie konkrete Details.",
         isCorrect: item.assessment.estimatedPoints >= 14
       });
 
@@ -730,7 +730,7 @@ export function ModelExamScreen() {
     const sectionSummaries: SectionSummary[] = [
       {
         id: "listening",
-        title: "Hoeren",
+        title: "Hören",
         points: listeningPoints,
         maxPoints: listeningMaxPoints,
         correctCount: listeningPoints,
@@ -781,15 +781,15 @@ export function ModelExamScreen() {
       .map((item) => `${item.title}: ${item.points} von ${item.maxPoints} Punkten erreicht.`);
     const weaknesses = rankedSections
       .slice(-2)
-      .map((item) => `${item.title}: Hier liegt im Moment der groesste Nacharbeitsbedarf.`);
+      .map((item) => `${item.title}: Hier liegt im Moment der größte Nacharbeitsbedarf.`);
 
     const recommendations = [
       sectionSummaries.find((item) => item.id === "listening")?.points === listeningMaxPoints
         ? ""
-        : "Hoeren: Achten Sie noch genauer auf Anlass, Zeitangaben und kleine Unterschiede in den Aussagen.",
+        : "Hören: Achten Sie noch genauer auf Anlass, Zeitangaben und kleine Unterschiede in den Aussagen.",
       sectionSummaries.find((item) => item.id === "reading")?.points === readingMaxPoints
         ? ""
-        : "Lesen: Markieren Sie bei Texten zuerst Schluesselwoerter zu Ort, Zeit, Grund und Ziel.",
+        : "Lesen: Markieren Sie bei Texten zuerst Schlüsselwörter zu Ort, Zeit, Grund und Ziel.",
       writingAssessment.improvements[0] ?? "",
       introAssessment.improvements[0] ?? "",
       photoAssessment.improvements[0] ?? "",
@@ -820,12 +820,12 @@ export function ModelExamScreen() {
     <Screen contentContainerStyle={styles.container}>
       <InfoCard>
         <Text style={styles.eyebrow}>DTZ B1</Text>
-        <Text style={styles.title}>Modellpruefung 1</Text>
+        <Text style={styles.title}>Modellprüfung 1</Text>
         <Text style={styles.body}>
-          Pruefungsmodus ohne Sofortloesungen. Arbeiten Sie alle Teile durch und werten Sie die Pruefung erst am Ende aus.
+          Prüfungsmodus ohne Sofortlösungen. Arbeiten Sie alle Teile durch und werten Sie die Prüfung erst am Ende aus.
         </Text>
         <View style={styles.summaryRow}>
-          <Text style={styles.summaryPill}>Hoeren: 3 Teile</Text>
+          <Text style={styles.summaryPill}>Hören: 3 Teile</Text>
           <Text style={styles.summaryPill}>Lesen: 5 Formate</Text>
           <Text style={styles.summaryPill}>Schreiben: 1 Aufgabe</Text>
           <Text style={styles.summaryPill}>Sprechen: 3 Teile</Text>
@@ -833,7 +833,7 @@ export function ModelExamScreen() {
       </InfoCard>
 
       <InfoCard>
-        <Text style={styles.sectionTitle}>1. Hoeren</Text>
+        <Text style={styles.sectionTitle}>1. Hören</Text>
         <Text style={styles.partLabel}>Teil 1</Text>
         {listeningPartOneTasks.map((task) => (
           <View key={task.id} style={styles.taskCard}>
@@ -841,7 +841,7 @@ export function ModelExamScreen() {
             <SimpleAudioPlayer
               durationLabel={task.durationLabel}
               text={task.transcript}
-              title="Hoertext abspielen"
+              title="Hörtext abspielen"
               playbackMode="dialogue"
             />
             <Text style={styles.prompt}>{task.question}</Text>
@@ -938,7 +938,7 @@ export function ModelExamScreen() {
           </View>
         ))}
 
-        <Text style={styles.partLabel}>Gebaeudeplan</Text>
+        <Text style={styles.partLabel}>Gebäudeplan</Text>
         <View style={styles.referenceCard}>
           <Text style={styles.bodyStrong}>{readingBuildingTask.buildingName}</Text>
           {readingBuildingTask.levels.map((level) => (
@@ -990,7 +990,7 @@ export function ModelExamScreen() {
           </View>
         ))}
 
-        <Text style={styles.partLabel}>Lueckentext</Text>
+        <Text style={styles.partLabel}>Lückentext</Text>
         {readingGapTextTasks.map((task) => (
           <View key={task.id} style={styles.taskCard}>
             <Text style={styles.cardTitle}>{task.title}</Text>
@@ -1003,7 +1003,7 @@ export function ModelExamScreen() {
             </Text>
             {task.gaps.map((gap) => (
               <View key={gap.id} style={styles.gapCard}>
-                <Text style={styles.bodyStrong}>Luecke {gap.label}</Text>
+                <Text style={styles.bodyStrong}>Lücke {gap.label}</Text>
                 <ChoiceChips
                   options={gap.options}
                   selectedOptionId={readingGapAnswers[`${task.id}:${gap.id}`]}
@@ -1023,10 +1023,10 @@ export function ModelExamScreen() {
       <InfoCard>
         <Text style={styles.sectionTitle}>3. Schreiben</Text>
         <Text style={styles.cardTitle}>{writingScenario.title}</Text>
-        <Text style={styles.metaText}>Empfaenger: {writingScenario.recipient}</Text>
+        <Text style={styles.metaText}>Empfänger: {writingScenario.recipient}</Text>
         <Text style={styles.longText}>{writingScenario.situation}</Text>
         <View style={styles.referenceCard}>
-          <Text style={styles.bodyStrong}>Diese vier Punkte muessen vorkommen:</Text>
+          <Text style={styles.bodyStrong}>Diese vier Punkte müssen vorkommen:</Text>
           {writingScenario.points.map((point) => (
             <Text key={point} style={styles.referenceText}>
               - {point}
@@ -1114,7 +1114,7 @@ export function ModelExamScreen() {
           ) : (
             <RecorderPanel
               key={step.id}
-              title="Ihre muendliche Antwort"
+              title="Ihre mündliche Antwort"
               transcript={speakingTranscripts[step.id] ?? ""}
               recording={recordingTarget === step.id}
               supported={supported}
@@ -1127,22 +1127,22 @@ export function ModelExamScreen() {
       </InfoCard>
 
       <InfoCard>
-        <Text style={styles.sectionTitle}>Pruefung abschliessen</Text>
+        <Text style={styles.sectionTitle}>Prüfung abschließen</Text>
         <Text style={styles.body}>
-          Waehrend der Pruefung werden keine Loesungen, Tipps oder Mustertexte angezeigt. Erst jetzt erfolgt die komplette Auswertung.
+          Während der Prüfung werden keine Lösungen, Tipps oder Mustertexte angezeigt. Erst jetzt erfolgt die komplette Auswertung.
         </Text>
-        <PrimaryButton icon="clipboard-check-outline" label="Pruefung auswerten" onPress={evaluateExam} />
+        <PrimaryButton icon="clipboard-check-outline" label="Prüfung auswerten" onPress={evaluateExam} />
       </InfoCard>
 
       {evaluation ? (
         <InfoCard>
-          <Text style={styles.sectionTitle}>Gesamtuebersicht</Text>
+          <Text style={styles.sectionTitle}>Gesamtübersicht</Text>
           <Text style={styles.resultLine}>
             Gesamtpunktzahl: {evaluation.totalPoints} / {evaluation.maxPoints}
           </Text>
           <Text style={styles.resultLine}>Prozent: {evaluation.percent}%</Text>
           <Text style={styles.resultLine}>Ergebnis: {evaluation.passed ? "Bestanden" : "Nicht bestanden"}</Text>
-          <Text style={styles.resultLine}>Geschaetztes DTZ-Niveau: {evaluation.estimatedLevel}</Text>
+          <Text style={styles.resultLine}>Geschätztes DTZ-Niveau: {evaluation.estimatedLevel}</Text>
 
           <View style={styles.summaryGrid}>
             {evaluation.sectionSummaries.map((section) => (
@@ -1157,8 +1157,8 @@ export function ModelExamScreen() {
             ))}
           </View>
 
-          <FeedbackPanel heading="Staerken" accentColor={colors.success} lines={evaluation.strengths} />
-          <FeedbackPanel heading="Schwaechen" accentColor={colors.warning} lines={evaluation.weaknesses} />
+          <FeedbackPanel heading="Stärken" accentColor={colors.success} lines={evaluation.strengths} />
+          <FeedbackPanel heading="Schwächen" accentColor={colors.warning} lines={evaluation.weaknesses} />
           <FeedbackPanel
             heading="Empfehlungen"
             accentColor={colors.primary}
@@ -1171,9 +1171,9 @@ export function ModelExamScreen() {
         <InfoCard>
           <Text style={styles.sectionTitle}>Schreiben bewerten</Text>
           <Text style={styles.resultLine}>
-            Geschaetzte Punktzahl: {evaluation.writingAssessment.estimatedPoints} / {evaluation.writingAssessment.maxPoints}
+            Geschätzte Punktzahl: {evaluation.writingAssessment.estimatedPoints} / {evaluation.writingAssessment.maxPoints}
           </Text>
-          <Text style={styles.resultLine}>Geschaetztes Niveau: {evaluation.writingAssessment.estimatedLevel}</Text>
+          <Text style={styles.resultLine}>Geschätztes Niveau: {evaluation.writingAssessment.estimatedLevel}</Text>
           <View style={styles.summaryGrid}>
             {evaluation.writingAssessment.criteria.map((criterion) => (
               <View key={criterion.id} style={styles.summaryCard}>
@@ -1212,7 +1212,7 @@ export function ModelExamScreen() {
 
       {evaluation ? (
         <InfoCard>
-          <Text style={styles.sectionTitle}>Fehleranalyse und Loesungen</Text>
+          <Text style={styles.sectionTitle}>Fehleranalyse und Lösungen</Text>
           {evaluation.reviewItems.map((item) => (
             <View key={item.id} style={styles.reviewCard}>
               <Text style={styles.cardTitle}>{item.title}</Text>
@@ -1226,11 +1226,11 @@ export function ModelExamScreen() {
                 <Text style={styles.referenceText}>{item.ownAnswer}</Text>
               </View>
               <View style={styles.referenceCard}>
-                <Text style={styles.bodyStrong}>Richtige Loesung</Text>
+                <Text style={styles.bodyStrong}>Richtige Lösung</Text>
                 <Text style={styles.referenceText}>{item.correctAnswer}</Text>
               </View>
               <View style={styles.referenceCard}>
-                <Text style={styles.bodyStrong}>Begruendung</Text>
+                <Text style={styles.bodyStrong}>Begründung</Text>
                 <Text style={styles.referenceText}>{item.explanation}</Text>
               </View>
               <View style={styles.referenceCard}>
@@ -1238,25 +1238,25 @@ export function ModelExamScreen() {
                 <Text style={styles.referenceText}>{item.learningTip}</Text>
               </View>
               <View style={styles.referenceCard}>
-                <Text style={styles.bodyStrong}>Darauf sollten Sie in der DTZ-Pruefung achten</Text>
+                <Text style={styles.bodyStrong}>Darauf sollten Sie in der DTZ-Prüfung achten</Text>
                 <Text style={styles.referenceText}>{item.examFocus}</Text>
               </View>
               {item.id === writingScenario.id ? (
                 <View style={styles.referenceCard}>
-                  <Text style={styles.bodyStrong}>Musterloesung Schreiben</Text>
+                  <Text style={styles.bodyStrong}>Musterlösung Schreiben</Text>
                   <Text style={styles.referenceText}>{writingScenario.expandedSampleText}</Text>
                 </View>
               ) : null}
               {item.id === "speaking-intro" ? (
                 <>
                   <View style={styles.referenceCard}>
-                    <Text style={styles.bodyStrong}>Musterloesung Teil 1</Text>
+                    <Text style={styles.bodyStrong}>Musterlösung Teil 1</Text>
                     <Text style={styles.referenceText}>{speakingIntroPractice.expandedSampleAnswer}</Text>
                   </View>
                   <SimpleAudioPlayer
                     durationLabel="00:38"
                     text={speakingIntroPractice.expandedSampleAnswer}
-                    title="Musterloesung Teil 1 anhoeren"
+                    title="Musterlösung Teil 1 anhören"
                     playbackMode="narration"
                   />
                 </>
@@ -1264,13 +1264,13 @@ export function ModelExamScreen() {
               {item.id === speakingPhoto.id ? (
                 <>
                   <View style={styles.referenceCard}>
-                    <Text style={styles.bodyStrong}>Musterloesung Bildbeschreibung</Text>
+                    <Text style={styles.bodyStrong}>Musterlösung Bildbeschreibung</Text>
                     <Text style={styles.referenceText}>{speakingPhoto.expandedSampleAnswer}</Text>
                   </View>
                   <SimpleAudioPlayer
                     durationLabel="00:34"
                     text={speakingPhoto.expandedSampleAnswer}
-                    title="Musterloesung Teil 2 anhoeren"
+                    title="Musterlösung Teil 2 anhören"
                     playbackMode="narration"
                   />
                 </>
@@ -1284,7 +1284,7 @@ export function ModelExamScreen() {
                   <SimpleAudioPlayer
                     durationLabel="00:42"
                     text={speakingPlan.sampleDialogue}
-                    title="Musterdialog Teil 3 anhoeren"
+                    title="Musterdialog Teil 3 anhören"
                     playbackMode="dialogue"
                   />
                 </>
